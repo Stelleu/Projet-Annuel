@@ -213,7 +213,7 @@ p {
   z-index: 5;
   -webkit-transition: all 0.4s ease-out 0s;
   transition: all 0.4s ease-out 0s;
-  background: var(--primary-color);
+  background: #FF5011;
 }
 
 .ud-main-btn:hover {
@@ -598,10 +598,9 @@ p {
   line-height: 60px;
   text-align: center;
   margin-bottom: 30px;
-  margin-top: 80px;
-  
-
+  margin-top: 20px;
 }
+
 
 
 @media only screen and (min-width: 368px) and (max-width: 991px) {
@@ -1443,6 +1442,24 @@ border-radius: 4px;
 }
 
 /* ===== Contact CSS ===== */
+.block1contact {
+  background: #FF5113;
+  padding-top: 120px;
+  height: 1050px;
+
+}
+
+
+.contacttitle {
+  color: var(--white);
+font-style: normal;
+font-weight: 600;
+font-size: 72px;
+  line-height: 60px;
+  text-align: center;
+  margin-bottom: 80px;
+  margin-top:20px;
+}
 .ud-contact {
   padding: 120px 0px;
   position: relative;
@@ -1480,6 +1497,9 @@ border-radius: 4px;
     margin-bottom: 50px;
   }
 }
+.formuler {
+  
+}
 
 .ud-contact-title span {
   color: var(--heading-color);
@@ -1499,10 +1519,10 @@ border-radius: 4px;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -1539,10 +1559,13 @@ border-radius: 4px;
 
 .ud-contact-form-wrapper {
   -webkit-box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
-  background: var(--white);
+  background: white;
   padding: 60px;
+  margin-left: 33%;
+  margin-right:33%;
+
 }
 
 @media (max-width: 767px) {
