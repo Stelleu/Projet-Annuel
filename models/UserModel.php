@@ -47,23 +47,23 @@ class UserModel
     }
 
     public static function deleteUser(int $id){
+        echo $id;
         $databaseConnection = DatabaseSettings::getConnection();
-        $deleteUsersQuery = $databaseConnection->query("DELETE FROM users WHERE id_user =:id");
-        $deleteUsersQuery->execute([
-            "id" => $id
-        ]);
-        $info = "L'utilisateur a bien été supprimé";
-        return $info;
-
+        echo "bdd ok";
+        $deleteUsersQuery = $databaseConnection->prepare("DELETE FROM users WHERE idUser =:id");
+        $deleteUsersQuery->execute(["id"=>$id]);
+        return $info= "L'utilisateur a bien été supprimé";
     }
 
     public static function updateUser(int $id, int $recupdonnee){
         $databaseConnection = DatabaseSettings::getConnection();
-        $updateUsersQuery = $databaseConnection->query("UPDATE users SET state = 'value' WHERE id_user =:id");
+        echo"bddok";
+        $updateUsersQuery = $databaseConnection->prepare("UPDATE users SET state= :etat WHERE idUser =:id");
         $updateUsersQuery->execute([
             "id" => $id ,
-            "value" => $recupdonnee
+            "etat" => $recupdonnee
         ]);
+        echo"ok";
 
     }
 

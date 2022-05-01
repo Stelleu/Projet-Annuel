@@ -1,5 +1,4 @@
 <?php $title ='DASHBOARD';
-
 ob_start(); ?>
 <h1 class="h2">Nos utilisateurs</h1>
 <hr>
@@ -48,7 +47,6 @@ ob_start(); ?>
 		<tbody>
 			<tr>
                 <?
-                print_r($users);
                 foreach($users as $cle => $infousers) {
                     foreach ($infousers as $cle => $info) {
                         if ($cle == "idUser") {
@@ -74,38 +72,29 @@ ob_start(); ?>
                         } elseif ($cle == "wallet") {
                             echo "<td>" . $info . "</td>";
                         }elseif ($cle== "state"){
-                            echo '<form method="post" action=User::status()>';
-                            echo '<input type="hidden" name="id_user" value='.$users[0]['idUser'].'>';
-
-                            echo '<td> <select class="form-select"  name="subject" aria-label="Default select example" onclick="test()"> ';
+                            echo '<form method="POST" action="controllers\user.php">';
+                            echo '<input type="hidden" name="id_user" value='.$infousers['idUser'].'>';
+                            echo '<td> <select class="form-select"  name="subject" aria-label="Default select example" onChange="this.form.submit()"> ';
                             echo ' <option value="1">Bloquer</option>';
                             echo ' <option value="2">Débloquer</option>';
                             echo ' <option value="3">Supprimer</option>';
                             echo ' <option value="4">Restreindre</option>';
                             echo ' </select>';
                             echo "</td>";
-
                         }
                     }
-                echo "</tr>";   
-            }
+                echo "</tr>";
 
+            }
                 ?>
-                
-   
         </tbody>
     </table>
   </div>
   </form >
+
 <?php
 
-if (isset($_POST['subject'],$_POST[0]['id_user'])) {
-   $id = $_POST['id_user'];
-   echo $id;
-    $recupdonnee=$_POST['subject'];
-    User::status($id, $recupdonnee);
-    
-}
+
 $adminContent = ob_get_clean(); 
  require(__DIR__.'\..\library\templateAdmin.php');
  ?>
