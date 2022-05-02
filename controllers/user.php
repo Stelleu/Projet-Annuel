@@ -35,6 +35,16 @@ if (
 
 }
 
+if( count($_POST)==2 && !empty($_POST["email"]) && !empty($_POST["pwd"])){
+        //Afficher OK si les identifiants sont bons sinon afficher NOK
+        //password_verify
+        $email = $_POST["email"];
+        $pwd = $_POST["pwd"];
+        echo "cc";
+        User::connexion($email, $pwd);
+}
+
+
 
 
 
@@ -78,7 +88,7 @@ class User
         }
     }
 
-    public static function create(string $firstname,string $lastname, string $email, string $phone, string $pwd, string $pwdConfirm)
+    public static function create(string $firstname, string $lastname, string $email, string $phone, string $pwd, string $pwdConfirm)
     {
 
 //nettoyer les données
@@ -97,7 +107,7 @@ class User
         } else {
 
             //Vérification l'unicité de l'email
-            $user=UserModel::findByEmail($email);
+            $user = UserModel::findByEmail($email);
             if (!empty($user)) {
                 $errors[] = "L'email existe déjà en bdd";
             }
@@ -129,10 +139,10 @@ class User
         if ($pwd != $pwdConfirm) {
             $errors[] = "Votre mot de passe de confirmation ne correspond pas";
         }
-        if (!preg_match(' /^0[0-9]([-. ]?[0-9]{2}){4}$/',$phone)){
+        if (!preg_match(' /^0[0-9]([-. ]?[0-9]{2}){4}$/', $phone)) {
             $errors[] = 'Numéro de téléphone pas valide';
             //Vérification l'unicité de l'email
-            $user=UserModel::findByPhone($phone);
+            $user = UserModel::findByPhone($phone);
             if (!empty($user)) {
                 $errors[] = "Numéro de téléphone existe déjà en bdd";
             }
@@ -151,6 +161,38 @@ class User
             ]);
 
         }
+    }
+
+    public static function connexion(string $email, string $pwd)
+    {
+        if (isset($_POST['submited'])) {
+            //rememberme
+            //Si la case est cochée
+            if($_POST['rememberme']) {
+                //On set 2 cookies un pour l'utilisateur et un pour le mot de passe
+
+                //le nom du cookie "remembermeu" la valeur "$username" et la durée "time() + 31536000"
+                setcookie('remembermem', $email, time() + 31536000);
+
+                //le nom du cookie "remembermep" la valeur "$password" et la durée "time() + 31536000"
+                setcookie('remembermep', $password, time() + 31536000);
+
+            }
+            //Si la case est décochée
+            elseif(!$_POST['submited']) {
+
+                //On cherche pour nos 2 cookies
+                if (isset($_COOKIE['remembermem'], $_COOKIE['remembermep'])) {
+                    //Nous les plaçons comme si ils avaient expirés
+                    $past = time() - 100;
+                    setcookie(remembermeu, gone, $past);
+                    setcookie(remembermep, gone, $past);
+                }
+            }
+        }
+        echo "COUCOU";
+        UserModel::connect($email,$pwd);
+
     }
 }
 

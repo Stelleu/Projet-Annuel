@@ -19,7 +19,16 @@ include "controllers\user.php";
         if ($method === "GET") {
             User::get();
         }
-        
+
+
+
+
+        /*
+         * if($route == connexion){
+         * User::connexion($email, $pwd);
+         * include "controllers\user.php";
+         * }
+         * */
     
 /**switch($route): 
     case 'users':

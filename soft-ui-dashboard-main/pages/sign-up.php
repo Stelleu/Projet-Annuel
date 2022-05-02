@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Soft UI Dashboard - v1.0.5
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -184,7 +170,7 @@
                       <div class="text-center">
                         <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Inscription</button>
                       </div>
-                      <p class="text-sm mt-3 mb-0">J'ai déjà un compte. <a href="javascript:;" class="text-dark font-weight-bolder">Connexion</a></p>
+                      <p class="text-sm mt-3 mb-0">J'ai déjà un compte. <a href="sign-in.html" class="text-dark font-weight-bolder">Connexion</a></p>
                     </form>
                   </div>
                 </div>

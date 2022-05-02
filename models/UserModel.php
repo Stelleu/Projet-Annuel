@@ -14,18 +14,25 @@ class UserModel
     public static function create($createUser)
     {
         $databaseConnection = DatabaseSettings::getConnection();
-        print_r($createUser);
-
         $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,passwd, status_user) VALUES(:firstname,:lastname, :phone, :email,:pwd, 'Admin');");
         $createUserQuery->execute($createUser);
-        echo "c'est bin";
     }
 
-     public static function connexion(string $email, string $password){
+     public static function connect(string $email, string $pwd){
          $databaseConnection = DatabaseSettings::getConnection();
-
-    }
-
+         $queryPrepared = $databaseConnection->prepare("SELECT * FROM pfh4_user WHERE email=:email");
+         $queryPrepared->execute(["email"=>$email]);
+         $results = $queryPrepared->fetch();
+         if(empty($results)){
+             echo '<div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>';
+         }else if( password_verify($pwd, $results["pwd"]) ){
+             $_SESSION["auth"]=true;
+             $_SESSION["info"]=$results;
+             header("Location: index.php");
+         }else{
+             echo '<div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>';
+         }
+     }
 
 
     public static function findByEmail(string $email)
