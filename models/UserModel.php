@@ -11,22 +11,18 @@ class UserModel
         return $users;
     }
 
-    public static function create($user)
+    public static function create($createUser)
     {
         $databaseConnection = DatabaseSettings::getConnection();
-        /* $firstname = $userToCreate["firstname"];
-         $lastname = $userToCreate["lastname"];
-         $phone = $userToCreate["phone"];
-         $email = $userToCreate["email"];
-         $password = password_hash($userToCreate["password"], PASSWORD_BCRYPT);*/
-//
-        $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,password, status_user) VALUES(:firstname,:lastname, :phone, :email,:password, 'Admin');");
-        $createUserQuery->execute($user);
-        /* $createUserQuery->execute([
-         ]);
+        print_r($createUser);
+
+        $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,passwd, status_user) VALUES(:firstname,:lastname, :phone, :email,:pwd, 'Admin');");
+        $createUserQuery->execute($createUser);
+        echo "c'est bin";
+    }
 
      public static function connexion(string $email, string $password){
-         $databaseConnection = DatabaseSettings::getConnection();*/
+         $databaseConnection = DatabaseSettings::getConnection();
 
     }
 
@@ -44,6 +40,19 @@ class UserModel
         $user = $getUserQuery->fetch();
 
         return $user;
+    }
+
+    public static function findByPhone(int $phone)
+    {
+        $databaseConnection = DatabaseSettings::getConnection();
+        $getUserQuery = $databaseConnection->prepare("SELECT * FROM users WHERE phone = :phone");
+        $getUserQuery->execute([
+            "phone" => $phone
+        ]);
+
+        $phone = $getUserQuery->fetch();
+
+        return $phone;
     }
 
     public static function deleteUser(int $id){

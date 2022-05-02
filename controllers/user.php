@@ -7,6 +7,39 @@ if (isset($_POST["subject"],$_POST["id_user"])) {
     User::status($id_user, $recupdonnee);
 }
 
+if (
+    !isset($_POST["firstname"]) ||
+    !isset($_POST["lastname"]) ||
+    empty($_POST["email"]) ||
+    empty($_POST["phone"]) ||
+    empty($_POST["password"]) ||
+    empty($_POST["passwordConfirm"]) ||
+    empty($_POST["cgu"]) ||
+    count($_POST) != 7
+) {
+
+    die("Tentative de Hack ...");
+
+}else{
+
+    //récupérer les données du formulaire
+    $email = $_POST["email"];
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
+    $pwd = $_POST["password"];
+    $pwdConfirm = $_POST["passwordConfirm"];
+    $cgu = $_POST["cgu"];
+    $phone = $_POST["phone"];
+
+    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
+
+}
+
+
+
+
+
+
 class User
 {
     /**
@@ -23,7 +56,7 @@ class User
     public static function status(int $id, int $recupdonnee)
     {
         echo $recupdonnee;
-       if ($recupdonnee == 3) {
+        if ($recupdonnee == 3) {
             try {
                 /*$status = UserModel::deleteUser($id);
                 include 'view\userlist.php';
@@ -32,7 +65,7 @@ class User
             } catch (PDOException $exception) {
                 $exception->getMessage();
             }
-        }else{
+        } else {
             try {
                 echo "ccc";
                 $status = UserModel::updateUser($id, $recupdonnee);
@@ -43,8 +76,82 @@ class User
                 $exception->getMessage();
             }
         }
-   }
+    }
 
+    public static function create(string $firstname,string $lastname, string $email, string $phone, string $pwd, string $pwdConfirm)
+    {
+
+//nettoyer les données
+
+        $email = strtolower(trim($email));
+        $firstname = ucwords(strtolower(trim($firstname)));
+        $lastname = mb_strtoupper(trim($lastname));
+
+
+//vérifier les données
+        $errors = [];
+
+//Email OK
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "Email incorrect";
+        } else {
+
+            //Vérification l'unicité de l'email
+            $user=UserModel::findByEmail($email);
+            if (!empty($user)) {
+                $errors[] = "L'email existe déjà en bdd";
+            }
+
+
+        }
+
+//prénom : Min 2, Max 45 ou empty
+        if (strlen($firstname) == 1 || strlen($firstname) > 45) {
+            $errors[] = "Votre prénom doit faire plus de 2 caractères";
+        }
+
+//nom : Min 2, Max 100 ou empty
+        if (strlen($lastname) == 1 || strlen($lastname) > 100) {
+            $errors[] = "Votre nom doit faire plus de 2 caractères";
+        }
+
+
+//Mot de passe : Min 8, Maj, Min et chiffre
+        if (strlen($pwd) < 8 ||
+            preg_match("#\d#", $pwd) == 0 ||
+            preg_match("#[a-z]#", $pwd) == 0 ||
+            preg_match("#[A-Z]#", $pwd) == 0
+        ) {
+            $errors[] = "Votre mot de passe doit faire plus de 8 caractères avec une minuscule, une majuscule et un chiffre";
+        }
+
+//Confirmation : égalité
+        if ($pwd != $pwdConfirm) {
+            $errors[] = "Votre mot de passe de confirmation ne correspond pas";
+        }
+        if (!preg_match(' /^0[0-9]([-. ]?[0-9]{2}){4}$/',$phone)){
+            $errors[] = 'Numéro de téléphone pas valide';
+            //Vérification l'unicité de l'email
+            $user=UserModel::findByPhone($phone);
+            if (!empty($user)) {
+                $errors[] = "Numéro de téléphone existe déjà en bdd";
+            }
+        }
+
+        print_r($errors);
+
+        if (count($errors) == 0) {
+            $pwd = password_hash($pwd, PASSWORD_BCRYPT);
+            UserModel::create([
+                "firstname" => $firstname,
+                "lastname" => $lastname,
+                "phone" => $phone,
+                "email" => $email,
+                "pwd" => $pwd,
+            ]);
+
+        }
+    }
 }
 
         

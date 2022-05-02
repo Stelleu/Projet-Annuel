@@ -1,5 +1,6 @@
 <?php
-echo '<form method="post">';
+echo '<form method="post" action="test.php">';
+echo '<input type="hidden" name="id_user" value='.$users['idUser'].'>';
   echo '<td> <select class="form-select"  name="subject" aria-label="Default select example" onChange=" this.form.submit()" > ';
   echo ' <option value="1">Bloquer</option>';
   echo ' <option value="2">Débloquer</option>';
@@ -11,7 +12,7 @@ include "controllers\user.php";
 if (isset($_POST['subject'])) {
    
     $recupdonnee=$_POST['subject'];
-    User::status($recupdonnee);
+   echo $recupdonnee;
     
 }
 
