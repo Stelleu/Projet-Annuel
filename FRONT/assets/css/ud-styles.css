@@ -206,7 +206,7 @@ p {
   font-weight: 500;
   font-size: 16px;
   border-radius: 5px;
-  padding: 15px 25px;
+  padding: 8px 16px;
   border: 1px solid transparent;
   color: var(--white);
   cursor: pointer;
@@ -1280,6 +1280,8 @@ border-radius: 4px;
     padding: 0px 16px 20px 82px;
   }
 }
+<!-----
+ 
 
 /* ===== Testimonials CSS ===== */
 .ud-testimonials {
