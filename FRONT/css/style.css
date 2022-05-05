@@ -128,7 +128,34 @@ display-flex, .display-flex, .display-flex-center {
       }
     }
     
-
+    .singtitle {
+      color: var(--white);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+      line-height: 60px;
+      text-align: center;
+      margin-bottom: 80px;
+      margin-top:-30px;
+    }
+    
+    @media only screen and (min-width: 368px) and (max-width: 991px) {
+      .singtitle  {
+        font-size: 38px;
+        line-height: 50px;
+        margin-top:-30px;
+        margin-bottom:-40px;
+        
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .singtitle  {
+    
+        font-size: 26px;
+        line-height: 38px;
+      }
+    }
 
 
   img {
