@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include "json-c/json.h"
 #include <assert.h>
-#include "ConnectBDD.c"
+
 
 static size_t write_data(void *ptr, size_t size, size_t nmemb, void *stream)
 {
@@ -19,11 +19,10 @@ int main(void)
     CURL *curl;
     CURLcode res;
     curl = curl_easy_init();
-    MYSQL *DBConnect = initDb();
     const char *weatherfilename = "weather.json";
     FILE *fp =fopen(weatherfilename,"w");
     if (fp == NULL) return 1;
-    fputs("SET @json='",fp);
+//    fputs("SET @json='",fp);
     if(curl) {
         curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "GET");
         curl_easy_setopt(curl, CURLOPT_URL, "https://api.openweathermap.org/data/2.5/weather?q=Lyon&appid=70d7c9b9968a8752da6284c07884a411&units=metric");
@@ -37,7 +36,7 @@ int main(void)
         /* Perform the request, res will get the return code */
 
         res = curl_easy_perform(curl);
-        fputs("'",fp);
+//        fputs("'",fp);
         fclose(fp);
         /* Check for errors */
         if(res != CURLE_OK)
@@ -47,8 +46,6 @@ int main(void)
         /* always cleanup */
         curl_easy_cleanup(curl);
     }
-
-    initPreparedStatements(DBConnect);
 
     return 0;
 }
