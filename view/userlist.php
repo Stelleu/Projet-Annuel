@@ -1,4 +1,4 @@
-<?php $title ='DASHBOARD';
+<?php ;
 ob_start(); ?>
 <h1 class="h2">Nos utilisateurs</h1>
 <hr>

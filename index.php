@@ -16,19 +16,67 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 include "controllers\user.php";
     
+
+
+switch ($route) {
+    case "":
         if ($method === "GET") {
             User::get();
         }
+        break;
+    case "sign-in" :
+        echo $method;
+        if ($method === "GET") {
+            echo "cc";
+            $title = "Connexion";
+            header('Location:  "adminTemplate/pages/sign-in.php"');
+        }
+        if ($method === "POST") {
+            if (count($_POST) == 3 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
+                User::connexion();
+            }
+        }
+        break;
+
+        case "sign-up":
+            if ($method === "GET") {
+                $title ='Inscription';
+                header('Location:adminTemplate/pages/sign-up.php');
+
+            }
+            if ($method === "POST") {
+                if (
+                    !isset($_POST["firstname"]) ||
+                    !isset($_POST["lastname"]) ||
+                    empty($_POST["email"]) ||
+                    empty($_POST["phone"]) ||
+                    empty($_POST["password"]) ||
+                    empty($_POST["passwordConfirm"]) ||
+                    empty($_POST["cgu"]) ||
+                    count($_POST) != 7
+                ) {
+
+                    die("Tentative de Hack ...");
+
+                } else {
+
+                    //récupérer les données du formulaire
+                    $email = $_POST["email"];
+                    $firstname = $_POST["firstname"];
+                    $lastname = $_POST["lastname"];
+                    $pwd = $_POST["password"];
+                    $pwdConfirm = $_POST["passwordConfirm"];
+                    $cgu = $_POST["cgu"];
+                    $phone = $_POST["phone"];
+                    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
+            }
+            break;
+            }
+    case "tables":
+
+}
 
 
-
-
-        /*
-         * if($route == connexion){
-         * User::connexion($email, $pwd);
-         * include "controllers\user.php";
-         * }
-         * */
     
 /**switch($route): 
     case 'users':

@@ -20,17 +20,19 @@ class UserModel
 
      public static function connect(string $email, string $pwd){
          $databaseConnection = DatabaseSettings::getConnection();
-         $queryPrepared = $databaseConnection->prepare("SELECT * FROM pfh4_user WHERE email=:email");
+         $queryPrepared = $databaseConnection->prepare("SELECT * FROM users WHERE email=:email");
          $queryPrepared->execute(["email"=>$email]);
          $results = $queryPrepared->fetch();
+         print_r($results);
          if(empty($results)){
-             echo '<div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>';
-         }else if( password_verify($pwd, $results["pwd"]) ){
+             return $results;
+         }else if(password_verify($pwd, $results["passwd"]) && $results["status_user"]=="Admin"){
              $_SESSION["auth"]=true;
              $_SESSION["info"]=$results;
-             header("Location: index.php");
+             header("Location: ../adminTemplate/pages/dashboard.html");
          }else{
-             echo '<div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>';
+
+             return $results=0;
          }
      }
 
