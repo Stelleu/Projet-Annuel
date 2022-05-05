@@ -1,14 +1,9 @@
 file(REMOVE_RECURSE
-  "AppC.exe"
-  "AppC.exe.manifest"
+  "AppC"
   "AppC.pdb"
-  "CMakeFiles/AppC.dir/ConnectBDD.c.obj"
-  "CMakeFiles/AppC.dir/ConnectBDD.c.obj.d"
-  "CMakeFiles/AppC.dir/curlweather.c.obj"
-  "CMakeFiles/AppC.dir/curlweather.c.obj.d"
-  "CMakeFiles/AppC.dir/main.c.obj"
-  "CMakeFiles/AppC.dir/main.c.obj.d"
-  "libAppC.dll.a"
+  "CMakeFiles/AppC.dir/ConnectBDD.c.o"
+  "CMakeFiles/AppC.dir/curlweather.c.o"
+  "CMakeFiles/AppC.dir/main.c.o"
 )
 
 # Per-language clean rules from dependency scanning.

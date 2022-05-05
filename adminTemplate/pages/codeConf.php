@@ -17,7 +17,7 @@ include "../../view/signHeader.php";
                 </div>
             </div>
             <div class="container">
-                <form method="post" action="../../index.php?route=sign-up">
+                <form  method="POST" action="../../index.php?route=sign-up">
                     <div class="row mt-lg-n10 mt-md-n11 mt-n10">
                         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
                             <div class="card z-index-0">
@@ -27,12 +27,12 @@ include "../../view/signHeader.php";
                                 <div class="card-body">
                                     <form role="form text-left">
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="Prenom" aria-label="firstname" name="firstname" aria-describedby="email-addon">
+                                            <input type="text" class="form-control" placeholder="Code de confirmation" aria-label="Code de confirmation" name="code" aria-describedby="Code de confirmation">
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Inscription</button>
+                                            <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Confirmer votre compte</button>
                                         </div>
-                                        <p class="text-sm mt-3 mb-0">J'ai déjà un compte. <a href="formsign-up.php" class="text-dark font-weight-bolder">Connexion</a></p>
+                                        <p class="text-sm mt-3 mb-0">J'ai déjà un compte. <a href="formsign-up.php" class="text-dark font-weight-bolder">Modifier mon adresse-mail</a></p>
                                     </form>
                                 </div>
                             </div>
@@ -46,8 +46,6 @@ include "../../view/signHeader.php";
                 <?php
                 if( count($_POST)==1 && !empty($_POST["code"]) ){
 
-                    //Afficher OK si les identifiants sont bons sinon afficher NOK
-                    //password_verify
 
                     $code = trim($_POST["code"]);
 
@@ -58,8 +56,8 @@ include "../../view/signHeader.php";
                     }
 
                     $connection = connectDB();
-                    $queryPrepared = $connection->prepare("SELECT * FROM ".PRE."User WHERE Email=:login");
-                    $queryPrepared->execute(["login"=>$email]);
+                    $queryPrepared = $connection->prepare("SELECT * FROM ".PRE."users WHERE email=:email");
+                    $queryPrepared->execute(["email"=>$email]);
                     $results = $queryPrepared->fetch(PDO::FETCH_ASSOC);
 
 
@@ -67,7 +65,7 @@ include "../../view/signHeader.php";
                         echo '<div class="alert alert-danger">Code incorrect</div>';
                     }else if( $results["Confcode"] == $code ){
 
-                        $queryPrepared = $connection->prepare("UPDATE ".PRE."User SET `Check`=:check WHERE email=:email");
+                        $queryPrepared = $connection->prepare("UPDATE ".PRE."users SET `Check`=:check WHERE email=:email");
                         $queryPrepared->execute(["check"=>1, "email"=>$email]);
 
                         $_SESSION["auth"]=true;
@@ -81,25 +79,6 @@ include "../../view/signHeader.php";
                 }
 
                 ?>
-
-                <form method="POST">
-                    <div class="row">
-
-                        <div class="offset-md-1 col-md-10 my-4 mb-2">
-                            <input type="text" class="form-control" name="code" placeholder="Code de confirmation">
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="form-check offset-md-4 col-md-4 align mb-4">
-                            <button type="submit" class="btn btn-primary center">Valider</button>
-                        </div>
-
-                    </div>
-
-                </form>
 
             </div>
         </div>

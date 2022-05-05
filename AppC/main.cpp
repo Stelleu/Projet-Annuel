@@ -92,29 +92,29 @@ int main(void)
     if (fp == NULL) return 1;
 
 
-    fputs("SET @json='",fp);
+//    fputs("SET @json='",fp);
 
         /*ouverture du fichier*/
-/*        weatherfile = fopen(weatherfilename, "a+");
+        weatherfile = fopen(weatherfilename, "a+");
         if(!weatherfile){
             curl_easy_cleanup(curl);
             return -1;
-        }*/
+        }
         /* écriture des données */
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, weatherfile);
-        /* Perform the request, res will get the return code */
-
-        res = curl_easy_perform(curl);
-        fputs("'",fp);
-        fclose(fp);
-        /* Check for errors */
-        if(res != CURLE_OK)
-            fprintf(stderr, "curl_easy_perform() failed: %s\n",
-                    curl_easy_strerror(res));
-
-        /* always cleanup */
-        curl_easy_cleanup(curl);
-    }
+//        curl_easy_setopt(curl, CURLOPT_WRITEDATA, weatherfile);
+//        /* Perform the request, res will get the return code */
+//
+//        res = curl_easy_perform(curl);
+//        fputs("'",fp);
+//        fclose(fp);
+//        /* Check for errors */
+//        if(res != CURLE_OK)
+//            fprintf(stderr, "curl_easy_perform() failed: %s\n",
+//                    curl_easy_strerror(res));
+//
+//        /* always cleanup */
+//        curl_easy_cleanup(curl);
+//    }
 
 
 
@@ -123,31 +123,6 @@ int main(void)
 //    fread(buffer,1024, 1, fp);
 
 //    fclose(fp);
-    /*parsed_json = json_tokener_parse(buffer);
-    json_pointer_get(parsed_json, "description", &description);
-    json_object_object_get_ex(parsed_json, "icon", &icon);
-    json_object_object_get_ex(parsed_json, "temp", &temp);
-    json_object_object_get_ex(parsed_json, "feels_like", &feels_like);
-    json_object_object_get_ex(parsed_json, "temp_min", &temp_min);
-    json_object_object_get_ex(parsed_json, "temp_max", &temp_max);
-    json_object_object_get_ex(parsed_json, "pressure", &pressure);
-    json_object_object_get_ex(parsed_json, "humidity", &humidity);
-    json_object_object_get_ex(parsed_json, "wind", &wind);
-    json_object_object_get_ex(parsed_json, "name", &name);
-
-    printf("Name: %s\n", json_object_get_string(name));
-    printf("description: %s\n", json_object_get_string(description));
-    printf("icon: %d\n", json_object_get_int(icon));
-    printf("temp: %d\n", json_object_get_int(temp));
-    printf("feels_like: %d\n", json_object_get_int(feels_like));
-    printf("temp_min: %d\n", json_object_get_int(temp_min));
-    printf("temp_max: %d\n", json_object_get_int(temp_max));
-    printf("pressure: %d\n", json_object_get_int(pressure));
-    printf("humidity: %d\n", json_object_get_int(humidity));
-    printf("wind: %d\n", json_object_get_int(wind));
-
-//    printf("main: %d\n", json_object_get_int(main));*/
-    initPreparedStatements(DBConnect);
 
     return 0;
 }

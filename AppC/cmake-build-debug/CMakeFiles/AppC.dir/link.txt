@@ -1,3 +1,1 @@
-"C:\Program Files\JetBrains\CLion 2021.3.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\AppC.dir/objects.a
-C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc CMakeFiles\AppC.dir/objects.a @CMakeFiles\AppC.dir\objects1.rsp
-C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\AppC.dir/objects.a -Wl,--no-whole-archive -o AppC.exe -Wl,--out-implib,libAppC.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\AppC.dir\linklibs.rsp
+/usr/bin/cc -g   CMakeFiles/AppC.dir/main.c.o CMakeFiles/AppC.dir/curlweather.c.o CMakeFiles/AppC.dir/ConnectBDD.c.o  -o AppC  -lcurl 

@@ -74,7 +74,8 @@ ob_start(); ?>
                         }elseif ($cle== "state"){
                             echo '<form method="POST" action="controllers\user.php">';
                             echo '<input type="hidden" name="id_user" value='.$infousers['idUser'].'>';
-                            echo '<td> <select class="form-select"  name="subject" aria-label="Default select example" onChange="this.form.submit()"> ';
+                            echo '<td> <select class="form-select"  name="subject" aria-label="Default select example" onChange="this.parentElement.parentElement.submit()"> ';
+                            echo ' <option value="0">Choisir</option>';
                             echo ' <option value="1">Bloquer</option>';
                             echo ' <option value="2">Débloquer</option>';
                             echo ' <option value="3">Supprimer</option>';
