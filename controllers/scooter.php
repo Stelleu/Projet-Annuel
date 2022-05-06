@@ -18,7 +18,7 @@ if(isset($_POST["number"],$_POST["condition"],$_POST["status"],$_POST["workzone"
 }
 if (isset($_POST["delete"],$_POST["id"])) {
     $idScooter = $_POST["id"];
-    $action=$_POST["delete"];
+    $action= $_POST["delete"];
     Scooter::delete($idScooter);
 }
 
@@ -32,7 +32,7 @@ class Scooter
 
     public static function delete(int $id){
         scooterModel::deleteScooter($id);
-        header("Location: ../index.php");
+        header("Location: ../scootermana");
     }
 
     public static function addScooter(int $number,int $condition, int $status, int $workzone ){
@@ -65,7 +65,7 @@ class Scooter
         }
 
         scooterModel::addScooter($number,$conditionLabel,$status,$workzoneLabel);
-        header("Location: ../index.php");
+        header("Location: ../scootermana");
     }
 }
 

@@ -1,4 +1,6 @@
-<?php ob_start(); ?>
+<?php ob_start();
+$tittle = "Les TROTTS";
+?>
 <h1 class="h2">Les Trots</h1>
 <!-- Ajouter un supprimer la selection-->
 <!--
