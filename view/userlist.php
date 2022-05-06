@@ -1,8 +1,11 @@
-<?php ob_start(); ?>
+<?php ob_start();
+$tittle = "Les Utilisateurs";
+?>
+
 <h1 class="h2">Nos utilisateurs</h1>
 <hr>
-<div class="table-responsive">
-	<table class="table table-hover">
+<div class="table-responsive container">
+	<table class="table table-hover table-sm">
 		<thead>
 			<tr>
 				<th scope="col">
@@ -15,31 +18,13 @@
 					Nom de famille
 				</th>
 				<th scope="col">
-					Téléphone
-				</th>
-				<th scope="col">
 					Email
 				</th>
-				<th scope="col">
-					Statut
-				</th>
-				<th scope="col">
-					Adresse
-				</th>
-				<th scope="col">
-					Code Postal
-				</th>
-				<th scope="col">
-					Date de Naissance
-				</th>
-				<th scope="col">
-					Point
-				</th>
-                <th scope="col">
-                    Wallet
+                <th scope="col-5">
+                    Edit
                 </th>
                 <th scope="col">
-                    Edit
+                    Action
                 </th>
 			</tr>
 		</thead>
@@ -54,38 +39,35 @@
                             echo "<td>" . $info . "</td>";
                         } elseif ($cle == "lastname") {
                             echo "<td>" . $info . "</td>";
-                        } elseif ($cle == "phone") {
-                            echo "<td>" . $info . "</td>";
                         } elseif ($cle == "email") {
                             echo "<td>" . $info . "</td>";
-                        } elseif ($cle == "status_user") {
-                            echo "<td>" . $info . "</td>";
-                        } elseif ($cle == "address") {
-                            echo "<td>" . $info . "</td>";
-                        } elseif ($cle == "zipcode") {
-                            echo "<td>" . $info . "</td>";
-                        } elseif ($cle == "birthdate") {
-                            echo "<td>" . $info . "</td>";
-                        } elseif ($cle == "points") {
-                            echo "<td>" . $info . "</td>";
-                        } elseif ($cle == "wallet") {
-                            echo "<td>" . $info . "</td>";
                         }elseif ($cle== "state"){
-                            echo '<form method="POST" action="controllers\user.php">';
-                            echo '<input type="hidden" name="id_user" value='.$infousers['idUser'].'>';
-                            echo '<td> <select class="form-select"  name="subject" aria-label="Default select example" onChange="this.parentElement.parentElement.submit()"> ';
-                            echo ' <option value="0">Choisir</option>';
-                            echo ' <option value="1">Bloquer</option>';
-                            echo ' <option value="2">Débloquer</option>';
-                            echo ' <option value="3">Supprimer</option>';
-                            echo ' <option value="4">Restreindre</option>';
-                            echo ' </select>';
-                            echo "</td>";
-                        }
+                            ?>
+                            <form method="post" action="controllers\user.php">
+                                <td>
+                                    <select class="form-control" name="subject" >
+                                        <option>Choisir</option>
+                                        <option value="1">Bloquer</option>
+                                        <option value="2">Débloquer</option>
+                                        <option value="3">Supprimer</option>
+                                        <option value="4">Restreindre</option>
+                                    </select>
+                                </td>
+                            <input type="hidden" name="id" value="<?php echo $infousers['idUser'];?>"/>
+                            <td><input type="submit" class="btn btn-outline-success form-control" name="valid" value="Valider les changements"></td>
+                        <?php }?>
+                        </form>
+                    <?php
                     }
-                echo "</tr>";
+                    echo "</tr>";
 
-            }
+                    }
+                    ?>
+
+
+                            <?php
+
+
                 ?>
         </tbody>
     </table>

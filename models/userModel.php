@@ -78,6 +78,7 @@ class UserModel
 
     public static function updateUser(int $id, int $recupdonnee){
         $databaseConnection = DatabaseSettings::getConnection();
+        echo "DB connecter";
         $updateUsersQuery = $databaseConnection->prepare("UPDATE users SET state= :etat WHERE idUser =:id");
         $updateUsersQuery->execute([
             "id" => $id ,

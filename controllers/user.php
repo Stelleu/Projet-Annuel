@@ -1,9 +1,16 @@
 <?php
-include __DIR__."\..\models\UserModel.php";
+include __DIR__ . "\..\models\userModel.php";
+/*
+if(!empty($_POST['subject'])) {
+    echo "SUBJECT ok " . $_POST['subject']. " ID ok" . $_POST["id"];
+}else {
+    echo "SUBJECT et id errors vide";
+}*/
 
-if (isset($_POST["subject"],$_POST["id_user"])) {
-    $id_user = $_POST["id_user"];
-    $recupdonnee=$_POST["subject"];
+
+if (isset($_POST["subject"],$_POST["id"])) {
+    $id_user = $_POST["id"];
+    $recupdonnee = $_POST["subject"];
     User::status($id_user, $recupdonnee);
 }
 
@@ -56,14 +63,14 @@ class User
         if ($recupdonnee == 3) {
             try {
                 $status = UserModel::deleteUser($id);
-                include 'view\userlist.php';
+                header("Location: ../usermana");
             } catch (PDOException $exception) {
                 $exception->getMessage();
             }
         } else {
             try {
                 $status = UserModel::updateUser($id, $recupdonnee);
-                include 'view\userlist.php';
+                header("Location: ../usermana");
 
 
             } catch (PDOException $exception) {
