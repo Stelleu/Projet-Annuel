@@ -15,7 +15,9 @@ class UserModel
     {
         $databaseConnection = DatabaseSettings::getConnection();
         $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,passwd, status_user) VALUES(:firstname,:lastname, :phone, :email,:pwd, 'Admin');");
-        $createUserQuery->execute($createUser);
+//        $code = rand(1000, 9999);
+//        $_SESSION["code"] = $code;
+        $createUserQuery->execute([$createUser]);
     }
 
      public static function connect(string $email, string $pwd){
@@ -45,11 +47,12 @@ class UserModel
         $getUserQuery->execute([
             "email" => $email
         ]);
-
-        $user = $getUserQuery->fetch();
-
-        return $user;
+        $results = $getUserQuery->fetch();
+        $_SESSION["info"]=$results;
+        $_SESSION["auth"]=true;
+        return $results;
     }
+
 
     public static function findByPhone(int $phone)
     {
@@ -75,14 +78,11 @@ class UserModel
 
     public static function updateUser(int $id, int $recupdonnee){
         $databaseConnection = DatabaseSettings::getConnection();
-        echo"bddok";
         $updateUsersQuery = $databaseConnection->prepare("UPDATE users SET state= :etat WHERE idUser =:id");
         $updateUsersQuery->execute([
             "id" => $id ,
             "etat" => $recupdonnee
         ]);
-        echo"ok";
-
     }
 
 

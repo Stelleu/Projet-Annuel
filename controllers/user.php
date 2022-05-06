@@ -55,16 +55,13 @@ class User
         echo $recupdonnee;
         if ($recupdonnee == 3) {
             try {
-                /*$status = UserModel::deleteUser($id);
+                $status = UserModel::deleteUser($id);
                 include 'view\userlist.php';
-*/
-
             } catch (PDOException $exception) {
                 $exception->getMessage();
             }
         } else {
             try {
-                echo "ccc";
                 $status = UserModel::updateUser($id, $recupdonnee);
                 include 'view\userlist.php';
 
@@ -177,6 +174,11 @@ class User
            header("Location: http://127.0.0.1/Projet-Annuel/adminTemplate/pages/formsign-up.php");
            echo '<div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>';
        }
+
+    }
+
+    public static function message(){
+
 
     }
 }

@@ -36,7 +36,7 @@ MYSQL *initDb(){
 
 /*INIT PREPARED STATEMENTS*/
 
-void initPreparedStatements(MYSQL*connect) {
+void initPreparedStatements(MYSQL*connect,char meteo_data) {
 
     unsigned long  param_count ;
 
@@ -47,7 +47,7 @@ void initPreparedStatements(MYSQL*connect) {
     }
 
     stmtInsertJSON = mysql_stmt_init(connect);
-    if (mysql_stmt_prepare(stmt, "SELECT * from cities", strlen("SELECT * from cities"))){
+    if (mysql_stmt_prepare(stmt, "INSERT INTO cities VALUES ('%s')", meteo_data)){
         fprintf(stderr, " mysql_stmt_prepare(), INSERT failed\n");
         fprintf(stderr, " %s\n", mysql_stmt_error(stmtInsertJSON));
         exit(0);

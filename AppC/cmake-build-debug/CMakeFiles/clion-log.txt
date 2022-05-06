@@ -1,11 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2021.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "G:\Mon Drive\PA\AppC"
--- The C compiler identification is GNU 11.2.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: C:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/bin/gcc.exe - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Could NOT find JSON (missing: JSON_LIBRARY JSON_INCLUDE_DIR) 
+C:\Windows\system32\wsl.exe --distribution Ubuntu-20.04 --exec /bin/sh -c "export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/c/Users/estel/CLionProjects/AppC/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' /mnt/c/Users/estel/CLionProjects/AppC"
 -- Configuring done
 -- Generating done
--- Build files have been written to: G:/Mon Drive/PA/AppC/cmake-build-debug
+-- Build files have been written to: /mnt/c/Users/estel/CLionProjects/AppC/cmake-build-debug
