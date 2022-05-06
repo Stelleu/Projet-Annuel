@@ -14,23 +14,6 @@ $route = isset($_REQUEST["route"]) ? $_REQUEST["route"] : "";
  */
 $method = $_SERVER['REQUEST_METHOD'];
 
-
-
-if ($route === "userlist")
-{
-    include "controllers\user.php";
-    if ($method === "GET") {
-        User::get();
-    }
-}
-if ($route === "scooterMana")
-{
-    include "controllers\scooter.php";
-    if ($method === "GET") {
-        Scooter::get();
-    }
-}
-
 switch ($route) {
     case "scootermana":
         include "controllers\scooter.php";
