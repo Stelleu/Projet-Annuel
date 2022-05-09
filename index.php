@@ -15,6 +15,9 @@ $route = isset($_REQUEST["route"]) ? $_REQUEST["route"] : "";
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route) {
+    case "dashboard":
+        include "view/adminDash/dashboard.php";
+        break;
     case "scootermana":
         include "controllers/scooter.php";
         if ($method === "GET") {
