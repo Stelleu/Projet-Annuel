@@ -188,6 +188,11 @@ class User
 
 
     }
+    
+    public static function logout(){
+        UserModel::logout();
+    }
+     
 }
 
         
