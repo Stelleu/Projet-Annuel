@@ -27,7 +27,7 @@ class Scooter
     public static function get()
     {
         $scooters = scooterModel::getAll();
-        include __DIR__ . '\..\view\scooterMana.php';
+        include __DIR__ . '/../view/adminDash/scooterma.php';
     }
 
     public static function delete(int $id){
