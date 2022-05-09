@@ -133,7 +133,7 @@ $tittle = "Les TROTTS";
                 }
             }
             ?>
-            <form method="post" action="controllers/scooter.php">
+            <form method="post" action="controllers\scooter.php">
                 <input type="hidden" name="id" value="<?php echo $infoscooters['idScooter'];?>"/>
                 <td>
                     <input type="submit" class="btn btn-outline-danger" name="delete" value="Supprimer"/>
@@ -154,6 +154,6 @@ $tittle = "Les TROTTS";
 
 
 $adminContent = ob_get_clean();
-require(__DIR__.'\..\library\templateAdmin.php');
+require(__DIR__.'/../library/templateAdmin.php');
 ?>
 

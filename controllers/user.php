@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . "\..\models\userModel.php";
+include __DIR__ . "/../models/userModel.php";
 /*
 if(!empty($_POST['subject'])) {
     echo "SUBJECT ok " . $_POST['subject']. " ID ok" . $_POST["id"];
@@ -54,7 +54,7 @@ class User
     public static function get()
     {
         $users = UserModel::getAll();
-        include 'view\userlist.php';
+        include 'view/userlist.php';
     }
 
     public static function status(int $id, int $recupdonnee)

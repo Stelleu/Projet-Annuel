@@ -19,7 +19,7 @@
                       <span class="fs-4">EasyScooters</span>
                     <hr>
 					<div class="position-sticky pt-3">
-						<ul class="nav nav-pills flex-column mb-auto ">
+						<ul class="nav nav-pills flex-column mb-auto ">i
 							<li class="nav-item">
 								<a class="nav-link link-secondary" aria-current="page" href="usermana"></span>Utilisateurs</a>
 							</li>

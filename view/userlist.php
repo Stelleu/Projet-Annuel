@@ -78,5 +78,5 @@ $tittle = "Les Utilisateurs";
 
 
 $adminContent = ob_get_clean(); 
- require(__DIR__.'\..\library\templateAdmin.php');
+ require(__DIR__.'/../library/templateAdmin.php');
  ?>

@@ -16,13 +16,13 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route) {
     case "scootermana":
-        include "controllers\scooter.php";
+        include "controllers/scooter.php";
         if ($method === "GET") {
             Scooter::get();
         }
         break;
     case "usermana":
-        include "controllers\user.php";
+        include "controllers/user.php";
         if ($method === "GET") {
             User::get();
         }

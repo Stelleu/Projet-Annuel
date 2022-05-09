@@ -107,7 +107,7 @@ ob_start();
                 }
             }
             ?>
-            <form method="post" action="controllers/scooter.php">
+            <form method="post" action="controllers\scooter.php">
                 <input type="hidden" name="id" value="<?php echo $infoscooters['idScooter'];?>"/>
                 <td>
                     <input type="submit" class="btn btn-outline-danger" name="delete" value="Supprimer"/>
