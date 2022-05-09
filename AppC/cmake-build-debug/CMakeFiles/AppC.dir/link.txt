@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/AppC.dir/main.c.o CMakeFiles/AppC.dir/curlweather.c.o CMakeFiles/AppC.dir/ConnectBDD.c.o  -o AppC  -lcurl 
