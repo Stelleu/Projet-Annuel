@@ -17,7 +17,7 @@ class UserModel
         $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,passwd, status_user) VALUES(:firstname,:lastname, :phone, :email,:pwd, 'Admin');");
 //        $code = rand(1000, 9999);
 //        $_SESSION["code"] = $code;
-        $createUserQuery->execute([$createUser]);
+        $createUserQuery->execute($createUser);
     }
 
      public static function connect(string $email, string $pwd){

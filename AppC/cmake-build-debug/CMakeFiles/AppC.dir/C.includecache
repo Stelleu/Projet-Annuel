@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/estel/CLionProjects/AppC/ConnectBDD.c
+/mnt/c/Users/estel/Desktop/PA/Projet-Annuel/AppC/ConnectBDD.c
 mysql/mysql.h
 -
 stddef.h
@@ -16,23 +16,29 @@ stdio.h
 string.h
 -
 struct.h
-/mnt/c/Users/estel/CLionProjects/AppC/struct.h
+/mnt/c/Users/estel/Desktop/PA/Projet-Annuel/AppC/struct.h
 
-/mnt/c/Users/estel/CLionProjects/AppC/main.c
+/mnt/c/Users/estel/Desktop/PA/Projet-Annuel/AppC/curlweather.c
+stdio.h
+-
+curl/curl.h
+-
+ConnectBDD.c
+/mnt/c/Users/estel/Desktop/PA/Projet-Annuel/AppC/ConnectBDD.c
+string.h
+-
+
+/mnt/c/Users/estel/Desktop/PA/Projet-Annuel/AppC/main.c
 stdio.h
 -
 curl/curl.h
 -
 stdlib.h
 -
-unistd.h
--
 json-c/json.h
-/mnt/c/Users/estel/CLionProjects/AppC/json-c/json.h
-assert.h
+/mnt/c/Users/estel/Desktop/PA/Projet-Annuel/AppC/json-c/json.h
+string.h
 -
-ConnectBDD.c
-/mnt/c/Users/estel/CLionProjects/AppC/ConnectBDD.c
 
-/mnt/c/Users/estel/CLionProjects/AppC/struct.h
+/mnt/c/Users/estel/Desktop/PA/Projet-Annuel/AppC/struct.h
 
