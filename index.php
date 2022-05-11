@@ -8,7 +8,6 @@ error_reporting(E_ALL);
  */
 $route = isset($_REQUEST["route"]) ? $_REQUEST["route"] : "";
 
-
 /**
  * @see https://www.php.net/manual/en/reserved.variables.server.php
  */
@@ -24,27 +23,30 @@ switch ($route) {
             Scooter::get();
         }
         break;
-<<<<<<< HEAD
+//<<<<<<< HEAD
     case "usermane":
         include "controllers\user.php";
-=======
+//=======
     case "usermana":
         include "controllers/user.php";
->>>>>>> pre-prod
+//>>>>>>> pre-prod
         if ($method === "GET") {
             User::get();
         }
         break;
+
     case "sign-in" :
-        echo $method;
+
         if ($method === "GET") {
             echo "cc";
             $title = "Connexion";
-            header('Location:  "adminTemplate/pages/sign-in.php"');
+            header('Location:  adminTemplate/pages/sign-in.php');
         }
         if ($method === "POST") {
+            include "controllers\Login.php";
             if (count($_POST) == 3 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
-                Login::connexion();
+               $result = Login::connexion();
+                echo json_encode(['reponse' => $result]);
             }
         }
         break;

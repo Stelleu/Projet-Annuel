@@ -20,24 +20,6 @@ class UserModel
         $createUserQuery->execute($createUser);
     }
 
-     public static function connect(string $email, string $pwd){
-         $databaseConnection = DatabaseSettings::getConnection();
-         $queryPrepared = $databaseConnection->prepare("SELECT * FROM users WHERE email=:email");
-         $queryPrepared->execute(["email"=>$email]);
-         $results = $queryPrepared->fetch();
-         print_r($results);
-         if(empty($results)){
-             return $results;
-         }else if(password_verify($pwd, $results["passwd"]) && $results["status_user"]=="Admin"){
-//             $_SESSION["auth"]=true;
-//             $_SESSION["info"]=$results;
-
-             UserModel::updateOneById($user["id"], ["token" => $token]);
-             header("Location: ../adminTemplate/pages/dashboard.html");
-         }else{
-             return $results=0;
-         }
-     }
 
 
     public static function findByEmail(string $email)
@@ -64,7 +46,8 @@ class UserModel
         return $phone;
     }
 
-    public static function deleteUser(int $id){
+    public static function deleteUser(int $id): string
+    {
         echo $id;
         $databaseConnection = DatabaseSettings::getConnection();
         echo "bdd ok";

@@ -1,15 +1,17 @@
 <?php
+include __DIR__."/../models/userModel.php";
+
 
 class Login
 {
     public static function connexion()
     {
-        try {
 
+        try {
             //password_verify
             $email = $_POST["email"];
             $pwd = $_POST["pwd"];
-            if (isset($_POST['submited'])) {
+            /*if (isset($_POST['submited'])) {
                 //rememberme
                 //Si la case est cochée
                 if($_POST['rememberme']) {
@@ -33,31 +35,19 @@ class Login
                         setcookie(remembermep, gone, $past);
                     }
                 }
+            }*/
+            $result = UserModel::findByEmail($email);
+            if (!$result || !password_verify($pwd, $result["passwd"]) || $result["status_user"] != "Admin") {
+               return '<div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>';
+            } else {
+                $token = bin2hex(random_bytes(16));
+                UserModel::updateOneById($result["id"], ["token" => $token]);
+                return 1;
+                header("Location: ../adminTemplate/pages/dashboard.html");
             }
-            $result=UserModel::findByEmail($email);
-            if(!$result){
-                return;
-            }
-            else if(!password_verify($pwd, $result["passwd"]) && $result["status_user"]=="Admin"){
-                return ;
-            }
-            $token = bin2hex(random_bytes(16));
-            UserModel::updateOneById($result["id"], ["token" => $token]);
-            header("Location: ../adminTemplate/pages/dashboard.html");
-            print_r($result);
-
-            if (empty($result)){
-                header("Location: http://127.0.0.1/Projet-Annuel/adminTemplate/pages/formsign-up.php");
-                echo '<div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>';
+        }catch (PDOException $e){
+                $e->getMessage();
             }
 
-
-
-
-        } catch (PDOException $exception){
-            $exception->getMessage();
-        }
-
-
-    }
+}
 }

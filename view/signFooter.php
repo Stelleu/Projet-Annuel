@@ -51,6 +51,39 @@
 <script src="../../view/assets/js/core/bootstrap.min.js"></script>
 <script src="../../view/assets/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="../../view/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $("form").submit(function (event) {
+            e.preventDefault(); // On empêche de soumettre le formulaire
+            var $this = $(this); // L'objet jQuery du formulaire
+            // Envoi de la requête HTTP en mode asynchrone
+            $.ajax({
+                url: $this.attr('action'), // On récupère l'action (ici action.php)
+                // url:"index.php?route=sign-in",
+                type: 'post', // On récupère la méthode (post)
+                data: $this.serialize(), // On sérialise les données = Envoi des valeurs du formulaire
+                dataType: 'json', // JSON
+
+                success: function(json) { // Si ça c'est passé avec succès
+                    // ici on teste la réponse
+                    if(json.reponse == '1') {
+                        alert('Connexion OK');
+                        // On peut aussi rediriger vers l'index
+                        alert("ok")
+                    } else {
+                        alert('Erreur : '+json.reponse);
+                    }
+                }?
+                    error: function(){
+                        alert('Erreur : ');
+                    }
+            });
+
+        });
+    });
+</script>
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
