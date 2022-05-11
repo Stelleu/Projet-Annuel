@@ -24,8 +24,13 @@ switch ($route) {
             Scooter::get();
         }
         break;
+<<<<<<< HEAD
+    case "usermane":
+        include "controllers\user.php";
+=======
     case "usermana":
         include "controllers/user.php";
+>>>>>>> pre-prod
         if ($method === "GET") {
             User::get();
         }
@@ -39,7 +44,7 @@ switch ($route) {
         }
         if ($method === "POST") {
             if (count($_POST) == 3 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
-                User::connexion();
+                Login::connexion();
             }
         }
         break;

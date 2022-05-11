@@ -14,33 +14,7 @@ if (isset($_POST["subject"],$_POST["id"])) {
     User::status($id_user, $recupdonnee);
 }
 
-/*if (
-    !isset($_POST["firstname"]) ||
-    !isset($_POST["lastname"]) ||
-    empty($_POST["email"]) ||
-    empty($_POST["phone"]) ||
-    empty($_POST["password"]) ||
-    empty($_POST["passwordConfirm"]) ||
-    empty($_POST["cgu"]) ||
-    count($_POST) != 7
-) {
 
-    die("Tentative de Hack ...");
-
-}else{
-
-    //récupérer les données du formulaire
-    $email = $_POST["email"];
-    $firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
-    $pwd = $_POST["password"];
-    $pwdConfirm = $_POST["passwordConfirm"];
-    $cgu = $_POST["cgu"];
-    $phone = $_POST["phone"];
-
-    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
-
-}*/
 
 
 
@@ -69,7 +43,7 @@ class User
             }
         } else {
             try {
-                $status = UserModel::updateUser($id, $recupdonnee);
+                $status = UserModel::updateOneById($id,["state" => $recupdonnee]);
                 header("Location: ../usermana");
 
 
@@ -143,46 +117,7 @@ class User
             header("Location: ../adminTemplate/pages/formsign-up.php");
         }
     }
-    public static function connexion()
-    {
-            //Afficher OK si les identifiants sont bons sinon afficher NOK
-            //password_verify
-            echo "COUCOU";
-            $email = $_POST["email"];
-            $pwd = $_POST["pwd"];
-             if (isset($_POST['submited'])) {
-                 //rememberme
-                 //Si la case est cochée
-                 if($_POST['rememberme']) {
-                     //On set 2 cookies un pour l'utilisateur et un pour le mot de passe
-        
-                     //le nom du cookie "remembermeu" la valeur "$username" et la durée "time() + 31536000"
-                     setcookie('remembermem', $email, time() + 31536000);
-        
-                     //le nom du cookie "remembermep" la valeur "$password" et la durée "time() + 31536000"
-                     setcookie('remembermep', $pwd, time() + 31536000);
-        
-                 }
-                 //Si la case est décochée
-                 elseif(!$_POST['submited']) {
-        
-                     //On cherche pour nos 2 cookies
-                     if (isset($_COOKIE['remembermem'], $_COOKIE['remembermep'])) {
-                         //Nous les plaçons comme si ils avaient expirés
-                         $past = time() - 100;
-                         setcookie(remembermeu, gone, $past);
-                         setcookie(remembermep, gone, $past);
-                     }
-                 }
-             }
-        $result=UserModel::connect($email,$pwd);
-        print_r($result);
-       if (empty($result) || $result=0){
-           header("Location: http://127.0.0.1/Projet-Annuel/adminTemplate/pages/formsign-up.php");
-           echo '<div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>';
-       }
 
-    }
 
     public static function message(){
 

@@ -29,11 +29,12 @@ class UserModel
          if(empty($results)){
              return $results;
          }else if(password_verify($pwd, $results["passwd"]) && $results["status_user"]=="Admin"){
-             $_SESSION["auth"]=true;
-             $_SESSION["info"]=$results;
+//             $_SESSION["auth"]=true;
+//             $_SESSION["info"]=$results;
+
+             UserModel::updateOneById($user["id"], ["token" => $token]);
              header("Location: ../adminTemplate/pages/dashboard.html");
          }else{
-
              return $results=0;
          }
      }
@@ -43,14 +44,10 @@ class UserModel
     {
         $databaseConnection = DatabaseSettings::getConnection();
         $getUserQuery = $databaseConnection->prepare("SELECT * FROM users WHERE email = :email");
-
         $getUserQuery->execute([
             "email" => $email
         ]);
-        $results = $getUserQuery->fetch();
-        $_SESSION["info"]=$results;
-        $_SESSION["auth"]=true;
-        return $results;
+        return $getUserQuery->fetch();
     }
 
 
@@ -76,20 +73,24 @@ class UserModel
         return $info= "L'utilisateur a bien été supprimé";
     }
 
-    public static function updateUser(int $id, int $recupdonnee){
-        $databaseConnection = DatabaseSettings::getConnection();
-        echo "DB connecter";
-        $updateUsersQuery = $databaseConnection->prepare("UPDATE users SET state= :etat WHERE idUser =:id");
-        $updateUsersQuery->execute([
-            "id" => $id ,
-            "etat" => $recupdonnee
-        ]);
-    }
-
-
     public static function logout(){
     session_start();
 	session_destroy();
     }
 
+
+    public static function  updateOneById($id, $user){
+       $set = [];
+       $allowedKeys = ["firstname","lastname","phone","email","passwd","status_user","address","points","wallet","birthdate","zipcode","state","check"];
+       foreach ($user as $key => $value){
+           if (!in_array($key, $allowedKeys)){
+               continue;
+           }
+           $set[]  = "$key = :$key";
+       }
+       $set = implode(",",$set);
+        $databaseConnection = DatabaseSettings::getConnection();
+        $updateUsersQuery = $databaseConnection->prepare("UPDATE users SET $set WHERE idUser =:id");
+        $updateUsersQuery->execute(array_merge(["id" => $id], $user));
+    }
 }
