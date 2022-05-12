@@ -37,4 +37,12 @@
     <link rel="stylesheet" href="assets/css/lineicons.css" />
     <link rel="stylesheet" href="assets/css/ud-styles.css" />
   </head>
+
+
+ <!-- ====== Back To Top Start ====== -->
+ <a href="javascript:void(0)" class="back-to-top">
+      <i class="lni lni-chevron-up"> </i>
+    </a>
+    <!-- ====== Back To Top End ====== -->
+    
   </html>
