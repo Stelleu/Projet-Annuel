@@ -20,11 +20,11 @@
                   </li>
 
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#about">Aide</a>
+                    <a class="ud-menu-scroll" href="">Aide</a>
                   </li> 
 
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="/FRONT/contact.php">Contact</a>
+                    <a class="ud-menu-scroll" href="/Projet-Annuel/FRONT/contact.php">Contact</a>
                   </li>
 
 
@@ -34,10 +34,10 @@
               </div>
 
               <div class="navbar-btn d-none d-sm-inline-block">
-                <a href="/FRONT/login.php" class="ud-main-btn ud-login-btn">
+                <a href="/Projet-Annuel\FRONT\login.php" class="ud-main-btn ud-login-btn">
                   Connexion
                 </a>
-                <a class="ud-main-btn ud-white-btn" href="/FRONT/singup.php" >
+                <a class="ud-main-btn ud-white-btn" href="/Projet-Annuel\FRONT\singup.php" >
                   S'inscrire
                 </a>
               </div>

@@ -26,7 +26,7 @@
                     </li> 
     
                     <li class="nav-item">
-                      <a class="ud-menu-scroll" href="/FRONT/contact.php">Contact</a>
+                      <a class="ud-menu-scroll" href="/Projet-Annuel/FRONT/contact.php">Contact</a>
                     </li>
                       </ul>
                     </li>

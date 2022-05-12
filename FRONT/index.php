@@ -1,6 +1,6 @@
 <?php
 include("include/app.php");
-include ("include/menu.php");
+include ("include/menu.php"); 
 ?>
 <!-- ====== Hero Start ====== -->
 <section class="ud-hero" id="home">
