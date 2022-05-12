@@ -120,52 +120,67 @@ require_once 'includes/header.php';
     </nav>
 </div>
 <!-- Navbar END -->
-<div>
+<div id="allcontent">
     <div class="col-12 px-5">
         <div class="card mb-4 ">
             <div class="card-header pb-0">
-                <h6>Créer une trottinnettes</h6>
+                <h6>Créer une trottinnette</h6>
             </div>
+
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
                     <table class="table table-hover">
                         <thead>
+                      <!--  <div id="alertForm" class="alert alert-warning" role="alert">
+                            This is a warning alert—check it out!
+                        </div>-->
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">N°</th>
                             <th class="text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2">État</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Km Parcourue</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Position</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Statut</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Zone</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Zone</th>
                         </tr>
                         </thead>
-                        <tbody class="">
-                        <td class="">
-                            <form method="post"  action="controllers/scooter.php">
-                                <input type="text" class=" form-control" name="number" placeholder="Numéro" required/>
+                        <tbody>
+                        <div class="mx-10 my-2 p-2 d-none text-center alert alert-success" id="msgDivAddScooter" role="alert">
+                            <h5>La trottinette N°<span id="msgAddNumber" class="h4"></span> a été ajouté avec succès ! </h5>
+                        </div>
+
+                        <div class="mx-10 d-none my-2 p-2 text-center alert alert-success" id="msgDivDelScooter" role="alert">
+                            <h5>La trottinette N°<span id="msgDelNumber" class="h4"></span> a été supprimé avec succès ! </h5>
+                        </div>
+
+
+                        <td>
+
+                            <form method="post" id="formScooter" action="">
+
+                                <input type="text" class=" form-control" id="number" name="number" placeholder="Numéro"/>
                         </td>
                         <td>
-                            <select name="condition" class="form-control">
+                            <select name="condition" id="conditon" class=" justify-content-center px-4 form-control">
                                 <option value="1">Neuf</option>
                                 <option value="2">Correct</option>
                                 <option value="3">Endommagé</option>
                             </select>
                         </td>
                         <td>
-                            <input type="text" readonly name="km" value="0" class="form-control-plaintext" />
+                            <input type="text" readonly name="km" value="0" class=" text-center form-control-plaintext" />
                         </td>
                         <td>
-                            <input type="text" readonly name="location" value="Coordonnées" class="form-control-plaintext" />
+                            <input type="text" readonly name="location" value="Coordonnées" class=" text-center form-control-plaintext" />
                         </td>
-                        <td>
-                            <select name="status" class="form-control">
+                        <td class="">
+                            <select name="status" id="status" class="justify-content-center form-control">
                                 <option value="1">Libre</option>
                                 <option value="2">En course</option>
                                 <option value="3">En pause</option>
                             </select>
                         </td>
                         <td>
-                            <select name="workzone" class="form-control">
+                            <select name="workzone" id="workzone" class="text-center px-4 form-control">
                                 <option value="1">Nation</option>
                                 <option value="2">Gare de Lyon</option>
                                 <option value="3">Gare du Nord</option>
@@ -173,7 +188,9 @@ require_once 'includes/header.php';
                             </select>
                         </td>
                         <td>
-                            <input type="submit" class="btn btn-outline-success form-control" name="add" value="Ajouter"/>
+                            <button type="submit" class="btn btn-success" id="btnAddScooter">
+                                Ajouter
+                            </button>
                             </form>
                         </td>
                         </tbody>
@@ -190,8 +207,8 @@ require_once 'includes/header.php';
                 <h6>Informations Trottinettes</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive p-0">
-                    <table class="table align-items-center mb-0">
+                <div id="infoScooter" class="table-responsive p-0">
+                    <table  class="table align-items-center mb-0">
                         <thead>
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">N°</th>
@@ -199,14 +216,16 @@ require_once 'includes/header.php';
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Km Parcourue</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Position</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Statut</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Zone</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Zone</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <tr>
                             <?php
+
                                 foreach($scooters as $cle => $infoscooters) {
+
                                 foreach ($infoscooters as $cle => $info) { ?>
                                 <?php if ($cle == "idScooter") { ?>
                             <td>
@@ -216,14 +235,14 @@ require_once 'includes/header.php';
                             <td class="align-middle text-center text-sm">
                                 <?php } elseif ($cle == "condition") {
                                 switch ($info){
-                                    case 0:
-                                        echo '<span class="badge badge-sm bg-gradient-success col-4">Neuf</span>';
-                                        break;
                                     case 1:
-                                        echo '<span class="badge badge-sm bg-gradient-warning col-4">Correct</span>';
+                                        echo '<div class="badge badge-sm bg-gradient-success" >Neuf</div>';
                                         break;
                                     case 2:
-                                        echo '<span class="badge badge-sm bg-gradient-danger col-4">Endommagé</span>';
+                                        echo '<div class="badge badge-sm bg-gradient-warning col-4 ">Correct</div>';
+                                        break;
+                                    case 3:
+                                        echo '<div class="badge badge-sm bg-gradient-danger" >Endommagée</div>';
                                         break;
                                 }
                                     ?>
@@ -241,13 +260,13 @@ require_once 'includes/header.php';
 
                                     switch ($info){
                                         case 1:
-                                            echo '<span class="badge badge-sm bg-gradient-success col-4">Libre</span>';
+                                            echo '<div class="badge badge-sm bg-gradient-success">Libre</div>';
                                             break;
                                         case 2:
-                                            echo '<span class="badge badge-sm bg-gradient-warning col-4">En pause</span>';
+                                            echo '<div class="badge badge-sm bg-gradient-warning">En pause</div>';
                                             break;
                                         case 3:
-                                            echo '<span class="badge badge-sm bg-gradient-danger col-4">En course</span>';
+                                            echo '<div class="badge badge-sm bg-gradient-danger">En course</div>';
                                             break;
                                     }
                                 ?>
@@ -255,29 +274,44 @@ require_once 'includes/header.php';
                             </td>
                             <td>
                                 <?php } elseif ($cle == "workzone") {?>
-                                <p class="text-xs font-weight-bold mb-0"><?php echo $info;
+                                <p class="text-xs font-weight-bold mb-0 text-center "><?php echo $info;
                             }   }?></p>
-                                <form method="post" action="controllers\scooter.php">
-                                    <input type="hidden" name="id" value="<?php echo $infoscooters['idScooter'];?>"/>
 
-                            </form>
-
-                                <p class="text-xs text-secondary mb-0">Organization</p>
                             </td>
                             <td class="align-middle">
-                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                <!--<a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                     Edit
-                                </a>
+                                </a>-->
+                                <form method="get" id="delScooter">
+                                    <input type="hidden" name="id" value="<?php echo $infoscooters['idScooter'];?>"/>
+                                    <input type="hidden" name="delNumber" value="<?php echo $infoscooters['number'];?>"/>
+                                    <input type="hidden" name="delete" value="delete"/>
+                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                </form>
                             </td>
                         </tr>
                         <?php }?>
                         </tbody>
                     </table>
+                    <?php if (count($scooters) == 0) {?>
+                    <div class="d-flex flex-column pt-3">
+                        <div>
+                            <h5 class="text-center">Aucune trottinette répertoriée </h5>
+                        </div>
+                        <div class="align-self-center ">
+                            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                            <lottie-player class="" src="view/assets/lotties/100727-electric-scooter-charging-animation.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                        </div>
+
+
+                    </div>
+                    <?php }?>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <?php
 require_once('includes/footer.php');

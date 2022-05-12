@@ -1,4 +1,3 @@
-<?php session_start();?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -20,6 +19,7 @@
     <link href="view/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="view/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+
 </head>
 <!DOCTYPE html>
 <html lang="fr">
