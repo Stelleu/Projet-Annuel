@@ -1,5 +1,6 @@
+<?php session_start()?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,7 +18,25 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="../../view/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
 </head>
+<?php if(isset($_SESSION["result"])  ){?>
+    <div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>
+        <?php
+    foreach ($_SESSION["result"] as $error) {
+        echo "<li>" . $error;
+    }
+    unset($_SESSION["result"]); ?>
+<?php } ?>
 
+
+<?php if(isset($_SESSION["errors"])  ){
+    ?>
+    <div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>
+        <?php
+    foreach ($_SESSION["errors"] as $error) {
+        echo "<li>" . $error;
+    }
+    unset($_SESSION["result"]); ?>
+<?php } ?>
 <body class="">
   <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
@@ -25,7 +44,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.php">
             EASY SCOOTER</a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
@@ -37,7 +56,7 @@
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
+                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.php">
                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                     Dashboard
                   </a>
@@ -81,8 +100,6 @@
                 </div>
                 <div class="card-body">
                     <form method="POST" action="../../index.php?route=sign-in" >
-<!--                <form method="POST" action="../../index.php?route=sign-in">-->
-                     <? echo $result;?>
                   <!-- https://github.com/bpesquet/MonBlog/blob/bcf89ae1f7cb9e095819291cf45c95fdd91b3430/Controleur/Routeur.php#L17 -->
                     <label>Email</label>
                     <div class="mb-3">
@@ -92,10 +109,10 @@
                     <div class="mb-3">
                       <input type="password" class="form-control" placeholder="Mot de passe" aria-label="Password" aria-describedby="password-addon" name="pwd">
                     </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe" name="submited" checked="">
-                      <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
-                    </div>
+<!--                    <div class="form-check form-switch">-->
+<!--                      <input class="form-check-input" type="checkbox" id="rememberMe" name="submited" checked="">-->
+<!--                      <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>-->
+<!--                    </div>-->
                     <div class="text-center">
                       <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Connexion</button>
                     </div>
@@ -119,8 +136,6 @@
       </div>
     </section>
   </main>
-
-
  <?php include "../../view/signFooter.php";?>
 
 

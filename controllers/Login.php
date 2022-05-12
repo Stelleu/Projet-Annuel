@@ -6,7 +6,6 @@ class Login
 {
     public static function connexion()
     {
-
         try {
             //password_verify
             $email = $_POST["email"];
@@ -37,17 +36,36 @@ class Login
                 }
             }*/
             $result = UserModel::findByEmail($email);
-            if (!$result || !password_verify($pwd, $result["passwd"]) || $result["status_user"] != "Admin") {
-               return '<div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>';
-            } else {
-                $token = bin2hex(random_bytes(16));
-                UserModel::updateOneById($result["id"], ["token" => $token]);
-                return 1;
-                header("Location: ../adminTemplate/pages/dashboard.html");
+            if(empty($result)){
+                $errors = "Identifiants incorrects";
+            }else {
+                if (password_verify($pwd, $result["passwd"])) {
+                    $token = bin2hex(random_bytes(16));
+                    $_SESSION["token"] = UserModel::updateOneById($result["idUser"],["token"=> $token]);
+                    $_SESSION["idUser"]=$result["id"];
+                    $_SESSION["email"]=$result["email"];
+                } else {
+                    echo 'Le mot de passe est invalide.';
+                }
+
             }
+            //            if (!$result || $result["status_user"] != "Admin") {
+//                echo "probleme";
+//                $_SESSION["result"] = $result;
+////                header("Location: ../adminTemplate/pages/sign-in.php");
+//            } else {
+//
+//                if (password_verify($pwd, $result["passwd"])) {
+//                    echo "31";
+//                    $token = bin2hex(random_bytes(16));
+//                    UserModel::updateOneById($result["idUser"], ["token" => $token]);
+//                    $_SESSION["info"] = UserModel::getOneByToken($token);
+//                    echo "1";
+////                header("Location: ../view/adminDash/dash.php");
+//                }
+//            }
         }catch (PDOException $e){
                 $e->getMessage();
             }
-
-}
+    }
 }

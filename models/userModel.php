@@ -11,14 +11,13 @@ class UserModel
         return $users;
     }
 
-    public static function create($createUser)
+    public static function create($createUser): int
     {
-        echo "cc";
         $databaseConnection = DatabaseSettings::getConnection();
         $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,passwd, status_user) VALUES(:firstname,:lastname, :phone, :email,:pwd, 'Admin');");
-//        $code = rand(1000, 9999);
-//        $_SESSION["code"] = $code;
+//
         $createUserQuery->execute($createUser);
+        return 1;
     }
 
 
@@ -30,9 +29,20 @@ class UserModel
         $getUserQuery->execute([
             "email" => $email
         ]);
-        return $getUserQuery->fetch();
+        return $getUserQuery->fetch(PDO::FETCH_ASSOC);
     }
 
+    public static function getOneByToken($token)
+
+    {
+        echo "la";
+        $databaseConnection = DatabaseSettings::getConnection();
+        $query = $databaseConnection->prepare("SELECT * FROM users WHERE token = :token");
+        $query->execute([
+            "token" => $token
+        ]);
+        return $query->fetch();
+    }
 
     public static function findByPhone(int $phone)
     {
@@ -41,10 +51,7 @@ class UserModel
         $getUserQuery->execute([
             "phone" => $phone
         ]);
-
-        $phone = $getUserQuery->fetch();
-
-        return $phone;
+        return $getUserQuery->fetch();
     }
 
     public static function deleteUser(int $id): string
@@ -64,8 +71,9 @@ class UserModel
 
 
     public static function  updateOneById($id, $user){
+        echo "im here";
        $set = [];
-       $allowedKeys = ["firstname","lastname","phone","email","passwd","status_user","address","points","wallet","birthdate","zipcode","state","check"];
+       $allowedKeys = ["firstname","lastname","phone","email","passwd","status_user","address","points","wallet","birthdate","zipcode","state","check","token"];
        foreach ($user as $key => $value){
            if (!in_array($key, $allowedKeys)){
                continue;

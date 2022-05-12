@@ -1,14 +1,19 @@
-
+<?php
+include '../../models/Token.php';
+if (Token::isConnected()) {
+    echo "Vous êtes connecté avec l'email ".$_SESSION["email"]. " et votre token : ".$_SESSION["token"] ;
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../../view/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../../view/assets/img/favicon.png">
   <title>
-    Easyscooters
+    Soft UI Dashboard by Creative Tim
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -20,37 +25,15 @@
   <link href="../../view/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../../view/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
- 
-  <!--   ANALYTICS -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4SMK1V3BN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-C4SMK1V3BN');
-  </script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-228268617-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-228268617-1');
-  </script>
-
-  
-  
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html " target="_blank">
         <img src="../../view/assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-center">EasyScooters</span>
+        <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -135,6 +118,27 @@
               </svg>
             </div>
             <span class="nav-link-text ms-1">Virtual Reality</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="../pages/rtl.html">
+            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>settings</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g transform="translate(304.000000, 151.000000)">
+                        <polygon class="color-background opacity-6" points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667"></polygon>
+                        <path class="color-background opacity-6" d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"></path>
+                        <path class="color-background" d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z"></path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span class="nav-link-text ms-1">RTL</span>
           </a>
         </li>
         <li class="nav-item mt-3">
@@ -225,6 +229,9 @@
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
+            <li class="nav-item d-flex align-items-center">
+              <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard">Online Builder</a>
+            </li>
             <li class="nav-item d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
@@ -415,6 +422,50 @@
         </div>
       </div>
       <div class="row mt-4">
+        <div class="col-lg-7 mb-lg-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="d-flex flex-column h-100">
+                    <p class="mb-1 pt-2 text-bold">Built by developers</p>
+                    <h5 class="font-weight-bolder">Soft UI Dashboard</h5>
+                    <p class="mb-5">From colors, cards, typography to complex elements, you will find the full documentation.</p>
+                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                      Read More
+                      <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+                  <div class="bg-gradient-primary border-radius-lg h-100">
+                    <img src="../../view/assets/img/shapes/waves-white.svg" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
+                    <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                      <img class="w-100 position-relative z-index-2 pt-4" src="../../view/assets/img/illustrations/rocket-white.png" alt="rocket">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card h-100 p-3">
+            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="background-image: url('../../view/assets/img/ivancik.jpg');">
+              <span class="mask bg-gradient-dark"></span>
+              <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                <h5 class="text-white font-weight-bolder mb-4 pt-2">Work with the rockets</h5>
+                <p class="text-white">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
+                <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                  Read More
+                  <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
         <div class="col-lg-5 mb-lg-0 mb-4">
           <div class="card z-index-2">
             <div class="card-body p-3">
@@ -534,10 +585,10 @@
         <div class="col-lg-7">
           <div class="card z-index-2">
             <div class="card-header pb-0">
-              <h6>Graphique vente/ou connexions</h6>
+              <h6>Sales overview</h6>
               <p class="text-sm">
                 <i class="fa fa-arrow-up text-success"></i>
-                <span class="font-weight-bold">4% de plus</span> en 2021
+                <span class="font-weight-bold">4% more</span> in 2021
               </p>
             </div>
             <div class="card-body p-3">
@@ -898,16 +949,27 @@
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
               <div class="copyright text-center text-sm text-muted text-lg-start">
-                © 2022, made with <i class="fa fa-heart"></i> by Réda, Estelle, Agustin for a better web.
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+                made with <i class="fa fa-heart"></i> by
+                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
+                for a better web.
               </div>
             </div>
             <div class="col-lg-6">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">CGV</a>
+                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">About Us</a>
+                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
                 </li>
               </ul>
             </div>
@@ -923,7 +985,8 @@
     <div class="card shadow-lg ">
       <div class="card-header pb-0 pt-3 ">
         <div class="float-start">
-          <h5 class="mt-3 mb-0">EasyScooters custom</h5>
+          <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
+          <p>See our dashboard options.</p>
         </div>
         <div class="float-end mt-4">
           <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
@@ -936,7 +999,7 @@
       <div class="card-body pt-sm-3 pt-0">
         <!-- Sidebar Backgrounds -->
         <div>
-          <h6 class="mb-0">Couleurs menu latéral</h6>
+          <h6 class="mb-0">Sidebar Colors</h6>
         </div>
         <a href="javascript:void(0)" class="switch-trigger background-color">
           <div class="badge-colors my-2 text-start">
@@ -950,7 +1013,8 @@
         </a>
         <!-- Sidenav Type -->
         <div class="mt-3">
-          <h6 class="mb-0">Type du menu latéral</h6>
+          <h6 class="mb-0">Sidenav Type</h6>
+          <p class="text-sm">Choose between 2 different sidenav types.</p>
         </div>
         <div class="d-flex">
           <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
@@ -959,10 +1023,23 @@
         <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
         <!-- Navbar Fixed -->
         <div class="mt-3">
-          <h6 class="mb-0">Menu Fixe</h6>
+          <h6 class="mb-0">Navbar Fixed</h6>
         </div>
         <div class="form-check form-switch ps-0">
           <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+        </div>
+        <hr class="horizontal dark my-sm-4">
+        <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard">Free Download</a>
+        <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard">View documentation</a>
+        <div class="w-100 text-center">
+          <a class="github-button" href="https://github.com/creativetimofficial/soft-ui-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/soft-ui-dashboard on GitHub">Star</a>
+          <h6 class="mt-3">Thank you for sharing!</h6>
+          <a href="https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+            <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+            <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
+          </a>
         </div>
       </div>
     </div>

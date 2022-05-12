@@ -14,9 +14,14 @@ $route = isset($_REQUEST["route"]) ? $_REQUEST["route"] : "";
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route) {
+
     case "dashboard":
         include "view/adminDash/dashboard.php";
         break;
+        case "dash":
+            include "controllers/user.php";
+
+            break;
     case "scootermana":
         include "controllers/scooter.php";
         if ($method === "GET") {
@@ -36,17 +41,19 @@ switch ($route) {
         break;
 
     case "sign-in" :
+        echo "cc";
 
         if ($method === "GET") {
-            echo "cc";
             $title = "Connexion";
             header('Location:  adminTemplate/pages/sign-in.php');
         }
         if ($method === "POST") {
             include "controllers\Login.php";
-            if (count($_POST) == 3 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
-               $result = Login::connexion();
-                echo json_encode(['reponse' => $result]);
+            echo "cc";
+            if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
+                echo "cc";
+
+                $result = Login::connexion();
             }
         }
         break;
