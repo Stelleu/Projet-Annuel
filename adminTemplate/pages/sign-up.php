@@ -70,7 +70,7 @@ include "../../view/signHeader.php";
                                   </div>
                               </div>
                               <div class="card-body">
-                                  <form role="form text-left">
+                                  <form role="form text-left" method="post">
                                       <div class="mb-3">
                                           <input type="text" class="form-control" placeholder="Prenom" aria-label="firstname" name="firstname" aria-describedby="email-addon">
                                       </div>
@@ -99,7 +99,7 @@ include "../../view/signHeader.php";
                                       <div class="text-center">
                                           <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Inscription</button>
                                       </div>
-                                      <p class="text-sm mt-3 mb-0">J'ai déjà un compte. <a href="formsign-up.php" class="text-dark font-weight-bolder">Connexion</a></p>
+                                      <p class="text-sm mt-3 mb-0">J'ai déjà un compte. <a href="sign-in.php" class="text-dark font-weight-bolder">Connexion</a></p>
                                   </form>
                               </div>
                           </div>

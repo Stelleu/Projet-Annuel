@@ -13,6 +13,7 @@ class UserModel
 
     public static function create($createUser)
     {
+        echo "cc";
         $databaseConnection = DatabaseSettings::getConnection();
         $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,passwd, status_user) VALUES(:firstname,:lastname, :phone, :email,:pwd, 'Admin');");
 //        $code = rand(1000, 9999);

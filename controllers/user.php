@@ -104,9 +104,14 @@ class User
         }
 
         print_r($errors);
+        echo "cc";
 
         if (count($errors) == 0) {
+            echo "cc";
+
             $pwd = password_hash($pwd, PASSWORD_BCRYPT);
+            echo "cc";
+
             UserModel::create([
                 "firstname" => $firstname,
                 "lastname" => $lastname,
@@ -114,7 +119,7 @@ class User
                 "email" => $email,
                 "pwd" => $pwd,
             ]);
-            header("Location: ../adminTemplate/pages/formsign-up.php");
+            header("Location: ../adminTemplate/pages/dashboard.html");
         }
     }
 

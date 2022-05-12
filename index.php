@@ -58,6 +58,8 @@ switch ($route) {
 
             }
             if ($method === "POST") {
+                include "controllers/user.php";
+
                 if (
                     !isset($_POST["firstname"]) ||
                     !isset($_POST["lastname"]) ||
