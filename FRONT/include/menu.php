@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
-              <a class="navbar-brand" href="index.html">
+              <a class="navbar-brand" href="index.php">
                 <img src="assets/images/logo/logo.svg" alt="Logo">
               </a>
               <button class="navbar-toggler">
@@ -24,7 +24,7 @@
                   </li> 
 
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="/FRONT/contact.html">Contact</a>
+                    <a class="ud-menu-scroll" href="/FRONT/contact.php">Contact</a>
                   </li>
 
 
@@ -34,10 +34,10 @@
               </div>
 
               <div class="navbar-btn d-none d-sm-inline-block">
-                <a href="/FRONT/login.html" class="ud-main-btn ud-login-btn">
+                <a href="/FRONT/login.php" class="ud-main-btn ud-login-btn">
                   Connexion
                 </a>
-                <a class="ud-main-btn ud-white-btn" href="/FRONT/singup.html" >
+                <a class="ud-main-btn ud-white-btn" href="/FRONT/singup.php" >
                   S'inscrire
                 </a>
               </div>
