@@ -23,7 +23,7 @@ class Weather
         echo $weather."<br>";
 
 
-        WeatherModel::insertJsonData([
+        WeatherModel::inse4rtJsonData([
             "location" => $location,
             "city_name" => $name,
             "degree_min" => $degree_min,
