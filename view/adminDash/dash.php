@@ -1,10 +1,4 @@
-<?php
-include '../../models/Token.php';
-if (Token::isConnected()) {
-    echo "Vous êtes connecté avec l'email ".$_SESSION["email"]. " et votre token : ".$_SESSION["token"] ;
-    exit;
-}
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -228,10 +222,22 @@ if (Token::isConnected()) {
               <input type="text" class="form-control" placeholder="Type here...">
             </div>
           </div>
-          <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard">Online Builder</a>
-            </li>
+            <ul class="navbar-nav  justify-content-end">
+            <?php if(Token::isConnected()()){ ?>
+                <li class="nav-item d-flex align-items-center">
+                    <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="logout.php">Se déconnecter</a>
+                </li>
+
+            <?php }else{ ?>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="logout.php">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="logout.php">S'inscrire</a>
+                </li>
+
+            <?php } ?>
+
             <li class="nav-item d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>

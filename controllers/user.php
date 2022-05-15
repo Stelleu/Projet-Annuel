@@ -1,5 +1,7 @@
 <?php
 include __DIR__ . "/../models/userModel.php";
+include __DIR__ . "/../controllers/Token.php";
+
 /*
 if(!empty($_POST['subject'])) {
     echo "SUBJECT ok " . $_POST['subject']. " ID ok" . $_POST["id"];
@@ -104,7 +106,6 @@ class User
                 }
             }
             print_r($errors);
-            echo "cc";
             $pwd = password_hash($pwd, PASSWORD_DEFAULT);
             if (count($errors) == 0) {
                 $newUser = UserModel::create([
@@ -125,7 +126,10 @@ class User
                         UserModel::updateOneById($result["idUser"], ["token" => $token]);
                         $user = UserModel::getOneByToken($token);
                         $_SESSION["info"] = $user;
+//                        $connected = Token::isConnected($user);
+                        Token::isConnected($user);
                         header("Location: ../view/adminDash/dash.php");
+
                     }
                 }
             }else{

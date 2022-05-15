@@ -35,7 +35,6 @@ class UserModel
     public static function getOneByToken($token)
 
     {
-        echo "la";
         $databaseConnection = DatabaseSettings::getConnection();
         $query = $databaseConnection->prepare("SELECT * FROM users WHERE token = :token");
         $query->execute([
