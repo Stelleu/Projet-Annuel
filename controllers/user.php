@@ -1,5 +1,7 @@
 <?php
 include __DIR__ . "/../models/userModel.php";
+session_start();
+
 /*
 if(!empty($_POST['subject'])) {
     echo "SUBJECT ok " . $_POST['subject']. " ID ok" . $_POST["id"];
@@ -119,18 +121,20 @@ class User
                     if (!$result) {
                         echo "cc";
                         $_SESSION["result"] = $result;
-                        header("Location: ../adminTemplate/pages/sign-up.php");
+                        header("Location: adminTemplate/pages/sign-up.php");
                     } else {
                         $token = bin2hex(random_bytes(16));
-                        UserModel::updateOneById($result["idUser"], ["token" => $token]);
+                        $result=UserModel::updateOneById($result["idUser"], ["token" => $token]);
                         $user = UserModel::getOneByToken($token);
                         $_SESSION["info"] = $user;
-                        header("Location: ../view/adminDash/dash.php");
+                       return $user ;
+
+//view/adminDash/dash.php
                     }
                 }
             }else{
                 $_SESSION["errors"] = $errors;
-                header("Location: ../adminTemplate/pages/sign-up.php");
+                header("Location: sign-up.php");
             }
         }catch (PDOException $exception){
             $exception->getMessage();

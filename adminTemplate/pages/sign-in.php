@@ -18,25 +18,6 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="../../view/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
 </head>
-<?php if(isset($_SESSION["result"])  ){?>
-    <div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>
-        <?php
-    foreach ($_SESSION["result"] as $error) {
-        echo "<li>" . $error;
-    }
-    unset($_SESSION["result"]); ?>
-<?php } ?>
-
-
-<?php if(isset($_SESSION["errors"])  ){
-    ?>
-    <div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>
-        <?php
-    foreach ($_SESSION["errors"] as $error) {
-        echo "<li>" . $error;
-    }
-    unset($_SESSION["result"]); ?>
-<?php } ?>
 <body class="">
   <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
@@ -68,7 +49,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="../pages/sign-up.php">
+                  <a class="nav-link me-2" href="../../view/adminDash/sign-up.php">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Sign Up
                   </a>
@@ -121,7 +102,7 @@
                 <div class="card-footer text-center pt-0 px-lg-2 px-1"
                   <p class="mb-4 text-sm mx-auto">
                     Je n'ai pas de compte.
-                    <a href="sign-up.php" class="text-info text-gradient font-weight-bold">S'inscrire</a>
+                    <a href="../../view/adminDash/sign-up.php" class="text-info text-gradient font-weight-bold">S'inscrire</a>
                   </p>
                 </div>
               </div>

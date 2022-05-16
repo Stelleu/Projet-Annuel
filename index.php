@@ -61,12 +61,11 @@ switch ($route) {
         case "sign-up":
             if ($method === "GET") {
                 $title ='Inscription';
-                header('Location:adminTemplate/pages/sign-up.php');
+                header('Location: view/adminDash/sign-up.php');
 
             }
             if ($method === "POST") {
                 include "controllers/user.php";
-
                 if (
                     !isset($_POST["firstname"]) ||
                     !isset($_POST["lastname"]) ||
@@ -90,8 +89,12 @@ switch ($route) {
                     $pwdConfirm = $_POST["passwordConfirm"];
                     $cgu = $_POST["cgu"];
                     $phone = $_POST["phone"];
-                    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
-            }
+                    $user=User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
+                    include_once "view/adminDash/dash.php";
+//                    header('Location:http://localhost/Projet-Annuel/view/adminDash/dash.php');
+
+                }
+
             break;
             }
     case "tables":
