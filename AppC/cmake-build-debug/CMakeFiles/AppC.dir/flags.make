@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu99
 
 C_DEFINES = 
 
-C_INCLUDES = -I/mnt/c/Users/estel/CLionProjects/AppC/C:/curl/include 
+C_INCLUDES = -I/mnt/c/Users/estel/Desktop/PA/Projet-Annuel/AppC/C:/curl/include 
 

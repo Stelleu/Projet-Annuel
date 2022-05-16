@@ -4,9 +4,9 @@
 CMakeFiles/AppC.dir/ConnectBDD.c.o: ../ConnectBDD.c
 CMakeFiles/AppC.dir/ConnectBDD.c.o: ../struct.h
 
+CMakeFiles/AppC.dir/curlweather.c.o: ../ConnectBDD.c
 CMakeFiles/AppC.dir/curlweather.c.o: ../curlweather.c
+CMakeFiles/AppC.dir/curlweather.c.o: ../struct.h
 
-CMakeFiles/AppC.dir/main.c.o: ../ConnectBDD.c
 CMakeFiles/AppC.dir/main.c.o: ../main.c
-CMakeFiles/AppC.dir/main.c.o: ../struct.h
 

@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/c/Users/estel/CLionProjects/AppC
+# Install script for directory: /mnt/c/Users/estel/Desktop/PA/Projet-Annuel/AppC
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/c/Users/estel/CLionProjects/AppC/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/Users/estel/Desktop/PA/Projet-Annuel/AppC/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

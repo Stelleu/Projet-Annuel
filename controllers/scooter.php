@@ -1,5 +1,5 @@
 <?php
-include __DIR__."\..\models\scooterModel.php";
+include __DIR__."/../models/scooterModel.php";
 
 /** Test de fonctionnement
 if(!empty($_POST['delete'])) {

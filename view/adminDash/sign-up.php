@@ -5,7 +5,7 @@ include "../../view/signHeader.php";
   <main class="main-content  mt-0">
       <section class="min-vh-100 mb-8">
 <?//= $adminsignup?>
-          <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../../view/assets/img/curved-images/curved14.jpg');">
+          <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../assets/img/curved-images/curved14.jpg');">
               <span class="mask bg-gradient-dark opacity-6"></span>
               <div class="container">
                   <div class="row justify-content-center">
@@ -17,8 +17,7 @@ include "../../view/signHeader.php";
               </div>
           </div>
           <div class="container">
-              <form method="post" action="../../index.php?route=sign-up">
-                  <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+              <div class="row mt-lg-n10 mt-md-n11 mt-n10">
                       <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
                           <div class="card z-index-0">
                               <div class="card-header text-center pt-4">
@@ -70,7 +69,7 @@ include "../../view/signHeader.php";
                                   </div>
                               </div>
                               <div class="card-body">
-                                  <form role="form text-left">
+                                  <form role="form text-left" method="post" action="../../index.php?route=sign-up">
                                       <div class="mb-3">
                                           <input type="text" class="form-control" placeholder="Prenom" aria-label="firstname" name="firstname" aria-describedby="email-addon">
                                       </div>
@@ -99,7 +98,7 @@ include "../../view/signHeader.php";
                                       <div class="text-center">
                                           <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Inscription</button>
                                       </div>
-                                      <p class="text-sm mt-3 mb-0">J'ai déjà un compte. <a href="formsign-up.php" class="text-dark font-weight-bolder">Connexion</a></p>
+                                      <p class="text-sm mt-3 mb-0">J'ai déjà un compte. <a href="../../adminTemplate/pages/sign-in.php" class="text-dark font-weight-bolder">Connexion</a></p>
                                   </form>
                               </div>
                           </div>

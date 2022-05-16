@@ -63,20 +63,15 @@ $tittle = "Les Utilisateurs";
 
                     }
                     ?>
-
-
                             <?php
-
-
                 ?>
         </tbody>
     </table>
   </div>
   </form >
-
 <?php
 
 
 $adminContent = ob_get_clean(); 
- require(__DIR__.'\..\library\templateAdmin.php');
+ require(__DIR__.'/../library/templateAdmin.php');
  ?>

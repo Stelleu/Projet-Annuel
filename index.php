@@ -8,35 +8,52 @@ error_reporting(E_ALL);
  */
 $route = isset($_REQUEST["route"]) ? $_REQUEST["route"] : "";
 
-
 /**
  * @see https://www.php.net/manual/en/reserved.variables.server.php
  */
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route) {
+
+    case "dashboard":
+        include "view/adminDash/dashboard.php";
+        break;
+        case "dash":
+            include "controllers/user.php";
+
+            break;
     case "scootermana":
-        include "controllers\scooter.php";
+        include "controllers/scooter.php";
         if ($method === "GET") {
             Scooter::get();
         }
         break;
-    case "usermana":
+//<<<<<<< HEAD
+    case "usermane":
         include "controllers\user.php";
+//=======
+    case "usermana":
+        include "controllers/user.php";
+//>>>>>>> pre-prod
         if ($method === "GET") {
             User::get();
         }
         break;
+
     case "sign-in" :
-        echo $method;
+        echo "cc";
+
         if ($method === "GET") {
-            echo "cc";
             $title = "Connexion";
-            header('Location:  "adminTemplate/pages/sign-in.php"');
+            header('Location:  adminTemplate/pages/sign-in.php');
         }
         if ($method === "POST") {
-            if (count($_POST) == 3 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
-                User::connexion();
+            include "controllers\Login.php";
+            echo "cc";
+            if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
+                echo "cc";
+
+                $result = Login::connexion();
             }
         }
         break;
@@ -44,10 +61,11 @@ switch ($route) {
         case "sign-up":
             if ($method === "GET") {
                 $title ='Inscription';
-                header('Location:adminTemplate/pages/sign-up.php');
+                header('Location: view/adminDash/sign-up.php');
 
             }
             if ($method === "POST") {
+                include "controllers/user.php";
                 if (
                     !isset($_POST["firstname"]) ||
                     !isset($_POST["lastname"]) ||
@@ -71,8 +89,12 @@ switch ($route) {
                     $pwdConfirm = $_POST["passwordConfirm"];
                     $cgu = $_POST["cgu"];
                     $phone = $_POST["phone"];
-                    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
-            }
+                    $user=User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
+                    include_once "view/adminDash/dash.php";
+//                    header('Location:http://localhost/Projet-Annuel/view/adminDash/dash.php');
+
+                }
+
             break;
             }
     case "tables":
