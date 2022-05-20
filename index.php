@@ -1,4 +1,5 @@
 <?php
+session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -7,6 +8,7 @@ error_reporting(E_ALL);
  * @see https://www.php.net/manual/en/migration70.new-features.php#migration70.new-features.null-coalesce-op
  */
 $route = isset($_REQUEST["route"]) ? $_REQUEST["route"] : "";
+
 
 /**
  * @see https://www.php.net/manual/en/reserved.variables.server.php
@@ -18,10 +20,6 @@ switch ($route) {
     case "dashboard":
         include "view/adminDash/dashboard.php";
         break;
-        case "dash":
-            include "controllers/user.php";
-
-            break;
     case "scootermana":
         include "controllers/scooter.php";
         if ($method === "GET") {
@@ -61,62 +59,30 @@ switch ($route) {
         case "sign-up":
             if ($method === "GET") {
                 $title ='Inscription';
-                header('Location:adminTemplate/pages/sign-up.php');
+                include "view/adminDash/sign-up.php";
+                echo "HEADER";
 
             }
             if ($method === "POST") {
+                echo "cc";
+                var_dump($_SESSION);
                 include "controllers/user.php";
-
-                if (
-                    !isset($_POST["firstname"]) ||
-                    !isset($_POST["lastname"]) ||
-                    empty($_POST["email"]) ||
-                    empty($_POST["phone"]) ||
-                    empty($_POST["password"]) ||
-                    empty($_POST["passwordConfirm"]) ||
-                    empty($_POST["cgu"]) ||
-                    count($_POST) != 7
-                ) {
-
-                    die("Tentative de Hack ...");
-
-                } else {
-
-                    //récupérer les données du formulaire
-                    $email = $_POST["email"];
-                    $firstname = $_POST["firstname"];
-                    $lastname = $_POST["lastname"];
-                    $pwd = $_POST["password"];
-                    $pwdConfirm = $_POST["passwordConfirm"];
-                    $cgu = $_POST["cgu"];
-                    $phone = $_POST["phone"];
-                    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
             }
             break;
-            }
-    case "tables":
+    case "dash":
+        include "view/adminDash/dash.php";
 
+        break;
+
+    case "Login":
+        include "controllers/Login.php";
+        
+
+        break;
 }
 
 
     
-/**switch($route): 
-    case 'users':
-        echo "cc  je rentre";
-        include "./controllers/user.php";
-    
-        if ($method === "GET") {
-            user::get();
-            
-        }
-        
-    break;
-
-    default: 
-     include __DIR__ . "\PA\controllers\user.php";
-    break;
-endswitch;
-*/
 
 // Modifier les chemins d'inclusions pour utiliser un chemin correct avec __DIR__
 

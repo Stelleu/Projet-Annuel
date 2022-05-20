@@ -1,23 +1,50 @@
 <?php
 include __DIR__ . "/../models/userModel.php";
-include __DIR__ . "/../controllers/Token.php";
-
-/*
-if(!empty($_POST['subject'])) {
-    echo "SUBJECT ok " . $_POST['subject']. " ID ok" . $_POST["id"];
-}else {
-    echo "SUBJECT et id errors vide";
-}*/
-
-
+echo "cc";
 if (isset($_POST["subject"],$_POST["id"])) {
     $id_user = $_POST["id"];
     $recupdonnee = $_POST["subject"];
     User::status($id_user, $recupdonnee);
 }
+if (
+    isset($_POST["firstname"]) ||
+    isset($_POST["lastname"]) ||
+    isset($_POST["email"]) ||
+    isset($_POST["phone"]) ||
+    isset($_POST["password"]) ||
+    isset($_POST["passwordConfirm"]) ||
+    isset($_POST["cgu"]) ||
+    count($_POST) == 7
+) {
+    echo "coucou je rentre";
+    //récupérer les données du formulaire
+    $email = $_POST["email"];
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
+    $pwd = $_POST["password"];
+    $pwdConfirm = $_POST["passwordConfirm"];
+    $cgu = $_POST["cgu"];
+    $phone = $_POST["phone"];
+    echo "pwd".$pwd;
+    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
+}
+if (
+    !isset($_POST["firstname"]) ||
+    !isset($_POST["lastname"]) ||
+    empty($_POST["email"]) ||
+    empty($_POST["phone"]) ||
+    empty($_POST["password"]) ||
+    empty($_POST["passwordConfirm"]) ||
+    empty($_POST["cgu"]) ||
+    count($_POST) != 7
+) {
+    echo " vide";
+    $errors = [];
+    $errors="Veuillez remplir le formulaire";
+    $_SESSION["errors"]=$errors;
+    header("Location: sign-up");
 
-
-
+}
 
 
 class User
@@ -54,7 +81,6 @@ class User
             }
         }
     }
-
     public static function create(string $firstname, string $lastname, string $email, string $phone, string $pwd, string $pwdConfirm)
     {
         try {
@@ -71,7 +97,6 @@ class User
 
                 //Vérification l'unicité de l'email
                 $user = UserModel::findByEmail($email);
-                print_r($user);
                 if (!empty($user)) {
                     $errors[] = "L'email existe déjà en bdd";
                 }
@@ -105,7 +130,6 @@ class User
                     $errors[] = "Numéro de téléphone existe déjà en bdd";
                 }
             }
-            print_r($errors);
             $pwd = password_hash($pwd, PASSWORD_DEFAULT);
             if (count($errors) == 0) {
                 $newUser = UserModel::create([
@@ -118,40 +142,32 @@ class User
                 if ($newUser == 1) {
                     $result = UserModel::findByEmail($email);
                     if (!$result) {
-                        echo "cc";
                         $_SESSION["result"] = $result;
-                        header("Location: ../adminTemplate/pages/sign-up.php");
+                        header("Location: sign-up");
                     } else {
                         $token = bin2hex(random_bytes(16));
                         UserModel::updateOneById($result["idUser"], ["token" => $token]);
                         $user = UserModel::getOneByToken($token);
                         $_SESSION["info"] = $user;
-//                        $connected = Token::isConnected($user);
-                        Token::isConnected($user);
-                        header("Location: ../view/adminDash/dash.php");
-
+                        header("Location:dash");
                     }
                 }
             }else{
                 $_SESSION["errors"] = $errors;
-                header("Location: ../adminTemplate/pages/sign-up.php");
+                header("Location: sign-up");
+
             }
         }catch (PDOException $exception){
             $exception->getMessage();
             $_SESSION["errors"] = $errors;
-            print_r($_SESSION["errors"]);
-            header("Location: ../adminTemplate/pages/sign-up.php");
+            header("Location: sign-up");
         }
     }
     public static function message(){
 
 
     }
-    
-    public static function logout(){
-        UserModel::logout();
-    }
-     
+
 }
 
         

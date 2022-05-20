@@ -68,7 +68,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="../pages/sign-up.php">
+                  <a class="nav-link me-2" href="../../view/adminDash/sign-up.php">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Sign Up
                   </a>
@@ -99,7 +99,7 @@
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="../../index.php?route=sign-in" >
+                    <form method="POST" action="../../index.php" >
                   <!-- https://github.com/bpesquet/MonBlog/blob/bcf89ae1f7cb9e095819291cf45c95fdd91b3430/Controleur/Routeur.php#L17 -->
                     <label>Email</label>
                     <div class="mb-3">
@@ -121,7 +121,7 @@
                 <div class="card-footer text-center pt-0 px-lg-2 px-1"
                   <p class="mb-4 text-sm mx-auto">
                     Je n'ai pas de compte.
-                    <a href="sign-up.php" class="text-info text-gradient font-weight-bold">S'inscrire</a>
+                    <a href="../../view/adminDash/sign-up.php" class="text-info text-gradient font-weight-bold">S'inscrire</a>
                   </p>
                 </div>
               </div>

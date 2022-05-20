@@ -68,4 +68,8 @@ class Login
                 $e->getMessage();
             }
     }
+    public static function logout(){
+        UserModel::logout();
+    }
+
 }

@@ -2,16 +2,13 @@
 
 class Token
 {
-public static function isConnected($user): bool
+public static function isConnected(): bool
 {
-    print_r($user);
     //Est-ce qu'il y a un token
-    if(empty($user)){
-        return false;}
-    else{
-        print_r($user);
-        echo $user["token"];
-        return true;
+    if(isset($_SESSION["info"]["token"])){
+        return 1;
+    } else{
+  return 0;
 
     }
 }
