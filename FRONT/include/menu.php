@@ -16,15 +16,15 @@
               <div class="navbar-collapse">
                 <ul id="nav" class="navbar-nav mx-auto">
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#Commentçamarche">Comment ça marche?</a>
+                    <a class="" href="\Projet-Annuel\FRONT\commentçamarche.php">Comment ça marche?</a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="">Aide</a>
+                    <a class="" href="">Aide</a>
                   </li> 
 
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="/Projet-Annuel/FRONT/contact.php">Contact</a>
+                    <a class="" href="/Projet-Annuel/FRONT/contact.php">Contact</a>
                   </li>
 
 
