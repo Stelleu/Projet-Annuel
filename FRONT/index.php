@@ -33,7 +33,7 @@ include ("include/menu.php");
       <div class="col-lg-12">
         <div class="ud-section-title">
          
-          <h2>Advantages de utiliser Easyscooter</h2>
+          <h2>Advantages d'utiliser Easyscooter</h2>
           <!--<p>
             ?????
           </p>-->
