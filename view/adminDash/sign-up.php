@@ -1,7 +1,4 @@
-<?php
-include __DIR__ . "/../signHeader.php";
-?>
-
+<?php include __DIR__ . "/../signHeader.php"; ?>
   <main class="main-content  mt-0">
       <section class="min-vh-100 mb-8">
 <?//= $adminsignup?>
@@ -110,7 +107,7 @@ include __DIR__ . "/../signHeader.php";
                                       <div class="text-center">
                                           <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Inscription</button>
                                       </div>
-                                      <p class="text-sm mt-3 mb-0">J'ai déjà un compte. <a href="../../adminTemplate/pages/sign-in.php" class="text-dark font-weight-bolder">Connexion</a></p>
+                                      <p class="text-sm mt-3 mb-0">J'ai déjà un compte. <a href="sign-in.php" class="text-dark font-weight-bolder">Connexion</a></p>
                                   </form>
                               </div>
                           </div>

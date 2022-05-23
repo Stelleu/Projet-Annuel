@@ -39,20 +39,13 @@ switch ($route) {
         break;
 
     case "sign-in" :
-        echo "cc";
 
         if ($method === "GET") {
             $title = "Connexion";
-            header('Location:  adminTemplate/pages/sign-in.php');
+            include "view/adminDash/sign-in.php";
         }
         if ($method === "POST") {
             include "controllers\Login.php";
-            echo "cc";
-            if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
-                echo "cc";
-
-                $result = Login::connexion();
-            }
         }
         break;
 
