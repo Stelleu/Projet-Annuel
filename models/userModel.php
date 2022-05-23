@@ -65,7 +65,9 @@ class UserModel
 
     public static function logout(){
     session_start();
-	session_destroy();
+    unset($_SESSION["info"]);
+    session_destroy();
+
     }
 
 
