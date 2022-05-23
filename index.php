@@ -1,4 +1,5 @@
 <?php
+session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -15,6 +16,7 @@ $route = isset($_REQUEST["route"]) ? $_REQUEST["route"] : "";
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route) {
+
     case "dashboard":
         include "view/adminDash/dashboard.php";
         break;
@@ -24,22 +26,32 @@ switch ($route) {
             Scooter::get();
         }
         break;
+//<<<<<<< HEAD
+    case "usermane":
+        include "controllers\user.php";
+//=======
     case "usermana":
         include "controllers/user.php";
+//>>>>>>> pre-prod
         if ($method === "GET") {
             User::get();
         }
         break;
+
     case "sign-in" :
-        echo $method;
+        echo "cc";
+
         if ($method === "GET") {
-            echo "cc";
             $title = "Connexion";
-            header('Location:  "adminTemplate/pages/sign-in.php"');
+            header('Location:  adminTemplate/pages/sign-in.php');
         }
         if ($method === "POST") {
-            if (count($_POST) == 3 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
-                User::connexion();
+            include "controllers\Login.php";
+            echo "cc";
+            if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
+                echo "cc";
+
+                $result = Login::connexion();
             }
         }
         break;
@@ -47,60 +59,43 @@ switch ($route) {
         case "sign-up":
             if ($method === "GET") {
                 $title ='Inscription';
-                header('Location:adminTemplate/pages/sign-up.php');
+                include "view/adminDash/sign-up.php";
+                echo "HEADER";
 
             }
             if ($method === "POST") {
-                if (
-                    !isset($_POST["firstname"]) ||
-                    !isset($_POST["lastname"]) ||
-                    empty($_POST["email"]) ||
-                    empty($_POST["phone"]) ||
-                    empty($_POST["password"]) ||
-                    empty($_POST["passwordConfirm"]) ||
-                    empty($_POST["cgu"]) ||
-                    count($_POST) != 7
-                ) {
-
-                    die("Tentative de Hack ...");
-
-                } else {
-
-                    //récupérer les données du formulaire
-                    $email = $_POST["email"];
-                    $firstname = $_POST["firstname"];
-                    $lastname = $_POST["lastname"];
-                    $pwd = $_POST["password"];
-                    $pwdConfirm = $_POST["passwordConfirm"];
-                    $cgu = $_POST["cgu"];
-                    $phone = $_POST["phone"];
-                    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
+                echo "cc";
+                var_dump($_SESSION);
+                include "controllers/user.php";
             }
             break;
-            }
-    case "tables":
+    case "dash":
+        include "view/adminDash/dash.php";
+
+        break;
+
+    case "login":
+        if ($method === "get"){
+            include "controllers/Login.php";
+            Login::logout();
+        }
+
+        if ($method ==="post"){
+            include "controllers/Login.php";
+            Login::connexion();
+        }
+        break;
+
+    case "profile":
+        if ($method === "get"){
+            include "view/adminDash/profile.php";
+        }
+        break;
 
 }
 
 
     
-/**switch($route): 
-    case 'users':
-        echo "cc  je rentre";
-        include "./controllers/user.php";
-    
-        if ($method === "GET") {
-            user::get();
-            
-        }
-        
-    break;
-
-    default: 
-     include __DIR__ . "\PA\controllers\user.php";
-    break;
-endswitch;
-*/
 
 // Modifier les chemins d'inclusions pour utiliser un chemin correct avec __DIR__
 
