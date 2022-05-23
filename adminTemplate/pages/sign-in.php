@@ -18,25 +18,6 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="../../view/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
 </head>
-<?php if(isset($_SESSION["result"])  ){?>
-    <div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>
-        <?php
-    foreach ($_SESSION["result"] as $error) {
-        echo "<li>" . $error;
-    }
-    unset($_SESSION["result"]); ?>
-<?php } ?>
-
-
-<?php if(isset($_SESSION["errors"])  ){
-    ?>
-    <div style="background-color:#ad5555; color: white; padding: 10px; margin: 10px; ">Identifiants incorrects</div>
-        <?php
-    foreach ($_SESSION["errors"] as $error) {
-        echo "<li>" . $error;
-    }
-    unset($_SESSION["result"]); ?>
-<?php } ?>
 <body class="">
   <div class="container position-sticky z-index-sticky top-0">
     <div class="row">

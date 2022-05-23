@@ -139,16 +139,7 @@ video {
   vertical-align: middle;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  color: var(--heading-color);
-  margin: 0px;
-}
+
 
 h1 {
   font-size: 48px;
@@ -2880,3 +2871,13 @@ font-size: 50px;
   }
 }
 /*# sourceMappingURL=ud-styles.css.map */
+
+
+
+
+
+
+
+
+/* ==================================== COMMENT çA MARCHE ========================================*/
+

@@ -1,5 +1,6 @@
 <?php
 include __DIR__ . "/../models/userModel.php";
+    echo "SUBJECT et id errors vide";
 echo "cc";
 if (isset($_POST["subject"],$_POST["id"])) {
     $id_user = $_POST["id"];
@@ -146,7 +147,7 @@ class User
                         header("Location: sign-up");
                     } else {
                         $token = bin2hex(random_bytes(16));
-                        UserModel::updateOneById($result["idUser"], ["token" => $token]);
+                        $result=UserModel::updateOneById($result["idUser"], ["token" => $token]);
                         $user = UserModel::getOneByToken($token);
                         $_SESSION["info"] = $user;
                         header("Location:dash");

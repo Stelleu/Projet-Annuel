@@ -9,16 +9,16 @@ include ("include/menu.php");
       <div class="col-lg-12">
         <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
           <h1 class="ud-hero-title">
-            EASYSCOOTER
+            Louez une trotinette Easyscooter ! 
           </h1>
           <p class="ud-hero-desc">
-            Des scooters 100% électriques, en libre-service, disponibles sur l’appli Easyscooter.
+            APP WEBGL
           </p>
         <ul class="ud-hero-buttons">
             <li>
-              <a href="#" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+              <!-- <a href="#" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
                 Découvrez notre produit
-              </a>
+              </a> -->
             </li>
         </div>
     </div>
@@ -26,111 +26,8 @@ include ("include/menu.php");
 </section>
 <!-- ====== Hero End ====== -->
 
-<!-- ====== Features Start ====== -->
-<section id="features" class="ud-features">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="ud-section-title">
-         
-          <h2>Advantages d'utiliser Easyscooter</h2>
-          <!--<p>
-            ?????
-          </p>-->
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xl-3">
-        <div class="ud-single-feature wow fadeInUp" data-wow-delay=".1s">
-          <div class="ud-feature-icon">
-            <i class="lni lni-gift"></i>
-          </div>
-          <div class="ud-feature-content">
-            <h3 class="ud-feature-title">Écologique</h3>
-            <p class="ud-feature-desc">
-              
-            </p>
-            <a href="javascript:void(0)" class="ud-feature-link">
-         
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3">
-        <div class="ud-single-feature wow fadeInUp" data-wow-delay=".15s">
-          <div class="ud-feature-icon">
-            <i class="lni lni-move"></i>
-          </div>
-          <div class="ud-feature-content">
-            <h3 class="ud-feature-title">Rapide</h3>
-            <p class="ud-feature-desc">
-              
-            </p>
-            <a href="javascript:void(0)" class="ud-feature-link">
-             
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3">
-        <div class="ud-single-feature wow fadeInUp" data-wow-delay=".2s">
-          <div class="ud-feature-icon">
-            <i class="lni lni-layout"></i>
-          </div>
-          <div class="ud-feature-content">
-            <h3 id="titlethree1" class="ud-feature-title">Économique</h3>
-            <p class="ud-feature-desc">
-              
-            </p>
-            <a href="javascript:void(0)" class="ud-feature-link">
-              
-            </a>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</section>
-<!-- ====== Features End ====== -->
 
-<!-- ====== About Start ====== -->
-<!--- <section>
-  <div class="container-fluid bg-black">
-    <div class="row align-items-center">
-      <div class="col text-center">
-        <figure class="figure my-5">
-          <img src="..." class="figure-img img-fluid rounded-circle" alt="...">
-          <figcaption class="text-white my-2"> <h4>Écologique</h4></figcaption>
-         
-        </figure>
-      
-        
-       
-      </div>
-      
-      <div class="col text-center">
-        <figure class="figure my-5">
-          <img src="..." class="figure-img img-fluid rounded-circle" alt="...">
-          <figcaption class="text-white my-2"> <h4>Rapide</h4></figcaption>
-         
-        </figure>
-      </div>
-      
-      <div class="col text-center">
-        <figure class="figure my-5">
-          <img src="..." class="figure-img img-fluid rounded-circle " alt="...">
-          <figcaption class="text-white my-2"><h4>Économique</h4></figcaption>
-        </figure>
-        
-      </div>
-  
-    </div>
-  
-  </div>
-</section>-->
-  <!-- ETAPES WEBGL-->
+<!-- ====== etapes ====== -->
 <section>
   <div class="containerfonction">
     <div class="text-center"> 
@@ -184,7 +81,7 @@ include ("include/menu.php");
           </ul>
       </div>
       <div class="col">
-        <div>
+        <div><h3>(video demostration de l'app)</h3>
          <!-- <img src="assets/images/about/videowgl.mp4" alt="appwebgl" />--->
           <video controls width="550" height="600">
 
@@ -200,38 +97,13 @@ include ("include/menu.php");
   </div>
   
 </section>
-<!-- ====== WEBGL ====== -->
 
-<!--- <section id="about" class="ud-about">
-  <div class="container">
-    <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
-      <div class="ud-about-content-wrapper">
-        <div class="ud-about-content">
-          <span class="tag">About Us</span>
-          <h2>Brilliant Toolkit to Build Nextgen Website Faster.</h2>
-          <p>
-            The main ‘thrust’ is to focus on educating attendees on how to
-            best protect highly vulnerable business applications with
-            interactive panel discussions and roundtables led by subject
-            matter experts.
-          </p>
+<!-- ====== etapes  END ====== -->
 
-          <p>
-            The main ‘thrust’ is to focus on educating attendees on how to
-            best protect highly vulnerable business applications with
-            interactive panel.
-          </p>
-          <a href="javascript:void(0)" class="ud-main-btn">Learn More</a>
-        </div>
-      </div>
-      <div class="ud-about-image">
-        <img src="assets/images/about/about-image.svg" alt="about-image" />
-      </div>
-    </div>
-  </div>
-</section>--->
-<!-- ====== About End ====== -->
 
+
+
+<!-- ====== Les règles à respecter ====== -->
 <section id="features" class="ud-features">
   <div class="container">
     <div class="row">
@@ -306,6 +178,75 @@ include ("include/menu.php");
   </div>
 </section>
 
+<!-- ====== Les règles à respecter END ====== -->
+
+
+<!--- <section>
+  <div class="container-fluid bg-black">
+    <div class="row align-items-center">
+      <div class="col text-center">
+        <figure class="figure my-5">
+          <img src="..." class="figure-img img-fluid rounded-circle" alt="...">
+          <figcaption class="text-white my-2"> <h4>Écologique</h4></figcaption>
+         
+        </figure>
+      
+        
+       
+      </div>
+      
+      <div class="col text-center">
+        <figure class="figure my-5">
+          <img src="..." class="figure-img img-fluid rounded-circle" alt="...">
+          <figcaption class="text-white my-2"> <h4>Rapide</h4></figcaption>
+         
+        </figure>
+      </div>
+      
+      <div class="col text-center">
+        <figure class="figure my-5">
+          <img src="..." class="figure-img img-fluid rounded-circle " alt="...">
+          <figcaption class="text-white my-2"><h4>Économique</h4></figcaption>
+        </figure>
+        
+      </div>
+  
+    </div>
+  
+  </div>
+</section>-->
+  <!-- ETAPES WEBGL-->
+
+<!-- ====== WEBGL ====== -->
+
+<!--- <section id="about" class="ud-about">
+  <div class="container">
+    <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
+      <div class="ud-about-content-wrapper">
+        <div class="ud-about-content">
+          <span class="tag">About Us</span>
+          <h2>Brilliant Toolkit to Build Nextgen Website Faster.</h2>
+          <p>
+            The main ‘thrust’ is to focus on educating attendees on how to
+            best protect highly vulnerable business applications with
+            interactive panel discussions and roundtables led by subject
+            matter experts.
+          </p>
+
+          <p>
+            The main ‘thrust’ is to focus on educating attendees on how to
+            best protect highly vulnerable business applications with
+            interactive panel.
+          </p>
+          <a href="javascript:void(0)" class="ud-main-btn">Learn More</a>
+        </div>
+      </div>
+      <div class="ud-about-image">
+        <img src="assets/images/about/about-image.svg" alt="about-image" />
+      </div>
+    </div>
+  </div>
+</section>--->
 
 
 <!-- ====== Pricing Start ====== -->
