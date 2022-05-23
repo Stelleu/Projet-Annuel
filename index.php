@@ -68,20 +68,23 @@ switch ($route) {
         break;
 
     case "login":
-        if ($method === "get"){
+        if ($method === "GET"){
             include "controllers/Login.php";
             Login::logout();
         }
 
-        if ($method ==="post"){
+        if ($method ==="POST"){
             include "controllers/Login.php";
-            Login::connexion();
+            echo "cc";
         }
         break;
 
     case "profile":
-        if ($method === "get"){
+        if ($method === "GET"){
             include "view/adminDash/profile.php";
+        }
+        if ($method === "POST"){
+
         }
         break;
 

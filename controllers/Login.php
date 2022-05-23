@@ -2,6 +2,8 @@
 include __DIR__."/../models/userModel.php";
 
 if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
+    var_dump($_POST);
+
     $result = Login::connexion();
 }else{
     $errors[]= "Veuillez remplir le formulaire.";
@@ -56,7 +58,8 @@ class Login
                     print_r($_SESSION["info"]);
 
                 } else {
-                    $errors[] = "Identifiants incorrects.";
+
+                    $errors[] = "mdp incorrects.";
                     $_SESSION["errors"]= $errors;
                     header("Location: sign-in");
                 }
@@ -66,6 +69,7 @@ class Login
             }
     }
     public static function logout(){
+        echo "cc";
         UserModel::logout();
         header("Location: sign-in");
 
