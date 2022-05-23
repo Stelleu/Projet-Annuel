@@ -70,6 +70,8 @@ class Login
     }
     public static function logout(){
         UserModel::logout();
+        header("Location: sign-in");
+
     }
 
 }
