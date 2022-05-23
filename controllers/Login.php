@@ -2,8 +2,6 @@
 include __DIR__."/../models/userModel.php";
 
 if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
-    var_dump($_POST);
-
     $result = Login::connexion();
 }else{
     $errors[]= "Veuillez remplir le formulaire.";
@@ -16,7 +14,6 @@ class Login
     public static function connexion()
     {
         try {
-            echo "cc";
             //password_verify
             $email = $_POST["email"];
             $pwd = $_POST["pwd"];
@@ -55,7 +52,9 @@ class Login
                 if (password_verify($pwd, $result["passwd"])) {
                     $token = bin2hex(random_bytes(16));
                     $_SESSION["info"] = UserModel::updateOneById($result["idUser"],["token"=> $token]);
-                    print_r($_SESSION["info"]);
+                    $user = UserModel::getOneByToken($token);
+                    $_SESSION["info"]= $user;
+                    header("Location: dashboard");
 
                 } else {
 
@@ -69,7 +68,6 @@ class Login
             }
     }
     public static function logout(){
-        echo "cc";
         UserModel::logout();
         header("Location: sign-in");
 

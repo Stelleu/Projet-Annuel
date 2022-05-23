@@ -1,6 +1,4 @@
-<?php include __DIR__ . "\..\..\..\controllers\Token.php";
-
-var_dump($_SESSION);?>
+<?php include __DIR__ . "\..\..\..\controllers\Token.php"; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

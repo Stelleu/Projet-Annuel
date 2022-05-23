@@ -79,7 +79,7 @@
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="../sign-in" target="_blank" >
+                    <form method="POST" action="../sign-in"  >
                         <?php if(isset($_SESSION["errors"])){?>
                             <div class=" p-3 mb-2 bg-danger text-white d-flex align-items-center mt-3" role="alert">
                                 <div>
@@ -106,7 +106,7 @@
 <!--                      <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>-->
 <!--                    </div>-->
                     <div class="text-center">
-                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0"   >Connexion</button>
+                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Connexion</button>
                     </div>
                   </form>
                 </div>

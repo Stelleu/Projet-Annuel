@@ -53,12 +53,8 @@ switch ($route) {
             if ($method === "GET") {
                 $title ='Inscription';
                 include "view/adminDash/sign-up.php";
-                echo "HEADER";
-
             }
             if ($method === "POST") {
-                echo "cc";
-                var_dump($_SESSION);
                 include "controllers/user.php";
             }
             break;
@@ -75,7 +71,6 @@ switch ($route) {
 
         if ($method ==="POST"){
             include "controllers/Login.php";
-            echo "cc";
         }
         break;
 
