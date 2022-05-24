@@ -32,7 +32,7 @@ include ("include/menu.php");
                                             <div class="kmparcourus">
                                                 <div class="km">
                                                 <p>%NUMERO%</p>
-                                                <p>Kilometres</p>
+                                                <p>KILOMETRES</p>
                                                 </div>
                                             </div>
 
