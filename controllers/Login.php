@@ -1,7 +1,14 @@
 <?php
 include __DIR__."/../models/userModel.php";
 
+if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
+    $result = Login::connexion();
+}else{
+    $errors[]= "Veuillez remplir le formulaire.";
+    $_SESSION["errors"]= $errors;
+    header("Location: sign-in");
 
+}
 class Login
 {
     public static function connexion()
@@ -37,33 +44,25 @@ class Login
             }*/
             $result = UserModel::findByEmail($email);
             if(empty($result)){
-                $errors = "Identifiants incorrects";
+                $errors[] = "Identifiants incorrects.";
+                $_SESSION["errors"]= $errors;
+                header("Location: sign-in");
+
             }else {
                 if (password_verify($pwd, $result["passwd"])) {
                     $token = bin2hex(random_bytes(16));
-                    $_SESSION["token"] = UserModel::updateOneById($result["idUser"],["token"=> $token]);
-                    $_SESSION["idUser"]=$result["id"];
-                    $_SESSION["email"]=$result["email"];
-                } else {
-                    echo 'Le mot de passe est invalide.';
-                }
+                    $_SESSION["info"] = UserModel::updateOneById($result["idUser"],["token"=> $token]);
+                    $user = UserModel::getOneByToken($token);
+                    $_SESSION["info"]= $user;
+                    header("Location: dashboard");
 
+                } else {
+
+                    $errors[] = "mdp incorrects.";
+                    $_SESSION["errors"]= $errors;
+                    header("Location: sign-in");
+                }
             }
-            //            if (!$result || $result["status_user"] != "Admin") {
-//                echo "probleme";
-//                $_SESSION["result"] = $result;
-////                header("Location: ../adminTemplate/pages/sign-in.php");
-//            } else {
-//
-//                if (password_verify($pwd, $result["passwd"])) {
-//                    echo "31";
-//                    $token = bin2hex(random_bytes(16));
-//                    UserModel::updateOneById($result["idUser"], ["token" => $token]);
-//                    $_SESSION["info"] = UserModel::getOneByToken($token);
-//                    echo "1";
-////                header("Location: ../view/adminDash/dash.php");
-//                }
-//            }
         }catch (PDOException $e){
                 $e->getMessage();
             }

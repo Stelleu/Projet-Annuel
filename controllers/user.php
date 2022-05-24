@@ -147,10 +147,10 @@ class User
                         header("Location: sign-up");
                     } else {
                         $token = bin2hex(random_bytes(16));
-                        $result=UserModel::updateOneById($result["idUser"], ["token" => $token]);
+                        $result =UserModel::updateOneById($result["idUser"], ["token" => $token]);
                         $user = UserModel::getOneByToken($token);
                         $_SESSION["info"] = $user;
-                        header("Location:dash");
+                        header("Location: dashboard");
                     }
                 }
             }else{

@@ -39,20 +39,13 @@ switch ($route) {
         break;
 
     case "sign-in" :
-        echo "cc";
 
         if ($method === "GET") {
             $title = "Connexion";
-            header('Location:  adminTemplate/pages/sign-in.php');
+            include "view/adminDash/sign-in.php";
         }
         if ($method === "POST") {
             include "controllers\Login.php";
-            echo "cc";
-            if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
-                echo "cc";
-
-                $result = Login::connexion();
-            }
         }
         break;
 
@@ -60,12 +53,8 @@ switch ($route) {
             if ($method === "GET") {
                 $title ='Inscription';
                 include "view/adminDash/sign-up.php";
-                echo "HEADER";
-
             }
             if ($method === "POST") {
-                echo "cc";
-                var_dump($_SESSION);
                 include "controllers/user.php";
             }
             break;
@@ -75,20 +64,22 @@ switch ($route) {
         break;
 
     case "login":
-        if ($method === "get"){
+        if ($method === "GET"){
             include "controllers/Login.php";
             Login::logout();
         }
 
-        if ($method ==="post"){
+        if ($method ==="POST"){
             include "controllers/Login.php";
-            Login::connexion();
         }
         break;
 
     case "profile":
-        if ($method === "get"){
+        if ($method === "GET"){
             include "view/adminDash/profile.php";
+        }
+        if ($method === "POST"){
+
         }
         break;
 

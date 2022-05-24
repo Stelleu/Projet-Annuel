@@ -64,13 +64,15 @@ class UserModel
     }
 
     public static function logout(){
+        echo "cc";
     session_start();
-	session_destroy();
+    unset($_SESSION["info"]);
+    session_destroy();
+
     }
 
 
     public static function  updateOneById($id, $user){
-        echo "im here";
        $set = [];
        $allowedKeys = ["firstname","lastname","phone","email","passwd","status_user","address","points","wallet","birthdate","zipcode","state","check","token"];
        foreach ($user as $key => $value){
@@ -82,6 +84,6 @@ class UserModel
        $set = implode(",",$set);
         $databaseConnection = DatabaseSettings::getConnection();
         $updateUsersQuery = $databaseConnection->prepare("UPDATE users SET $set WHERE idUser =:id");
-        $updateUsersQuery->execute(array_merge(["id" => $id], $user));
+        return $updateUsersQuery->execute(array_merge(["id" => $id], $user));
     }
 }
