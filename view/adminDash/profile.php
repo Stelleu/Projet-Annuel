@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Soft UI Dashboard by Creative Tim
+   EASY SCOOTERS
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -53,7 +53,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="../../adminTemplate/pages/tables.html">
+          <a class="nav-link  " href="tables.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>office</title>
@@ -354,12 +354,8 @@
           </div>
           <div class="col-auto my-auto">
             <div class="h-100">
-              <h5 class="mb-1">
-                Alec Thompson
-              </h5>
-              <p class="mb-0 font-weight-bold text-sm">
-                CEO / Co-Founder
-              </p>
+              <h5 class="mb-1"><?php $_SESSION["info"]["firstname"].$_SESSION["info"]["lastname"]?></h5>
+              <p class="mb-0 font-weight-bold text-sm"><?php $_SESSION["info"]["status_user"] ?></p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
@@ -705,7 +701,7 @@
 <!--          </div>-->
 <!--        </div>-->
 <!--      </div>-->
-      <footer class="footer pt-3  ">
+          <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
@@ -714,8 +710,7 @@
                   document.write(new Date().getFullYear())
                 </script>,
                 made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
+                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">ESGI Students</a>
               </div>
             </div>
             <div class="col-lg-6">

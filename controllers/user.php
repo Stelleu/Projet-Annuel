@@ -58,7 +58,8 @@ class User
     public static function get()
     {
         $users = UserModel::getAll();
-        include 'view/userlist.php';
+        echo "cc";
+        include __DIR__ . '/../view/adminDash/tables.php';
     }
 
     public static function status(int $id, int $recupdonnee)

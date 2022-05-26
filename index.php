@@ -16,27 +16,36 @@ $route = isset($_REQUEST["route"]) ? $_REQUEST["route"] : "";
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route) {
-
     case "dashboard":
         include "view/adminDash/dashboard.php";
         break;
+
     case "scootermana":
+        echo "cc";
         include "controllers/scooter.php";
         if ($method === "GET") {
             Scooter::get();
         }
         break;
 //<<<<<<< HEAD
-    case "usermane":
-        include "controllers\user.php";
+
+
+//    case "usermane":
+//        include "controllers\user.php";
+//        break;
 //=======
-    case "usermana":
+
+    case "tables":
+        echo $method;
+        echo "cc";
         include "controllers/user.php";
-//>>>>>>> pre-prod
         if ($method === "GET") {
+            $title= "Utilisateurs";
+            echo "je rentre ici";
             User::get();
         }
         break;
+
 
     case "sign-in" :
 
@@ -58,6 +67,7 @@ switch ($route) {
                 include "controllers/user.php";
             }
             break;
+
     case "dash":
         include "view/adminDash/dash.php";
 
@@ -77,9 +87,6 @@ switch ($route) {
     case "profile":
         if ($method === "GET"){
             include "view/adminDash/profile.php";
-        }
-        if ($method === "POST"){
-
         }
         break;
 
