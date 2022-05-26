@@ -68,6 +68,8 @@ body {
   margin-bottom: 20px;
 }
 
+
+
 @media only screen and (min-width: 150px) and (max-width: 1199px) {
 
   #stationimg{
@@ -263,6 +265,7 @@ p {
   z-index: 99;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
+  position: relative;
 }
 
 .sticky {
@@ -939,6 +942,41 @@ margin-right: auto;
 }
 
 /* ===== ETAPES WEBGL CSS ===== */
+/*
+.martinprofil {
+  margin: 0;
+}
+#wrapper {
+  display: flex;
+}
+
+.left {
+  background: black;
+  width: 25%;
+  height: 790px;
+  padding: 50px;
+}
+
+.right {
+  width: 75%;
+  padding: 50px;
+}
+
+
+@media screen and (min-width: 640px) {
+  .wrapper {
+    display: block;
+  }
+  .left {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .right {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}*/
 .containerfonction {
   background: rgb(255, 255, 255);
   height:750px;
@@ -996,7 +1034,7 @@ margin-right: auto;
 
 
 .ud-about {
-  background: #ffffff;
+  background: #8a1111;
   padding: 120px 0;
   height: 700px;
 }
@@ -2880,4 +2918,173 @@ font-size: 50px;
 
 
 /* ==================================== COMMENT çA MARCHE ========================================*/
+
+
+  /* ============================================= PROFIL ===================================== */
+
+.martinprofil {
+  margin: 0;
+}
+#wrapper {
+  display: flex;
+}
+
+.left {
+  background: black;
+  width: 20%;
+  height: 1150px;
+  padding: 50px;
+}
+
+.right {
+  width: 80%;
+  padding: 50px;
+}
+
+/* CONTENU DU PROFIL*/
+
+.titleprofile {
+height: 120px;
+width: 200px;
+left: 361px;
+top: 61px;
+font-size: 55px;
+font-weight: 600;
+line-height: 120px;
+letter-spacing: 0em;
+text-align: left;
+color: black;
+}
+
+@media screen and (min-width: 640px) {
+  .wrapper {
+    display: block;
+  }
+  .left {
+    width: 20%;
+    
+    
+  }
+
+  .right {
+    width: 80%;
+  
+  }
+}
+
+#profilimg {
+  border-radius: 2000px;
+  margin-left: -30px;
+  margin-bottom: 20px;
+}
+
+.descriptionprofile {
+  display: flex;
+}
+
+#prenomprofile {
+  margin-left: 30px ;
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 35px;
+  color: black;
+}
+
+#mailprofile {
+  margin-left: 30px ;
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 35px;
+  color: black;
+}
+.contenudescriptions {
+  margin-top :65px;
+}
+
+.infoprofil {
+  margin-top: -35px;
+  margin-left:160px;
+  display: flex;
+}
+
+.kmparcourus {
+  
+  width: 300px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 4px 7px #0000001a;
+    border: 2px solid #FF865A;
+    border-radius: 10px;
+    opacity: 1;
+    padding:10px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.kmparcourus p{
+  margin-left: 40px;
+  margin-right: 40px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0em;
+  color: black;
+  
+}
+
+@media screen and (min-width: 640px) {
+  .kmparcourus {
+    display: inline-block;
+  }
+
+}
+
+.titleachats {
+  height: 120px;
+  width: 400px;
+  left: 361px;
+  top: 61px;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 120px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+  margin-top: 40px;
+  }
+
+  .carreprofile {
+    width: 350px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 4px 7px #0000001a;
+    border: 2px solid #FF865A;
+    border-radius: 10px;
+    opacity: 1;
+    padding:10px;
+    display: inline-block;
+    margin-left: 20px;
+    
+  }
+  .buttonprofile {
+    margin-top:15px;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    color: var(--white);
+    cursor: pointer;
+    z-index: 5;
+    -webkit-transition: all 0.4s ease-out 0s;
+    transition: all 0.4s ease-out 0s;
+    background: #FF5011;
+  }
+/* ============================================= PROFIL END ===================================== */
 
