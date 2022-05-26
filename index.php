@@ -36,12 +36,9 @@ switch ($route) {
 //=======
 
     case "tables":
-        echo $method;
-        echo "cc";
         include "controllers/user.php";
         if ($method === "GET") {
             $title= "Utilisateurs";
-            echo "je rentre ici";
             User::get();
         }
         break;

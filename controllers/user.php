@@ -1,7 +1,5 @@
 <?php
 include __DIR__ . "/../models/userModel.php";
-    echo "SUBJECT et id errors vide";
-echo "cc";
 if (isset($_POST["subject"],$_POST["id"])) {
     $id_user = $_POST["id"];
     $recupdonnee = $_POST["subject"];
@@ -29,23 +27,22 @@ if (
     echo "pwd".$pwd;
     User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
 }
-if (
-    !isset($_POST["firstname"]) ||
-    !isset($_POST["lastname"]) ||
-    empty($_POST["email"]) ||
-    empty($_POST["phone"]) ||
-    empty($_POST["password"]) ||
-    empty($_POST["passwordConfirm"]) ||
-    empty($_POST["cgu"]) ||
-    count($_POST) != 7
-) {
-    echo " vide";
-    $errors = [];
-    $errors="Veuillez remplir le formulaire";
-    $_SESSION["errors"]=$errors;
-    header("Location: sign-up");
-
-}
+//if (
+//    !isset($_POST["firstname"]) ||
+//    !isset($_POST["lastname"]) ||
+//    empty($_POST["email"]) ||
+//    empty($_POST["phone"]) ||
+//    empty($_POST["password"]) ||
+//    empty($_POST["passwordConfirm"]) ||
+//    empty($_POST["cgu"]) ||
+//    count($_POST) != 7
+//) {
+//    echo " vide";
+//    $errors = [];
+//    $errors="Veuillez remplir le formulaire";
+//    $_SESSION["errors"]=$errors;
+//    header("Location: sign-up");
+//}
 
 
 class User
@@ -54,12 +51,10 @@ class User
      * @example
      * User::get();
      */
-
     public static function get()
     {
         $users = UserModel::getAll();
-        echo "cc";
-        include __DIR__ . '/../view/adminDash/tables.php';
+        include __DIR__ .'/../view/adminDash/tables.php';
     }
 
     public static function status(int $id, int $recupdonnee)
