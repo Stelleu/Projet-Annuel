@@ -29,29 +29,43 @@ include ("include/menu.php");
                                 </div>
 
                                     <div class="infoprofil">
-                                            <div class="kmparcourus">
+                                            <div class="comptewallet">
                                                 <div class="km">
-                                                    <p>%NUMERO%</p>
-                                                    <p>POINTS</p>
+                                                    <p id="number">%NUMERO%</p>
+                                                    <p id="nom">POINTS</p>
                                                 </div>
                                             </div>
 
-                                            <div class="kmparcourus">
-                                                <div class="cours">
-                                                    <p>%NUMERO%</p>
-                                                    <p>COMPTE</p>
-                                                </div>
-                                            </div>
+                                            <div class="foo rectangle"></div>
+                                            <div class="foo triangle-right"></div>
+                                                
+                                                
+                                                
+                                            
 
-                                        <div class="kmparcourus">
+                                        <div class="comptewallet">
                                             <div class="cours">
-                                                <p>%NUMERO%</p>
-                                                <p>COMPTE</p>
+                                                <p id="number">%NUMERO% €</p>
+                                                <p id="nom">COMPTE</p>
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                    <div class="convert">
+                                        <div class="converpoints">
+                                                <div class="convertwallet">
+                                               <p> <button>Convertir mes points en €</button></p>
+                                                </div>
+                                        </div>
+                                        <hr id="hr" size="4px" width="35%"  color="black"/>
+                                        <div class="converpoints">
+                                                <div class="convertwallet">
+                                                <p> <button>Voir mes transactions</button></p>
+                                                </div>
+                                        </div>
+                                    </div>
 
-                                    <div>
+                                    <div class="formepayments">
                                             <div>
                                             <H2 class="methodepaiement">Méthode de paiement</H1>
                                             </div>
@@ -82,6 +96,7 @@ include ("include/menu.php");
                                         <p>10€ de course minimum   </p>
                                         <a class="buttonprofile" href="#">J'en Profite</a>
                                     </div> -->
+                                    
                             
                         </div>
                 </section>
