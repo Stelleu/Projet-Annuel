@@ -2,7 +2,7 @@
 $title= "Utilisateurs";
 include __DIR__ . "/includes/header.php"; ?>
 
-      <div id="allcontent">
+    <div id="allcontent">
           <div class="col-12 px-5">
               <div class="card mb-4 ">
                   <div class="card-header pb-0">
