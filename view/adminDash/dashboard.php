@@ -1,7 +1,6 @@
 <?php
 $title= "Dashboard";
-require_once 'includes/header.php';
-?>
+require_once ('includes\header.php'); ?>
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -250,6 +249,4 @@ require_once 'includes/header.php';
     </footer>
 </div>
 
-<?php
-require_once('includes/footer.php');
-?>
+<?php require_once('includes/footer.php'); ?>

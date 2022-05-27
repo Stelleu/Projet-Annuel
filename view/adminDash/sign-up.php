@@ -69,6 +69,7 @@
                                   <div class=" p-3 mb-2 bg-danger text-white d-flex align-items-center mt-3" role="alert">
                                       <div>
                                           <?php
+                                          var_dump($_SESSION["errors"]);
                                       foreach ($_SESSION["errors"] as $error) {
                                           echo "<li>".$error;
                                       }

@@ -1,7 +1,5 @@
-<?php include __DIR__ . "\..\..\controllers/Token.php";
-var_dump($_POST);
-
-?>
+<?php include __DIR__ . "\..\..\controllers\Token.php";
+var_dump($_POST); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
