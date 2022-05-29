@@ -233,11 +233,11 @@
                     </div>
                 </div>
                 <ul class="navbar-nav  justify-content-end">
-                    <?php if (Token::isConnected()==1) {?>
-                    <li class="nav-item d-flex align-items-center">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard">Se Déconnecter</a>
-                    </li>
-                    <?php }?>
+<!--                    --><?php //if (Token::isConnected()==1) {?>
+<!--                    <li class="nav-item d-flex align-items-center">-->
+<!--                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard">Se Déconnecter</a>-->
+<!--                    </li>-->
+<!--                    --><?php //}?>
                     <li class="nav-item d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                             <i class="fa fa-user me-sm-1"></i>

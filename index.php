@@ -49,6 +49,10 @@ switch ($route) {
 
         break;
 
+        case "newoffer":
+        include "view/adminDash/test.php";
+        break;
+
 
     case "sign-in" :
 

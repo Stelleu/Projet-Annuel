@@ -41,10 +41,8 @@ include __DIR__ . "/includes/header.php";;
                                                     <div class="card card-pricing">
                                                         <div class="card-header bg-gradient-dark text-center pt-4 pb-5 position-relative">
                                                             <div class="z-index-1 position-relative">
-                                                                <h5 class="text-white">Company</h5>
-                                                                <h1 class="text-white mt-2 mb-0">
-                                                                    <small>$</small>779</h1>
-                                                                <h6 class="text-white">per year</h6>
+                                                                <h5 class="text-white" id="nom">Company</h5>
+                                                                <h1 class="text-white mt-2 mb-0" id="output"> 779 </h1>
                                                             </div>
                                                         </div>
                                                         <div class="position-relative mt-n5" style="height: 50px;">
@@ -65,7 +63,7 @@ include __DIR__ . "/includes/header.php";;
                                                             </div>
                                                         </div>
                                                         <div class="card-body text-center">
-                                                            <ul class="list-unstyled max-width-200 mx-auto">
+                                                            <ul class="list-unstyled max-width-200 mx-auto" id="offer">
                                                                 <li>
                                                                     <b>10</b> Projects
                                                                     <hr class="horizontal dark">
@@ -89,11 +87,11 @@ include __DIR__ . "/includes/header.php";;
                                             </div>
                                             <div class="col-12 col-sm-8 mt-4 mt-sm-0 text-start">
                                                 <label>Nom de l'offre</label>
-                                                <input class="multisteps-form__input form-control mb-3"  name="name" type="text" placeholder="Eg. Michael" />
+                                                <input class="multisteps-form__input form-control mb-3"  name="name" id="name" type="text" placeholder="Eg. Michael" />
                                                 <label>Prix</label>
-                                                <input class="multisteps-form__input form-control" type="number" placeholder="-10%" />
+                                                <input class="multisteps-form__input form-control" type="number" id="price" placeholder="-10%" />
                                                 <label>Description</label>
-                                                <textarea class="multisteps-form__input form-control" type="text" placeholder="Description de l'offre"></textarea>
+                                                <textarea class="multisteps-form__input form-control" type="text" id="description" placeholder="Description de l'offre"></textarea>
                                             </div>
                                         </div>
                                         <div class="button-row d-flex mt-4">
@@ -359,9 +357,24 @@ include __DIR__ . "/includes/header.php";;
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
 </script>
-
+<script>
+    $(document).ready(function(){
+        $("#price").on("input", function(){
+            $("#output").text($(this).val());
+        });
+    });
+    $(document).ready(function(){
+        $("#name").on("input", function(){
+            $("#nom").text($(this).val());
+        });
+    });
+    $(document).ready(function(){
+        $("#description").on("input", function(){
+            $("#offer").text($(this).val());
+        });
+    });
+</script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-
 <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.8"></script>
 </body>
 </html>
