@@ -75,27 +75,7 @@ include ("include/menu.php");
                                             </div>
                                     </div>
                                     
-                                    <!-- <div>
-                                        <H2 class="titleachats">MES AVANTAGES</H1>
-                                    </div>
-
-                                    <div class="carreprofile">
-                                        <h5>40% de réduction sur votre prochaine course </h5>
-                                        <p>10€ de course minimum   </p>
-                                        <a class="buttonprofile" href="#">J'en Profite</a>
-                                    </div>
-
-                                    <div class="carreprofile">
-                                        <h5>40% de réduction sur votre prochaine course </h5>
-                                        <p>10€ de course minimum   </p>
-                                        <a class="buttonprofile" href="#">J'en Profite</a>
-                                    </div>
-
-                                    <div class="carreprofile">
-                                        <h5>40% de réduction sur votre prochaine course </h5>
-                                        <p>10€ de course minimum   </p>
-                                        <a class="buttonprofile" href="#">J'en Profite</a>
-                                    </div> -->
+                            
                                     
                             
                         </div>

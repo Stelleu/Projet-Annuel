@@ -1141,7 +1141,7 @@ margin-right: auto;
 
 .col-lg-13 h2 {
   color: rgb(222, 27, 27);
-  min-width: 142%;
+  min-width: 132%;
   float: right;
   position: absolute;
   font-family: 'Lexend Deca';
@@ -1196,8 +1196,7 @@ line-height: 45px;
   text-align: center;
   min-width: 342px;
   float: right;
-  margin-left: auto;
-  margin-right: 110px;
+  margin-left:50%;
   margin-top:520px;
 }
 
