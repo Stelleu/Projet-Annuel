@@ -102,7 +102,7 @@ int main(void)
     char weatherfilename[20] = "weather.json";
 
     double temperature, temperature_min, temperature_max;
-    char weather[50],icon[50],cityName[50];
+    char weather[255],icon[255],cityName[255];
 
     if (curlAPI(weatherfilename) == -1){
         exit(-1);

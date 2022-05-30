@@ -37,10 +37,20 @@ switch ($route) {
 
     case "tables":
         include "controllers/user.php";
+        $title= "Utilisateurs";
+//        include "view/adminDash/tables.php";
         if ($method === "GET") {
-            $title= "Utilisateurs";
             User::get();
         }
+        break;
+
+    case "pricing":
+        include "view/adminDash/pricing.php";
+
+        break;
+
+        case "newoffer":
+        include "view/adminDash/test.php";
         break;
 
 

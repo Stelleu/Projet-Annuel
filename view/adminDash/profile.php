@@ -1,8 +1,4 @@
-
-<?php
-require_once ('includes\header.php');
-?>
-
+<?php include __DIR__ . "includes/header.php"; ?>
 <body class="g-sidenav-show bg-gray-100">
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->

@@ -6,7 +6,7 @@
 #define APPC_STRUCT_H
 
 //#define INSERT_JSON "INSERT INTO cities(temperature,city_name,degree_min,degree_max,weather,icon) VALUES (?,?,?,?,?,?)"
-#define INSERT_JSON "INSERT INTO cities(temperature,degree_min,degree_max,icon) VALUES (?,?,?,?)"
+#define INSERT_JSON "INSERT INTO cities(temperature,city_name,degree_min,degree_max,weather,icon) VALUES (?,?,?,?,?,?)"
 
 #define host "185.166.188.1"
 #define user "u486471496_admeasyscooter"

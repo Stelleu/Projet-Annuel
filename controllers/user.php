@@ -5,27 +5,43 @@ if (isset($_POST["subject"],$_POST["id"])) {
     $recupdonnee = $_POST["subject"];
     User::status($id_user, $recupdonnee);
 }
-if (
-    isset($_POST["firstname"]) ||
-    isset($_POST["lastname"]) ||
-    isset($_POST["email"]) ||
-    isset($_POST["phone"]) ||
-    isset($_POST["password"]) ||
-    isset($_POST["passwordConfirm"]) ||
-    isset($_POST["cgu"]) ||
-    count($_POST) == 7
-) {
-    echo "coucou je rentre";
-    //récupérer les données du formulaire
-    $email = $_POST["email"];
-    $firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
-    $pwd = $_POST["password"];
-    $pwdConfirm = $_POST["passwordConfirm"];
-    $cgu = $_POST["cgu"];
+//if (
+//    isset($_POST["firstname"]) ||
+//    isset($_POST["lastname"]) ||
+//    isset($_POST["email"]) ||
+//    isset($_POST["phone"]) ||
+//    isset($_POST["password"]) ||
+//    isset($_POST["passwordConfirm"]) ||
+//    isset($_POST["cgu"]) ||
+//    count($_POST) == 7
+//) {
+//    echo "coucou je rentre";
+//    //récupérer les données du formulaire
+//    $email = $_POST["email"];
+//    $firstname = $_POST["firstname"];
+//    $lastname = $_POST["lastname"];
+//    $pwd = $_POST["password"];
+//    $pwdConfirm = $_POST["passwordConfirm"];
+//    $cgu = $_POST["cgu"];
+//    $phone = $_POST["phone"];
+//    echo "pwd".$pwd;
+//    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
+//}
+if(isset($_POST["firstname"],$_POST["lastname"],$_POST["email"],$_POST["phone"])&& count($_POST) == 4) {
+
+    $email = strtolower(trim($_POST["email"]));
+    $firstname = ucwords(strtolower(trim($_POST["firstname"])));
+    $lastname = mb_strtoupper(trim($_POST["lastname"]));
     $phone = $_POST["phone"];
-    echo "pwd".$pwd;
-    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
+    $status="Admin";
+    $newUser = User::addUser($firstname, $lastname, $phone,$email,$status);
+
+}
+
+if (isset($_GET["delete"],$_GET["id"])) {
+    $idScooter = $_GET["id"];
+    $action= $_GET["delete"];
+    Scooter::delete($idScooter);
 }
 //if (
 //    !isset($_POST["firstname"]) ||
@@ -78,6 +94,7 @@ class User
             }
         }
     }
+
     public static function create(string $firstname, string $lastname, string $email, string $phone, string $pwd, string $pwdConfirm)
     {
         try {
@@ -160,10 +177,29 @@ class User
             header("Location: sign-up");
         }
     }
-    public static function message(){
 
+    public static function addUser( $firstname,$lastname,$phone,$email,$status){
+//        $firstname,$lastname,$phone,$email
+//        print_r($user);
+        $errors[]=User::formverfication(["firstname" => $firstname,
+            "lastname" => $lastname,
+            "phone" => $phone,
+            "email" => $email,
+            ]);
+        if (count($errors) == 0){
+        $newUser = UserModel::addUser([
+            "firstname" => $firstname,
+            "lastname" => $lastname,
+            "phone" => $phone,
+            "email" => $email,
+            "status_user" => $status,
+        ]);
+        }else{
+            print_r($errors);
+        }
 
     }
+
 
 }
 

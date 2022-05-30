@@ -1,7 +1,7 @@
 // Variable to hold request
 var request;
 // formulaire d'ajout de trottinettes
-$("#formScooter").submit(function(event){
+$("#formUser").submit(function(event){
 
     // Prevent default posting of form - put here to work in case of errors
     event.preventDefault();
@@ -15,6 +15,7 @@ $("#formScooter").submit(function(event){
 
     // Let's select and cache all the fields
     var $inputs = $form.find("input, select, button, textarea");
+    console.log($inputs);
 
     // Serialize the data in the form
     var serializedData = $form.serialize();
@@ -22,23 +23,23 @@ $("#formScooter").submit(function(event){
     $inputs.prop("disabled", true);
 
     request = $.ajax({
-        url: "controllers/scooter.php",
+        url: "controllers/user.php",
         type: "post",
         data: serializedData
     });
 
     // Si la requete s'est bien exec renvoie ce qu'il y a en dessous
     request.done(function (response, textStatus, jqXHR){
-        $number= document.getElementsByName("number")[0].value;
-        $("#msgAddNumber").html($number);
+        $firstname= document.getElementsByName("number")[0].value; //alert d'ajout d'user
+        $("#msgAddNumber").html($firstname);
 
-        document.getElementById("msgDivDelScooter").classList.add("d-none");
-        document.getElementById("msgDivAddScooter").classList.remove("d-none");
+        document.getElementById("msgDivDelUser").classList.add("d-none");
+        document.getElementById("msgDivAddUser").classList.remove("d-none");
 
 
 
         document.getElementsByName("number")[0].value = "";//met la valeur number a 0
-        $("#infoScooter").load(window.location.href + " #infoScooter" ); //sert a refresh la div contenant la liste des utilisateurs
+        $("#infoUser").load(window.location.href + " #infoUser" ); //sert a refresh la div contenant la liste des utilisateurs
         console.log("Ca marche !!");
     });
 
@@ -63,7 +64,7 @@ $("#formScooter").submit(function(event){
 var request2;
 
 // formulaire de suppréssion de trottinettes
-$("#delScooter").submit(function(event){
+$("#delUser").submit(function(event){
 
     // Prevent default posting of form - put here to work in case of errors
     event.preventDefault();
@@ -88,24 +89,21 @@ $("#delScooter").submit(function(event){
 
     // Fire off the request to /form.php
     request2 = $.ajax({
-        url: "controllers/scooter.php",
+        url: "controllers/user.php",
         type: "get",
         data: serializedData
     });
-
     // Si la requete s'est bien exec renvoie ce qu'il y a en dessous
     request2.done(function (response, textStatus, jqXHR){
-        $number= document.getElementsByName("delNumber")[0].value;
-        console.log($number);
-        $("#msgDelNumber").html($number);
+        $firstname= document.getElementsByName("delNumber")[0].value;
+        console.log($firstname);
+        $("#msgDelNumber").html($firstname);
+        document.getElementById("msgDivDelUser").classList.remove("d-none");
+        document.getElementById("msgDivAddUser").classList.add("d-none");
 
-        document.getElementById("msgDivDelScooter").classList.remove("d-none");
-        document.getElementById("msgDivAddScooter").classList.add("d-none");
-
-        $("#infoScooter").load(window.location.href + " #infoScooter" ); //sert a refresh la div contenant la liste des utilisateurs
+        $("#infoUser").load(window.location.href + " #infoUser" ); //sert a refresh la div contenant la liste des utilisateurs
         console.log("Suppression executé");
     });
-
     // Si la requete à une erreur
     request2.fail(function (jqXHR, textStatus, errorThrown){
         // Affiche l'erreur dans la console
@@ -114,7 +112,6 @@ $("#delScooter").submit(function(event){
             textStatus, errorThrown
         );
     });
-
     // Callback handler that will be called regardless
     // if the request failed or succeeded
     request2.always(function () {
