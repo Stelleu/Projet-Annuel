@@ -53,7 +53,7 @@ include ("include/menu.php");
 
                                     <div>
                                             <div>
-                                            <H2 class="titleachats">MES ACHATS</H1>
+                                            <H2 class="titleachats" href="">MES ACHATS</H1>
                                             </div>
                                             <div>
                                             (achats)

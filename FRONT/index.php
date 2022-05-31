@@ -250,7 +250,7 @@ include ("include/menu.php");
         <div class="ud-single-feature wow fadeInUp" data-wow-delay=".1s">
           <div class="stylecontour">
             
-              <img id="casqueimg" src="assets/images/caquemoto2.png" alt="about-image" width="10" height="10">
+              <img id="casqueimg" src="assets/images/caquemoto2.png" alt="about-image" >
             
           </div>
           <div class="ud-feature-content">
