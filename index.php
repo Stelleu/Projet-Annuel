@@ -51,6 +51,12 @@ switch ($route) {
 
         case "newoffer":
         include "view/adminDash/test.php";
+            if ($method === "GET") {
+                $title = "Nouvelle Offre";
+            }
+            if ($method === "POST") {
+                include "controllers\Forfait.php";
+            }
         break;
 
 

@@ -26,7 +26,7 @@ include __DIR__ . "/includes/header.php";;
 
                 <div class="row">
                     <div class="col-12 col-lg-8 m-auto">
-                        <form class="multisteps-form__form">
+                        <form class="multisteps-form__form"  action="../../newoffer">
                             <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
                                 <div class="row text-center">
                                     <div class="col-10 mx-auto">
