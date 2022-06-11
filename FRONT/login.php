@@ -1,10 +1,15 @@
 <?php
+include("fb.php");
 include("include/app.php");
 include ("include/menulogin.php");
 ?>
 
 <!-- ====== Hero Start ====== -->
 <section class="block1contact" id="home">
+<div>
+    <a href="login.php?lang=fr">fr</a>
+    <a href="login.php?lang=en">en</a>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -67,7 +72,7 @@ include ("include/menulogin.php");
                 Mot de passe oublié ? 
               </a>
               <p class="signup-option">
-                Pas encore membre? <a href="/FRONT/singup.html"> S'inscrire </a>
+                Pas encore membre? <a href="\Projet-Annuel\FRONT\singup.php"> S'inscrire </a>
               </p>
             </div>
           </div>

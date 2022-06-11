@@ -1,4 +1,5 @@
 <?php
+include("fb.php");
 include("include/app.php");
 include ("include/menusingup.php");
 ?> 
@@ -16,17 +17,6 @@ include ("include/menusingup.php");
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
-        <!-- Primary Meta Tags -->
-    <meta name="title" content="Play - Free Open Source HTML Bootstrap Template by UIdeck">
-    <meta name="description" content="Play - Free Open Source HTML Bootstrap Template by UIdeck Team">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://uideck.com/play/">
-    <meta property="og:title" content="Play - Free Open Source HTML Bootstrap Template by UIdeck">
-    <meta property="og:description" content="Play - Free Open Source HTML Bootstrap Template by UIdeck Team">
-    <meta property="og:image" content="https://uideck.com/wp-content/uploads/2021/09/play-meta-bs.jpg">
     
         <!--====== Favicon Icon ======-->
         <link
@@ -77,7 +67,7 @@ include ("include/menusingup.php");
                         </div>
                     </form>
                     <p class="loginhere">
-                      Vous avez déjà un compte ? <a href="/FRONT/login.html" class="loginhere-link">Connectez-vous ici</a>
+                      Vous avez déjà un compte ? <a href="/Projet-Annuel\FRONT\login.php" class="loginhere-link">Connectez-vous ici</a>
                     </p>
                 </div>
             </div>

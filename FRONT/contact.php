@@ -1,4 +1,5 @@
 <?php
+include("fb.php");
 include("include/app.php");
 include ("include/menu.php"); 
 ?>
@@ -12,6 +13,10 @@ include ("include/menu.php");
               <h1 class="contacttitle">
                 EASYSCOOTER
               </h1>
+              <div>
+    <a href="contact.php?lang=fr">fr</a>
+    <a href="contact.php?lang=en">en</a>
+  </div>
               
             </div>
 

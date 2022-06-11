@@ -1,9 +1,14 @@
 <?php
+include("fb.php");
 include("include/app.php");
 include ("include/menu.php"); 
 ?>
 <!-- ====== Hero Start ====== -->
 <section class="ud-hero" id="home">
+<div>
+    <a href="commentçamarche.php?lang=fr">fr</a>
+    <a href="commentçamarche.php?lang=en">en</a>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
