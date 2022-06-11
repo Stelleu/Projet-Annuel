@@ -1,9 +1,17 @@
 <?php
 
 $lang=array(
+"menu1" => "Comment ça marche?",
+
+"menu2" => "Aide",
+
+"menu3" => "Contact",
+
+"menu4" => "Connexion",
+
+"menu5" => "S'inscrire",
 
 "description" => "Des scooters 100% électriques, en libre-service, disponibles sur l’appli Easyscooter.",
-
 
 "btn" => "Découvrez notre produit",
 

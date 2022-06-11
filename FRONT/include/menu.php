@@ -1,3 +1,4 @@
+
 <!-- ====== Header Start ====== -->
 <header class="ud-header">
       <div class="container">
@@ -16,15 +17,15 @@
               <div class="navbar-collapse">
                 <ul id="nav" class="navbar-nav mx-auto">
                   <li class="nav-item">
-                    <a class="" href="\Projet-Annuel\FRONT\commentçamarche.php">Comment ça marche?</a>
+                    <a class="" href="\Projet-Annuel\FRONT\commentçamarche.php"><?php echo $lang['menu1']; ?><!-- Comment ça marche? ---></a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="" href="">Aide</a>
+                    <a class="" href=""><?php echo $lang['menu2']; ?><!-- Aide ---></a>
                   </li> 
 
                   <li class="nav-item">
-                    <a class="" href="/Projet-Annuel/FRONT/contact.php">Contact</a>
+                    <a class="" href="/Projet-Annuel/FRONT/contact.php"><?php echo $lang['menu3']; ?><!-- Contact ---></a>
                   </li>
 
 
@@ -34,11 +35,11 @@
               </div>
 
               <div class="navbar-btn d-none d-sm-inline-block">
-                <a href="/Projet-Annuel\FRONT\login.php" class="ud-main-btn ud-login-btn">
-                  Connexion
+                <a href="/Projet-Annuel\FRONT\login.php" class="ud-main-btn ud-login-btn"><?php echo $lang['menu4']; ?><!-- Connexion -->
+                  
                 </a>
-                <a class="ud-main-btn ud-white-btn" href="/Projet-Annuel\FRONT\singup.php" >
-                  S'inscrire
+                <a class="ud-main-btn ud-white-btn" href="/Projet-Annuel\FRONT\singup.php" ><?php echo $lang['menu5']; ?><!--  S'inscrire -->
+                 
                 </a>
               </div>
             </nav>

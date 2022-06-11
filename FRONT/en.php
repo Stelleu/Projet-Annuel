@@ -1,20 +1,20 @@
-<!-- ====== MENU ====== -->
-<?php
-
-$lang=array(
-
-    
-
-);
-?>
+<!-- ====== MENU L7 - L15 ====== -->
 <!-- ====== HOMEPAGE ====== -->
+<!-- ====== CONTACT ====== -->
 <?php
 
 $lang=array(
+"menu1" => "How it works?",
 
+"menu2" => "Help",
+
+"menu3" => "Contact",
+
+"menu4" => "Login",
+
+"menu5" => "Sign up",
     
 "description" => "100% electric scooters, self-service, available on the Easyscooter app.",
-
 
 "btn" => "Discover our product",
 
