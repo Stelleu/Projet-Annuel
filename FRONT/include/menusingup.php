@@ -16,15 +16,15 @@
                   <div class="navbar-collapse">
                     <ul id="nav" class="navbar-nav mx-auto">
                       <li class="nav-item">
-                      <a class="" href="\Projet-Annuel\FRONT\commentçamarche.php">Comment ça marche?</a>
+                      <a class="" href="\Projet-Annuel\FRONT\commentçamarche.php"><?php echo $lang['menu1']; ?><!-- Comment ça marche? ---></a>
                       </li>
     
                       <li class="nav-item">
-                        <a class="ud-menu-scroll" href="#about">Aide</a>
+                        <a class="ud-menu-scroll" href="#about"><?php echo $lang['menu2']; ?><!-- Aide ---></a>
                       </li> 
     
                       <li class="nav-item">
-                        <a class="ud-menu-scroll" href="/Projet-Annuel/FRONT/contact.php">Contact</a>
+                        <a class="ud-menu-scroll" href="/Projet-Annuel/FRONT/contact.php"><?php echo $lang['menu3']; ?><!-- Contact ---></a>
                       </li>
     
                     
@@ -35,7 +35,7 @@
     
                   
                     <a class="ud-main-btn ud-white-btn ud-main-btn" href="/Projet-Annuel/FRONT/login.php">
-                        Connexion
+                    <?php echo $lang['menu4']; ?><!-- Connexion -->
                     </a>
                   </div>
                 </nav>

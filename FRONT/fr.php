@@ -1,6 +1,8 @@
 <?php
 
 $lang=array(
+    
+
 "menu1" => "Comment ça marche?",
 
 "menu2" => "Aide",
