@@ -130,9 +130,9 @@ display-flex, .display-flex, .display-flex-center {
     
     .singtitle {
       color: var(--white);
-    font-style: normal;
-    font-weight: 600;
-    font-size: 50px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 50px;
       line-height: 60px;
       text-align: center;
       margin-bottom: 80px;
@@ -198,7 +198,7 @@ display-flex, .display-flex, .display-flex-center {
     -o-background-size: cover;
     -ms-background-size: cover;
     background-position: center center;
-    padding: 115px 0; }
+    background-attachment: fixed; }
   
   .container {
     width: 660px;
