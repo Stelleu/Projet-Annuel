@@ -1,9 +1,14 @@
 <?php
+include("fb.php");
 include("include/app.php");
-include ("include/menu.php"); 
+include ("include/menu.php");
 ?>
 <!-- ====== Hero Start ====== -->
-<section class="ud-hero" id="home">
+<section class="ud-hero" id="home">  
+  <div>
+    <a href="index.php?lang=fr">fr</a>
+    <a href="index.php?lang=en">en</a>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -11,13 +16,13 @@ include ("include/menu.php");
           <h1 class="ud-hero-title">
             EASYSCOOTER
           </h1>
-          <p class="ud-hero-desc">
-            Des scooters 100% électriques, en libre-service, disponibles sur l’appli Easyscooter.
+          <p class="ud-hero-desc"> <?php echo $lang['description']; ?> 
+           <!-- Des scooters 100% électriques, en libre-service, disponibles sur l’appli Easyscooter.-->
           </p>
         <ul class="ud-hero-buttons">
             <li>
-              <a href="#" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
-                Découvrez notre produit
+              <a href="#" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn"><?php echo $lang['btn']; ?>
+                <!-- Découvrez notre produit  -->
               </a>
             </li>
         </div>
@@ -33,7 +38,7 @@ include ("include/menu.php");
       <div class="col-lg-12">
         <div class="ud-section-title">
          
-          <h2>Advantages d'utiliser Easyscooter</h2>
+          <h2><?php echo $lang['advantages']; ?><!-- Advantages d'utiliser Easyscooter ---></h2>
           <!--<p>
             ?????
           </p>-->
@@ -47,7 +52,7 @@ include ("include/menu.php");
             <i class="lni lni-gift"></i>
           </div>
           <div class="ud-feature-content">
-            <h3 class="ud-feature-title">Écologique</h3>
+            <h3 class="ud-feature-title"><?php echo $lang['eco']; ?> <!-- Écologique --></h3>
             <p class="ud-feature-desc">
               
             </p>
@@ -63,7 +68,7 @@ include ("include/menu.php");
             <i class="lni lni-move"></i>
           </div>
           <div class="ud-feature-content">
-            <h3 class="ud-feature-title">Rapide</h3>
+            <h3 class="ud-feature-title"><?php echo $lang['speed']; ?><!-- Rapide --></h3>
             <p class="ud-feature-desc">
               
             </p>
@@ -79,7 +84,7 @@ include ("include/menu.php");
             <i class="lni lni-layout"></i>
           </div>
           <div class="ud-feature-content">
-            <h3 id="titlethree1" class="ud-feature-title">Économique</h3>
+            <h3 id="titlethree1" class="ud-feature-title"><?php echo $lang['inexpensive']; ?><!-- Économique --></h3>
             <p class="ud-feature-desc">
               
             </p>
@@ -94,88 +99,51 @@ include ("include/menu.php");
   </div>
 </section>
 <!-- ====== Features End ====== -->
-
-<!-- ====== About Start ====== -->
-<!--- <section>
-  <div class="container-fluid bg-black">
-    <div class="row align-items-center">
-      <div class="col text-center">
-        <figure class="figure my-5">
-          <img src="..." class="figure-img img-fluid rounded-circle" alt="...">
-          <figcaption class="text-white my-2"> <h4>Écologique</h4></figcaption>
-         
-        </figure>
-      
-        
-       
-      </div>
-      
-      <div class="col text-center">
-        <figure class="figure my-5">
-          <img src="..." class="figure-img img-fluid rounded-circle" alt="...">
-          <figcaption class="text-white my-2"> <h4>Rapide</h4></figcaption>
-         
-        </figure>
-      </div>
-      
-      <div class="col text-center">
-        <figure class="figure my-5">
-          <img src="..." class="figure-img img-fluid rounded-circle " alt="...">
-          <figcaption class="text-white my-2"><h4>Économique</h4></figcaption>
-        </figure>
-        
-      </div>
-  
-    </div>
-  
-  </div>
-</section>-->
   <!-- ETAPES WEBGL-->
 <section>
   <div class="containerfonction">
     <div class="text-center"> 
-    <h2 class="title-blockhp">Comment se fournir une Easy Scooter</h2>
+    <h2 class="title-blockhp"><?php echo $lang['etapes']; ?><!-- Comment se fournir une Easy Scooter --></h2>
     </div>
     <div class="row">
       <div class="col timeline">           
           <ul class="text-center">
             <li>
               <div class="blockhp">
-                <h3 class="title2-blockhp">Étape 1</h3> 
+                <h3 class="title2-blockhp"><?php echo $lang['etape1']; ?><!-- Étape 1 --></h3> 
                       <p>
-                        Cherchez sur la carte de l’appli une trottinette électrique se trouvant à proximité.
+                      <?php echo $lang['etape1explain']; ?><!-- Cherchez sur la carte de l’appli une trottinette électrique se trouvant à proximité. -->
                       </p>
               </div>
             </li>
             <li>
               <div class="blockhp">
-                <h3 class="title2-blockhp">Étape 2</h3> 
-                      <p>
-                        Le code QR pour déverrouiller votre trottinette électrique et démarrer votre trajet.
+                <h3 class="title2-blockhp"><?php echo $lang['etape2']; ?><!-- Étape 2--></h3> 
+                      <p><?php echo $lang['etape2explain']; ?><!-- Le code QR pour déverrouiller votre trottinette électrique et démarrer votre trajet. -->
                       </p> 
               </div>
             </li>
             <li>
               <div class="blockhp">
-                <h3 class="title2-blockhp">Étape 3</h3> 
+                <h3 class="title2-blockhp"><?php echo $lang['etape3']; ?><!-- Étape 3 --></h3> 
                       <p>
-                        Poussez la trottinette électrique vers l’avant pour replier la béquille et vous voilà prêt pour le grand départ.
+                      <?php echo $lang['etape3explain']; ?><!-- Poussez la trottinette électrique vers l’avant pour replier la béquille et vous voilà prêt pour le grand départ. -->
                       </p>
               </div>
             </li>
             <li>
               <div class="blockhp">
-                <h3 class="title2-blockhp">Étape 4</h3>
+                <h3 class="title2-blockhp"> <?php echo $lang['etape4']; ?><!-- Étape 4 --></h3>
                       <p>
-                        Une fois votre trajet achevé, garez votre trottinette sur une place de stationnement réservée à cet effet ou trouvez un endroit sûr sur le trottoir à distance des piétons.
+                      <?php echo $lang['etape4explain']; ?><!-- Une fois votre trajet achevé, garez votre trottinette sur une place de stationnement réservée à cet effet ou trouvez un endroit sûr sur le trottoir à distance des piétons. -->
                       </p>
               </div>
             </li>
             <li>
               <div class="blockhp">
-                <h3 class="title2-blockhp">Étape 5</h3> 
+                <h3 class="title2-blockhp"><?php echo $lang['etape5']; ?><!-- Étape 5 --></h3> 
                 <p>
-                 votre trottinette électrique sur sa béquille, dans l’appli sélectionnez « Achever le trajet », et voilà, c'est fini !
+                <?php echo $lang['etape5explain']; ?><!-- votre trottinette électrique sur sa béquille, dans l’appli sélectionnez « Achever le trajet », et voilà, c'est fini ! -->
                 </p>
               </div>
             </li>
@@ -200,37 +168,7 @@ include ("include/menu.php");
   </div>
   
 </section>
-<!-- ====== WEBGL ====== -->
-
-<!--- <section id="about" class="ud-about">
-  <div class="container">
-    <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
-      <div class="ud-about-content-wrapper">
-        <div class="ud-about-content">
-          <span class="tag">About Us</span>
-          <h2>Brilliant Toolkit to Build Nextgen Website Faster.</h2>
-          <p>
-            The main ‘thrust’ is to focus on educating attendees on how to
-            best protect highly vulnerable business applications with
-            interactive panel discussions and roundtables led by subject
-            matter experts.
-          </p>
-
-          <p>
-            The main ‘thrust’ is to focus on educating attendees on how to
-            best protect highly vulnerable business applications with
-            interactive panel.
-          </p>
-          <a href="javascript:void(0)" class="ud-main-btn">Learn More</a>
-        </div>
-      </div>
-      <div class="ud-about-image">
-        <img src="assets/images/about/about-image.svg" alt="about-image" />
-      </div>
-    </div>
-  </div>
-</section>--->
-<!-- ====== About End ====== -->
+<!-- ====== Features End ====== -->
 
 <section id="features" class="ud-features">
   <div class="container">
@@ -238,10 +176,7 @@ include ("include/menu.php");
       <div class="col-lg-12">
         <div class="ud-section-title">
          
-          <h2>Les règles à respecter</h2>
-          <!--<p>
-            ?????
-          </p>-->
+          <h2><?php echo $lang['regles']; ?><!-- Les règles à respecter --></h2>
         </div>
       </div>
     </div>
@@ -254,7 +189,7 @@ include ("include/menu.php");
             
           </div>
           <div class="ud-feature-content">
-            <h3 id="1b" class="ud-feature-title">Portez un casque</h3>
+            <h3 id="1b" class="ud-feature-title"><?php echo $lang['regle1']; ?><!-- Portez un casque --></h3>
             <p class="ud-feature-desc">
               
             </p>
@@ -272,7 +207,7 @@ include ("include/menu.php");
           
         </div>
           <div class="ud-feature-content">
-            <h3 id="2b" class="ud-feature-title">Respecter le code de la route </h3>
+            <h3 id="2b" class="ud-feature-title"><?php echo $lang['regle2']; ?><!-- Respecter le code de la route --> </h3>
             <p class="ud-feature-desc">
               
             </p>
@@ -291,7 +226,7 @@ include ("include/menu.php");
         </div>
            
           <div class="ud-feature-content">
-            <h3 id="titlethree" class="ud-feature-title">Stationner responsablement</h3>
+            <h3 id="titlethree" class="ud-feature-title"><?php echo $lang['regle3']; ?><!-- Stationner responsablement --></h3>
             <p class="ud-feature-desc">
               
             </p>
@@ -314,18 +249,17 @@ include ("include/menu.php");
     <div class="row">
       <div class="col-lg-13">
         
-          <h2 class="titlemap">
-              Où nous trouver?
+          <h2 class="titlemap"><?php echo $lang['titlefind']; ?><!-- Où nous trouver? -->
           </h2>
           <div class="padroit">
-              <p>
-                   Fini les embouteillages, aux rues polluées et aux transports publics encombrés - de déplacements plus agréables sont à portée de main. Explorez la carte pour trouver votre prochain trajet durable et faire bouger les choses.
+              <p><?php echo $lang['pfind']; ?><!-- Fini les embouteillages, aux rues polluées et aux transports publics encombrés - de déplacements plus agréables sont à portée de main. Explorez la carte pour trouver votre prochain trajet durable et faire bouger les choses. -->
+                   
               </p>
           </div>
 
           <div class="padroit">
             <p class="pdeux">
-              Réserver votre premier trajet en quelques minutes !
+            <?php echo $lang['reservation']; ?><!--  Réserver votre premier trajet en quelques minutes ! -->
             </p>
         </div>
 
@@ -335,7 +269,7 @@ include ("include/menu.php");
           <div class="navbar-btn d-none d-sm-inline-block">
             
             <a class="inscription ud-white-btn" href="https://www.youtube.com/watch?v=aWcVx-jUjAw">
-              Inscription
+              <?php echo $lang['inscription']; ?><!--  Inscription -->
             </a>
           </div>
         </div>
