@@ -35,8 +35,8 @@ include ("include/menusingup.php");
 <div class="mainsignup">
         <section class="signup">
           <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
-            <h1 class="singtitle">
-              Connexion à votre compte
+            <h1 class="singtitle"><?php echo $lang['contact']; ?>
+                <!-- Connexion à votre compte  -->
             </h1>
           </div>
             <div class="contentsignup">
@@ -60,14 +60,18 @@ include ("include/menusingup.php");
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span>J'accepte toutes les déclarations dans les <a href="#" class="term-service">conditions d'utilisation </a></label>
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span><?php echo $lang['terms']; ?>
+                <!-- J'accepte toutes les déclarations dans les   --><a href="#" class="term-service"><?php echo $lang['terms2']; ?>
+                <!--  conditions d'utilisation  --> </a></label>
                         </div>
                         <div class="form-group">
                             <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
                         </div>
                     </form>
                     <p class="loginhere">
-                      Vous avez déjà un compte ? <a href="/Projet-Annuel\FRONT\login.php" class="loginhere-link">Connectez-vous ici</a>
+                       <?php echo $lang['terms3']; ?>
+                <!--  Vous avez déjà un compte ?  --> <a href="/Projet-Annuel\FRONT\login.php" class="loginhere-link"><?php echo $lang['terms4']; ?>
+                <!--  Connectez-vous ici  --></a>
                     </p>
                 </div>
             </div>

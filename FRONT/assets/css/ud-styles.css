@@ -234,14 +234,14 @@ p {
   line-height: 40px;
   background: white;
   -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 5px;
   position: fixed;
   right: 30px;
@@ -265,7 +265,7 @@ p {
   z-index: 99;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
-  position: relative;
+ 
 }
 
 .sticky {
@@ -287,7 +287,7 @@ p {
 .navbar {
   padding: 0px 0;
   border-radius: 5px;
-  position: relative;
+  
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
 }
@@ -417,7 +417,7 @@ p {
   top: 110%;
   padding: 20px 30px;
   -webkit-box-shadow: 0 15px 44px rgba(140, 140, 140, 0.18);
-          box-shadow: 0 15px 44px rgba(140, 140, 140, 0.18);
+  box-shadow: 0 15px 44px rgba(140, 140, 140, 0.18);
   border-radius: 5px;
   opacity: 0;
   visibility: hidden;
@@ -477,14 +477,14 @@ p {
 .navbar-nav .nav-item.nav-item-has-children > a::after {
   content: "";
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   position: absolute;
   width: 10px;
   height: 10px;
   border-bottom: 2px solid;
   border-right: 2px solid;
   -webkit-transform: rotate(45deg) translateY(-50%);
-          transform: rotate(45deg) translateY(-50%);
+  transform: rotate(45deg) translateY(-50%);
   right: -15px;
   top: 50%;
   margin-top: -2px;

@@ -144,7 +144,8 @@ body {
   -webkit-background-size: cover;
   -o-background-size: cover;
   -ms-background-size: cover;
-  background-position: center center; }
+  background-position: center center;
+ }
 
 .container {
   width: 660px;

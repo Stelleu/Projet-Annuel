@@ -62,7 +62,18 @@ $lang=array(
 
 "reservation" => "Book your first trip in minutes!",
 
-"inscription" => "Registration"
+"inscription" => "Registration",
+
+"contact" => "Contact us",
+
+"terms" => "I accept all statements in the ",
+
+"terms2" => "Terms of use",
+
+"terms3" => "Already have an account ?",
+
+"terms4" => "Log in here",
+
 
 );
 ?>
