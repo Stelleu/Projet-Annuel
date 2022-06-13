@@ -57,11 +57,50 @@ $lang=array(
 
 "titlefind" => "Où nous trouver?",
 
+
 "pfind" => "Fini les embouteillages, aux rues polluées et aux transports publics encombrés - de déplacements plus agréables sont à portée de main. Explorez la carte pour trouver votre prochain trajet durable et faire bouger les choses.",
 
 "reservation" => "Réserver votre premier trajet en quelques minutes !",
 
-"inscription" => "Inscription"
+"inscription" => "Inscription",
 
+"contact" => "S'inscrire",
+
+"terms" => "J'accepte toutes les déclarations dans les ",
+
+"terms2" => " conditions d'utilisation",
+
+"terms3" => "Vous avez déjà un compte ?",
+
+"terms4" => "Connectez-vous ici",
+
+"form1" => "Nom", 
+
+"form2" => "Email",
+
+"form3" => "Mot de passe",
+
+"form4" => "Confirmez votre mot de passe",
+
+"form5" => "S'inscrire",
+
+//LOGIN
+
+"espaceclient" => "Connexion - Espace client",
+
+"emaillogin" => "E-mail",
+
+"passwordlogin" => "Mot de passe",
+
+"loginlogin" => "Connexion",
+
+
+"pwforget" => "Mot de passe oublié ?",
+
+"pasincrit" => "Pas encore inscrit ?",
+
+"inscrirelogin" => "S'inscrire"
+
+//LOGIN END
 );
 ?>

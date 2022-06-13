@@ -32,11 +32,17 @@ include ("include/menusingup.php");
         <link rel="stylesheet" href="assets/css/ud-styles.css" />
       </head>
 <!-- ====== Header====== -->
+
 <div class="mainsignup">
         <section class="signup">
+  
+  <div>
+    <a href="singup.php?lang=fr">fr</a>
+    <a href="singup.php?lang=en">en</a>
+  </div>
           <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
             <h1 class="singtitle"><?php echo $lang['contact']; ?>
-                <!-- Connexion à votre compte  -->
+                <!--  Sign-Up  -->
             </h1>
           </div>
             <div class="contentsignup">
@@ -46,17 +52,17 @@ include ("include/menusingup.php");
                         <img src="assets/images/logo/logo-black.svg" alt="logo" />
                       </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="Nom"/>
+                            <input type="text" class="form-input" name="name" id="name" placeholder="<?php echo $lang['form1']; ?>"/>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-input" name="email" id="email" placeholder=" E-mail"/>
+                            <input type="email" class="form-input" name="email" id="email" placeholder=" <?php echo $lang['form2']; ?>"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="password" id="password" placeholder="Mot de passe"/>
+                            <input type="text" class="form-input" name="password" id="password" placeholder="<?php echo $lang['form3']; ?>"/>
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Confirmez votre mot de passe"/>
+                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="<?php echo $lang['form4']; ?>"/>
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
@@ -65,7 +71,7 @@ include ("include/menusingup.php");
                 <!--  conditions d'utilisation  --> </a></label>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="<?php echo $lang['form5']; ?>"/>
                         </div>
                     </form>
                     <p class="loginhere">

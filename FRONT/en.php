@@ -1,9 +1,6 @@
-<!-- ====== MENU L7 - L15 ====== -->
-<!-- ====== HOMEPAGE ====== -->
-<!-- ====== CONTACT ====== -->
 <?php
-
 $lang=array(
+//    MENU L7 - L15
 "menu1" => "How it works?",
 
 "menu2" => "Help",
@@ -17,6 +14,10 @@ $lang=array(
 "description" => "100% electric scooters, self-service, available on the Easyscooter app.",
 
 "btn" => "Discover our product",
+//    MENU END
+
+
+//HOMEPAGE
 
 "advantages" => "Advantages of using Easy Scooter", 
 
@@ -63,8 +64,11 @@ $lang=array(
 "reservation" => "Book your first trip in minutes!",
 
 "inscription" => "Registration",
+//HOMEPAGE END
 
-"contact" => "Contact us",
+
+//Sing-Up
+"contact" => "Sing-Up",
 
 "terms" => "I accept all statements in the ",
 
@@ -74,6 +78,35 @@ $lang=array(
 
 "terms4" => "Log in here",
 
+"form1" => "Name", 
 
+"form2" => "E-mail",
+
+"form3" => "password",
+
+"form4" => "Confirm password",
+
+"form5" => "Sing up",
+
+//Singup end
+
+//LOGIN
+
+
+"espaceclient" => "Log-In",
+
+"emaillogin" => "E-mail",
+
+"passwordlogin" => "Password",
+
+"loginlogin" => "Login",
+
+"pwforget" => "Forgot your password ?",
+
+"pasincrit" => "Not yet registered ?",
+
+"inscrirelogin" => "Sing up"
+
+//LOGIN END
 );
 ?>

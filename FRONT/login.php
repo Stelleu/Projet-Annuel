@@ -15,7 +15,8 @@ include ("include/menulogin.php");
       <div class="col-lg-12">
         <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
           <h1 class="logintitle">
-            Connexion - Espace client
+            <?php echo $lang['espaceclient']; ?> 
+           <!-- Connexion - Espace client -->
           </h1>
           <!-- ====== Login Start ====== -->
     <section class="ud-login">
@@ -42,37 +43,17 @@ include ("include/menulogin.php");
                   />
                 </div>
                 <div class="ud-form-group">
-                  <button type="submit" class="ud-main-btn w-100">Login</button>
+                  <button type="submit" class="ud-main-btn w-100"><?php echo $lang['loginlogin']; ?></button>
                 </div>
               </form>
 
-              <!---<div class="ud-socials-connect">
-                <p>Connect With</p>
-
-                <ul>
-                  <li>
-                    <a href="javascript:void(0)" class="facebook">
-                      <i class="lni lni-facebook-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)" class="twitter">
-                      <i class="lni lni-twitter-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)" class="google">
-                      <i class="lni lni-google"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>--->
+            
 
               <a class="forget-pass" href="javascript:void(0)">
-                Mot de passe oublié ? 
+                 <?php echo $lang['pwforget']; ?><!-- ====== Mot de passe oublié ? ====== -->
               </a>
               <p class="signup-option">
-                Pas encore membre? <a href="\Projet-Annuel\FRONT\singup.php"> S'inscrire </a>
+              <?php echo $lang['pasincrit']; ?><!-- ====== Pas encore inscrit ? ====== --> <a href="\Projet-Annuel\FRONT\singup.php">  <?php echo $lang['inscrirelogin']; ?><!-- ====== S'inscrire ====== --> </a>
               </p>
             </div>
           </div>
