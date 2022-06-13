@@ -1,54 +1,57 @@
-<!-- ====== Header Start ====== -->
-<header class="ud-header">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg">
-                  <a class="navbar-brand" href="index.php">
-                    <img src="assets/images/logo/logo.svg" alt="Logo">
-                  </a>
-                  <button class="navbar-toggler">
-                    <span class="toggler-icon"> </span>
-                    <span class="toggler-icon"> </span>
-                    <span class="toggler-icon"> </span>
-                  </button>
+
+        <!-- ====== Header Start ====== -->
+        <header class="ud-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="index.php">
+                  <img src="assets/images/logo/logo-2.svg" alt="Logo">
+                </a>
+                <button class="navbar-toggler">
+                  <span class="toggler-icon"> </span>
+                  <span class="toggler-icon"> </span>
+                  <span class="toggler-icon"> </span>
+                </button>
     
-                  <div class="navbar-collapse">
-                    <ul id="nav" class="navbar-nav mx-auto">
-                      <li class="nav-item">
-                      <a class="" href="\Projet-Annuel\FRONT\commentçamarche.php"><?php echo $lang['menu1']; ?><!-- Comment ça marche? ---></a>
-                      </li>
+                <div class="navbar-collapse">
+                  <ul id="nav" class="navbar-nav mx-auto">
+
+
+                    <li class="nav-item">
+                    <a class="" href="\Projet-Annuel\FRONT\commentçamarche.php"><?php echo $lang['menu1']; ?><!-- Comment ça marche? ---></a>
+                    </li>
     
-                      <li class="nav-item">
-                        <a class="ud-menu-scroll" href="#about"><?php echo $lang['menu2']; ?><!-- Aide ---></a>
-                      </li> 
+                    <li class="nav-item">
+                      <a class="ud-menu-scroll" href="#about"><?php echo $lang['menu2']; ?><!-- Aide ---></a>
+                    </li> 
     
-                      <li class="nav-item">
-                        <a class="ud-menu-scroll" href="/Projet-Annuel/FRONT/contact.php"><?php echo $lang['menu3']; ?><!-- Contact ---></a>
-                      </li>
-    
-                    
-                        </ul>
-                      </li>
-                    </ul>
+                    <li class="nav-item">
+                      <a class="ud-menu-scroll" href="/Projet-Annuel/FRONT/contact.php"><?php echo $lang['menu3']; ?><!-- Contact ---></a>
+                    </li>
+                      </ul>
+                    </li>
+                  </ul>
                   </div>
-    
-                  
+                  <div>
                     <a class="ud-main-btn ud-white-btn ud-main-btn" href="/Projet-Annuel/FRONT/login.php">
                     <?php echo $lang['menu4']; ?><!-- Connexion -->
                     </a>
                   </div>
-                </nav>
+
+                  <div>
+                    <a href="singup.php?lang=fr"><img src="assets\images\lang\Flag_of_France.jpeg" width="35px" height="25px" style="margin-left: 25px;"></a>
+                    <a href="singup.php?lang=en"><img src="assets\images\lang\flagengland.jpeg" width="35px" height="25px" style="margin-left: 5px;"></a>
               </div>
+              </nav>
             </div>
           </div>
-       
-        <!-- ====== Header End ====== -->
+        </div>
 
 
-        
+
         <!-- ====== All Javascript Files ====== -->
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
@@ -95,3 +98,4 @@
       window.document.addEventListener("scroll", onScroll);
     </script>
       </header>
+      <!-- ====== Header End ====== -->

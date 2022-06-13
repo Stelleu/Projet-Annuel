@@ -42,6 +42,11 @@
                  
                 </a>
               </div>
+
+              <div>
+                    <a href="index.php?lang=fr"><img src="assets\images\lang\Flag_of_France.jpeg" width="35px" height="25px" style="margin-left: 25px;"></a>
+                    <a href="index.php?lang=en"><img src="assets\images\lang\flagengland.jpeg" width="35px" height="25px" style="margin-left: 5px;"></a>
+              </div>
             </nav>
           </div>
         </div>
