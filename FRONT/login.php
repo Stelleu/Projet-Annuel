@@ -6,10 +6,6 @@ include ("include/menulogin.php");
 
 <!-- ====== Hero Start ====== -->
 <section class="block1contact" id="home">
-<div>
-    <a href="login.php?lang=fr">fr</a>
-    <a href="login.php?lang=en">en</a>
-  </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">

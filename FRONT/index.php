@@ -5,10 +5,6 @@ include ("include/menu.php");
 ?>
 <!-- ====== Hero Start ====== -->
 <section class="ud-hero" id="home">  
-  <div>
-    <a href="index.php?lang=fr">fr</a>
-    <a href="index.php?lang=en">en</a>
-  </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">

@@ -35,11 +35,6 @@ include ("include/menusingup.php");
 
 <div class="mainsignup">
         <section class="signup">
-  
-  <div>
-    <a href="singup.php?lang=fr">fr</a>
-    <a href="singup.php?lang=en">en</a>
-  </div>
           <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
             <h1 class="singtitle"><?php echo $lang['contact']; ?>
                 <!--  Sign-Up  -->

@@ -12,6 +12,8 @@ $lang=array(
 "menu4" => "Connexion",
 
 "menu5" => "S'inscrire",
+//    MENU END
+
 
 "description" => "Des scooters 100% électriques, en libre-service, disponibles sur l’appli Easyscooter.",
 
@@ -63,6 +65,8 @@ $lang=array(
 "reservation" => "Réserver votre premier trajet en quelques minutes !",
 
 "inscription" => "Inscription",
+//HOMEPAGE END
+
 
 "contact" => "S'inscrire",
 
@@ -83,6 +87,9 @@ $lang=array(
 "form4" => "Confirmez votre mot de passe",
 
 "form5" => "S'inscrire",
+
+//Singup end
+
 
 //LOGIN
 

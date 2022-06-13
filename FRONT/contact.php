@@ -13,23 +13,12 @@ include ("include/menu.php");
               <h1 class="contacttitle">
                 EASYSCOOTER
               </h1>
-              <div>
-    <a href="contact.php?lang=fr">fr</a>
-    <a href="contact.php?lang=en">en</a>
-  </div>
-              
             </div>
-
           </div>
         <div class="formuler">
       <div class="ud-contact-form-wrapper wow fadeInUp"
           data-wow-delay=".2s">
           <h3 class="ud-contact-form-title">Contactez-nous</h3>
-
-  
-                 
-              
-
           <form class="row needs-validation" name='formulario' id='formulario' method='post' action='confirmacion.php' target='_self' enctype="multipart/form-data" novalidate>
             <div class="col-md-6">
                 <label class="form-label">Nom:</label>
