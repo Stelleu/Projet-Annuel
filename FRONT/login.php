@@ -4,6 +4,7 @@ include("include/app.php");
 include ("include/menulogin.php");
 ?>
 
+
 <!-- ====== Hero Start ====== -->
 <section class="block1contact" id="home">
   <div class="container">
@@ -23,25 +24,27 @@ include ("include/menulogin.php");
               <div class="ud-login-logo">
                 <img src="assets/images/logo/logo-black.svg" alt="logo" />
               </div>
-              <form class="ud-login-form">
-                <div class="ud-form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                  />
-                </div>
-                <div class="ud-form-group">
-                  <input
-                    type="password"
-                    name="mot de passe"
-                    placeholder="*********"
-                  />
-                </div>
-                <div class="ud-form-group">
-                  <button type="submit" class="ud-main-btn w-100"><?php echo $lang['loginlogin']; ?></button>
-                </div>
-              </form>
+              <form method="POST" action="connexion.php" style="width: 700px;">
+        <div class="form-row">
+            <div class="form-group col-md-6" style="text-align:left;">
+                <label for="name" >Email :</label>
+                <input type="email" class="form-control" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group col-md-6" style="text-align:left;">
+                <label for="password" >Mot de passe :</label>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="checkbox" name="connexion" checked>
+                <label for="connexion">Mémoriser mes identifiants </label>
+            </div>
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+            </div>
+        </div>
+    </form>
 
             
 
