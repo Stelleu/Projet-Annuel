@@ -2,6 +2,7 @@
 include("fb.php");
 include("include/app.php");
 include ("include/menusingup.php");
+
 ?> 
 
 <head>
@@ -33,6 +34,56 @@ include ("include/menusingup.php");
       </head>
 <!-- ====== Header====== -->
 
+<?php 
+
+// Test si l'utilisateur est déjà connecté
+if (isset($_SESSION['connect'])){
+    header('location: Projet-Annuel\FRONT\index.php');
+    exit();
+}
+// sinon inscription
+require('./config.php');
+
+    // si tous les champs existent et ne sont pas nuls
+    if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_confirm'])){
+        $pseudo = $_POST['pseudo'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $password_confirm = $_POST['password_confirm'];
+
+        // Test égalité des mdp
+        if ($password != $password_confirm){
+            header('location: ./inscription?error=1&pass=1');
+            exit();
+        }
+
+        // Test dispo adresse mail
+        $resultat= $dbh -> prepare('SELECT count(*) as top_email FROM users WHERE email=?');
+        $resultat -> execute(array($email));
+        while ($email_verif = $resultat->fetch()) {
+            if($email_verif['top_email'] != 0){
+                header('location: ./inscription?error=1&mail=1');
+                exit();
+            };
+        }
+
+        // Hash key
+        $secret = sha1($email).time();
+        $secret = sha1($secret).time().time();
+
+        // Cryptage du mdp
+        $password = "aq1".sha1($password."1254")."25";
+
+        // Insertion nouvel utilisateur
+        $resultat= $dbh -> prepare('INSERT INTO users(pseudo, email, pwd_user, key_user) VALUES (?, ?, ?, ?)');
+        $resultat -> execute(array($pseudo, $email, $password, $secret));
+
+        header('location: ./inscription?success=1');
+        exit();
+
+    }
+?>
+
 <div class="mainsignup">
         <section class="signup">
           <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
@@ -42,33 +93,49 @@ include ("include/menusingup.php");
           </div>
             <div class="contentsignup">
                 <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form">
-                      <div class="ud-signup-logo">
-                        <img src="assets/images/logo/logo-black.svg" alt="logo" />
-                      </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="<?php echo $lang['form1']; ?>"/>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-input" name="email" id="email" placeholder=" <?php echo $lang['form2']; ?>"/>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="password" id="password" placeholder="<?php echo $lang['form3']; ?>"/>
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="<?php echo $lang['form4']; ?>"/>
-                        </div>
-                        <div class="form-group">
-                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span><?php echo $lang['terms']; ?>
-                <!-- J'accepte toutes les déclarations dans les   --><a href="#" class="term-service"><?php echo $lang['terms2']; ?>
-                <!--  conditions d'utilisation  --> </a></label>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="<?php echo $lang['form5']; ?>"/>
-                        </div>
-                    </form>
+                <?php
+        // Contrôle des erreurs
+        if (isset($_GET['error'])){
+
+            if (isset($_GET['pass'])){
+                echo '<p class="alert alert-warning" role="alert"><i class="fas fa-info-circle"></i> Les mots de passe ne sont pas identiques </p>';
+            } else if (isset($_GET['mail'])){
+                echo '<p class="alert alert-warning" role="alert"><i class="fas fa-info-circle"></i> Cette adresse email est déjà utilisée </p>';
+            }
+
+        } else if (isset($_GET['success'])){
+            echo '<p class="alert alert-success" role="alert"><i class="fas fa-info-circle"></i> Inscription validée ! Vous pouvez vous connecter </p>';
+        }
+
+    ?>
+
+    <script src="https://kit.fontawesome.com/XXXXX.js"></script>
+                    
+    <form method="POST" action="inscription.php">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Email :</label>
+                <input type="email" class="form-control" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="pseudo">Pseudo :</label>
+                <input type="text" class="form-control" name="pseudo" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="password">Mot de passe :</label>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="password_confirm">Confirmez le mot de passe :</label>
+                <input type="password" class="form-control" name="password_confirm" placeholder="Password" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
+    </form>
+
+    <script src="https://kit.fontawesome.com/XXXXX.js"></script>
                     <p class="loginhere">
                        <?php echo $lang['terms3']; ?>
                 <!--  Vous avez déjà un compte ?  --> <a href="/Projet-Annuel\FRONT\login.php" class="loginhere-link"><?php echo $lang['terms4']; ?>

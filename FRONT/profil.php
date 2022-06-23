@@ -21,10 +21,10 @@ include ("include/menu.php");
                                     <div class="contenudescriptions">
                                     
                                         <p id="prenomprofile">
-                                        %NOMFAMILLE% -  %TELEPHONE%
+                                        REDA -  %065433234%
                                         </p>
                                         <p id="mailprofile">
-                                        %TOTO.TOTO@GMAIL.COM%
+                                        REDA@GMAIL.COM
                                         </p>
                                     </div>
                                 </div>
