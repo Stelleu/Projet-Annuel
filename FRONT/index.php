@@ -2,6 +2,7 @@
 include("fb.php");
 include("include/app.php");
 include ("include/menu.php");
+session_start();
 ?>
 <!-- ====== Hero Start ====== -->
 <section class="ud-hero" id="home">  
