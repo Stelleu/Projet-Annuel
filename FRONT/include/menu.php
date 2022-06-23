@@ -36,13 +36,13 @@
               <?php 
         // Test si l'utilisateur est déjà connecté
     if (isset($_SESSION['connect'])){
-        echo '<p style="text-align:center; color: white;"> Bonjour '.$_SESSION['pseudo'].' !<br>
-              <a  style="text-align:center; color: #FF5113;"href=" deconnexion.php"> Se déconnecter </a>
-              </p>';
+        echo 
+              '<p style="display:flex;"> <a href=" profil.php" style="text-align:center; color: #FF5113;">  Bonjour '.$_SESSION['pseudo'].' !</a>
+              <a style="text-align:center; color: white;" href=" deconnexion.php"> Se déconnecter </a></p>';
     } else { ?>
                <div class="navbar-btn d-none d-sm-inline-block">
                 <a href="/Projet-Annuel\FRONT\login.php" class="ud-main-btn ud-login-btn"><?php echo $lang['menu4']; ?><!-- Connexion --></a>
-                <a class="ud-main-btn ud-white-btn" href="/Projet-Annuel\FRONT\singup.php" ><?php echo $lang['menu5']; ?><!--  S'inscrire --></a>  
+                <a class="ud-main-btn ud-white-btn"  href="/Projet-Annuel\FRONT\singup.php" ><?php echo $lang['menu5']; ?><!--  S'inscrire --></a>  
               </div>
 
     <?php 
@@ -51,8 +51,8 @@
 
               
               <div>
-                    <a href="index.php?lang=fr"><img src="assets\images\lang\Flag_of_France.jpeg" width="35px" height="25px" style="margin-left: 25px;"></a>
-                    <a href="index.php?lang=en"><img src="assets\images\lang\flagengland.jpeg" width="35px" height="25px" style="margin-left: 5px;"></a>
+                    <a href="index.php?lang=fr"><img src="assets\images\lang\Flag_of_France.jpeg" width="30px" height="20px" style="margin-left: 25px;"></a>
+                    <a href="index.php?lang=en"><img src="assets\images\lang\flagengland.jpeg" width="30px" height="20px" style="margin-left: 5px;"></a>
               </div>
             </nav>
           </div>

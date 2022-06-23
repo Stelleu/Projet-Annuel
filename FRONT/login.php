@@ -41,7 +41,7 @@ include ("include/menulogin.php");
                 <label for="connexion">Mémoriser mes identifiants </label>
             </div>
             <div class="form-group col-md-6">
-                <button type="submit" class="btn btn-primary">Se connecter</button>
+                <button type="submit" class="ud-main-btn ud-white-btn"><?php echo $lang['menu4']; ?><!-- Connexion --></button>
             </div>
         </div>
     </form>

@@ -1,4 +1,5 @@
 <?php
+include("fb.php");
 include("include/app.php");
 include ("include/menu.php"); 
 ?>
@@ -10,7 +11,7 @@ include ("include/menu.php");
                 <section>
                         <div id="wrapper">
                             <section class="left">
-                            <img src="assets/images/logo/logo.svg" alt="Logo">
+                            <!-- <img src="assets/images/logo/logo.svg" alt="Logo"> -->
                             </section>
 
                             <section class="right">
@@ -20,7 +21,7 @@ include ("include/menu.php");
                                     <div class="contenudescriptions">
                                     
                                         <p id="prenomprofile">
-                                        %PRENOM% %NOMFAMILLE% -  %TELEPHONE%
+                                        %NOMFAMILLE% -  %TELEPHONE%
                                         </p>
                                         <p id="mailprofile">
                                         %TOTO.TOTO@GMAIL.COM%
