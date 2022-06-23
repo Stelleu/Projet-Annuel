@@ -258,7 +258,6 @@ p {
 /* ===== Header CSS ===== */
 .ud-header {
   background: rgb(0, 0, 0);
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -411,10 +410,8 @@ p {
 }
 
 .navbar-nav .nav-item .ud-submenu {
-  position: absolute;
   width: 250px;
   background: var(--white);
-  top: 110%;
   padding: 20px 30px;
   -webkit-box-shadow: 0 15px 44px rgba(140, 140, 140, 0.18);
   box-shadow: 0 15px 44px rgba(140, 140, 140, 0.18);
@@ -478,7 +475,7 @@ p {
   content: "";
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  position: absolute;
+  
   width: 10px;
   height: 10px;
   border-bottom: 2px solid;
@@ -1570,7 +1567,7 @@ margin-top:20px;
 
 .ud-contact::after {
   content: "";
-  position: absolute;
+  
   z-index: -1;
   width: 100%;
   top: 0;
