@@ -21,7 +21,7 @@ include ("include/menu.php");
                                     <div class="contenudescriptions">
                                     
                                         <p id="prenomprofile">
-                                        REDA -  %065433234%
+                                        ($users["pseudo"]) -  %065433234%
                                         </p>
                                         <p id="mailprofile">
                                         REDA@GMAIL.COM
