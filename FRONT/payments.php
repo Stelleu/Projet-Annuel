@@ -67,7 +67,7 @@ include ("include/menu.php");
 
                                     <div class="formepayments">
                                             <div>
-                                            <H2 class="methodepaiement">Méthode de paiement</H1>
+                                            <h2 class="methodepaiement">Méthode de paiement</h2>
                                             </div>
                                             <div></div>
                                             <div>

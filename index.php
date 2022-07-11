@@ -55,13 +55,7 @@ switch ($route) {
             Scooter::get();
         }
         break;
-//<<<<<<< HEAD
 
-
-//    case "usermane":
-//        include "controllers\user.php";
-//        break;
-//=======
 
     case "tables":
         include "controllers/user.php";
@@ -98,16 +92,7 @@ switch ($route) {
             include "controllers\Login.php";
         }
         break;
-//
-//        case "sign-up":
-//            if ($method === "GET") {
-//                $title ='Inscription';
-//                include "view/adminDash/sign-up.php";
-//            }
-//            if ($method === "POST") {
-//                include "controllers/user.php";
-//            }
-//            break;
+
 
     case "dash":
         include "view/adminDash/dash.php";
@@ -130,7 +115,57 @@ switch ($route) {
             include "view/adminDash/profile.php";
         }
         break;
+    case "forfaits":
+        include "controllers/";
+        break;
+    case "success":
+        include "view/shop/success.html";
+        include "controllers/Shop.php";
 
+        break;
+
+    case "checkout":
+        if ($method === "GET") {
+            include "controllers/Shop.php";
+            Shop::getByIds();
+        }
+        break;
+    case "payment":
+        echo "cc";
+        var_dump($_GET);
+
+        include "view/shop/create-checkout-session.php";
+
+//        if ($method === "POST") {
+//            include "controllers/StripePayment.php";
+//        }
+        break;
+
+    case "shop":
+//        include "view/shop/shopping.php";
+        if ($method === "GET") {
+            include "controllers/Shop.php";
+            Shop::getAll();
+        }if ($method === "POST") {
+        include "controllers/Shop.php";
+    }
+        break;
+    case "Forfait":
+        include "view/Forfait.php";
+        /*        if ($method === "GET") {
+                    include "controllers/Forfait.php";
+                    //Forfait::getForfait();
+                }*/
+        break;
+    case "article":
+        include "view/shop/single-product.php";
+        if ($method === "POST") {
+            include "controllers/Shop.php";
+        }
+        if ($method === "GET") {
+            include "controllers/Shop.php";
+        }
+        break;
 }
 
 
