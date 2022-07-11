@@ -15,11 +15,22 @@ include __DIR__ . "/includes/header.php"; ?>
                               <!--  <div id="alertForm" class="alert alert-warning" role="alert">
                                     This is a warning alert—check it out!
                                 </div>-->
+                              <?php
+                              if(!empty($_SESSION["errors"])){?>
+                              <div class=" p-3 mb-2 bg-light text-dark d-flex align-items-center mt-3" role="alert">
+                                  <?php
+                                  foreach ($_SESSION["errors"] as $error) {
+                                      echo '<p class="alert alert-warning" role="alert"><i class="fas fa-info-circle"></i>'.$error.'</p>';
+                                  }
+                                  unset($_SESSION["errors"]);}
+                                  ?>
+                              </div>
                               <tr>
                                   <th class="text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Prénom</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Téléphone</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mot de passe</th>
                               </tr>
                               </thead>
                               <tbody>
@@ -38,9 +49,12 @@ include __DIR__ . "/includes/header.php"; ?>
                               </td>
                               <td>
                                   <input type="text" class=" form-control" id="email" name="email" placeholder="Email"/>
-                              </td>
                               <td class="">
                                   <input type="text" class=" form-control" id="phone" name="phone" placeholder="Phone"/>
+                              </td>
+                              </td>
+                              <td>
+                                  <input type="password" class=" form-control" id="pwd" name="pwd" placeholder="Mot de passe"/>
                               </td>
                               <td>
                                   <button type="submit" class="btn btn-success" id="btnAddUser">

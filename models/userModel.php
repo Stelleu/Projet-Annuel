@@ -62,8 +62,6 @@ class UserModel
     }
 
     public static function logout(){
-        echo "cc";
-    session_start();
     unset($_SESSION["info"]);
     session_destroy();
 
@@ -85,7 +83,6 @@ class UserModel
         return $updateUsersQuery->execute(array_merge(["id" => $id], $user));
     }
     public static function addUser($user){
-        print_r($user);
         $set = [];
         $set2 = [];
         $allowedKeys = ["firstname","lastname","phone","email","passwd","status_user","address","points","wallet","birthdate","zipcode","state","check","token"];

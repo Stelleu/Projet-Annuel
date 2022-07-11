@@ -10,25 +10,24 @@
 <section>
     <form action="payment" id="cart" method="POST">
         <div class="mx-10 d-none my-2 p-2 text-center alert alert-success" id="msgDivDelScooter" role="alert">
-            <h5>L'article'<span id="msgDelNumber" class="h4"></span> a été supprimé avec succès ! </h5>
+<!--            <h5>L'article'<span id="msgDelNumber" class="h4"></span> a été supprimé avec succès ! </h5>-->
         </div>
-    <?php var_dump($_SESSION['errors']);
-    if(isset($_SESSION["errors"])){
+    <?php
+    if(($_SESSION["errors"])){
         $total= 0;?>
             <div class=" p-3 mb-2 bg-light text-dark d-flex align-items-center mt-3" role="alert">
             <?php
             foreach ($_SESSION["errors"] as $error) {
-//                echo "<li>".$error;
-                print_r($_SESSION["errors"]);
+                echo '<p class="alert alert-warning" role="alert"><i class="fas fa-info-circle"></i>'.$error.'</p>';
             }
-            unset($_SESSION["errors"]);}
-            ?>
+            unset($_SESSION["errors"]);
 
-    </div>
+
+            ?>
+            </div>
 <!--        if (empty($_SESSION['panier'])){?>-->
     <?php
-
-        foreach ($products as $product){
+    }else{ foreach ($products as $product){
     $total = $total + $product['price_product'] * $_SESSION['panier'][$product['idProduct']];
             ?>
     <div class="product">
@@ -53,6 +52,7 @@
         </div>
     </div>
     <?php
+    }
     }?>
     <h3 class="text-uppercase text-end mx-3">Total : <?=$total?>€</h3>
 
