@@ -2,7 +2,7 @@
 include __DIR__."/../models/userModel.php";
 
 if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
-    $result = Login::connexion();
+    $result = Login::connexion($_GET["route"]);
 }else{
     $errors[]= "Veuillez remplir le formulaire.";
     $_SESSION["errors"]= $errors;
@@ -11,9 +11,10 @@ if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
 }
 class Login
 {
-    public static function connexion()
+    public static function connexion($route)
     {
         try {
+            echo $route;
             //password_verify
             $email = $_POST["email"];
             $pwd = $_POST["pwd"];
@@ -43,32 +44,53 @@ class Login
                 }
             }*/
             $result = UserModel::findByEmail($email);
-            if(empty($result)){
+            if (empty($result)) {
                 $errors[] = "Identifiants incorrects.";
-                $_SESSION["errors"]= $errors;
-                header("Location: sign-in");
-
-            }else {
-                if (password_verify($pwd, $result["passwd"])) {
-                    $token = bin2hex(random_bytes(16));
-                    $_SESSION["info"] = UserModel::updateOneById($result["idUser"],["token"=> $token]);
-                    $user = UserModel::getOneByToken($token);
-                    $_SESSION["info"]= $user;
-                    header("Location: dashboard");
-
+                $_SESSION["errors"] = $errors;
+                if ($route == "connexion") {
+                    header("Location: connexion");
                 } else {
 
-                    $errors[] = "mdp incorrects.";
-                    $_SESSION["errors"]= $errors;
                     header("Location: sign-in");
                 }
+
+            } else {
+                if (password_verify($pwd, $result["passwd"])) {
+                    $token = bin2hex(random_bytes(16));
+                    $_SESSION["info"] = UserModel::updateOneById($result["idUser"], ["token" => $token]);
+                    $user = UserModel::getOneByToken($token);
+                    $_SESSION["info"] = $user;
+                    if ($route == "connexion") {
+                        header("Location: myProfil");
+                    } else {
+                        header("Location: dashboard");
+
+                    }
+                } else {
+
+                        $errors[] = "Identifiant ou mot de passe incorrects.";
+                        $_SESSION["errors"] = $errors;
+                    if ($route == "connexion") {
+                        header("Location: connexion");
+                    } else {
+
+                        header("Location: sign-in");
+                    }
+                }
+                }
             }
-        }catch (PDOException $e){
+         catch(PDOException $e){
                 $e->getMessage();
             }
     }
-    public static function logout(){
+    public static function logout($route)
+    {
         UserModel::logout();
-        header("Location: sign-in");
-    }
+        if ($route == "connexion") {
+            header("Location: connexion");
+        } else {
+
+            header("Location: sign-in");
+        }    }
+
 }

@@ -1,6 +1,6 @@
 <?php
 $title= "Nouvelle Offre";
-include __DIR__ . "/includes/header.php";;
+include __DIR__ . "/includes/header.php";
 ?>
 <div class="container-fluid py-4">
     <div class="row">

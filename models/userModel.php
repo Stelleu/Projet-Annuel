@@ -3,19 +3,17 @@ include __DIR__."/../database/setting.php";
 
 class UserModel
 {
-    public static function getAll()
+    public static function getAll(): bool|array
     {
         $databaseConnection = DatabaseSettings::getConnection();
         $getUsersQuery = $databaseConnection->query("SELECT idUser, firstname, lastname, phone, email, status_user, address, zipcode, birthdate, points, wallet, state FROM users;");
-        $users = $getUsersQuery->fetchAll(PDO::FETCH_ASSOC);
-        return $users;
+        return $getUsersQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function create($createUser): int
     {
         $databaseConnection = DatabaseSettings::getConnection();
-        $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,passwd, status_user) VALUES(:firstname,:lastname, :phone, :email,:pwd, 'Admin');");
-//
+        $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,passwd, status_user,subscription) VALUES(:firstname,:lastname, :phone, :email,:pwd, :status_user, :subscription);");
         $createUserQuery->execute($createUser);
         return 1;
     }

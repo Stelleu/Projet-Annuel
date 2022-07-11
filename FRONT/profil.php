@@ -1,12 +1,12 @@
 <?php
-include("fb.php");
-include("include/app.php");
-include ("include/menu.php"); 
+include __DIR__ .'\fb.php';
+include __DIR__ . '\include\app.php';
+include __DIR__ . '\include\menu.php';
+var_dump($_SESSION);
 ?>
 
-<section>
-<html lang="fr" dir="ltr">
 
+<section>
         <body class="martinprofil">
                 <section>
                         <div id="wrapper">
@@ -15,16 +15,16 @@ include ("include/menu.php");
                             </section>
 
                             <section class="right">
-                                <H1 class="titleprofile">PROFIL</H1>
+                                <H1 class="titleprofile">Bonjour, <?php echo $_SESSION["user"]["firstname"]?></H1>
                                 <div class="descriptionprofile">
                                 <img id="profilimg" src="assets\images\photoprofil.jpg" alt="" width="200px" height="200px">
                                     <div class="contenudescriptions">
                                     
                                         <p id="prenomprofile">
-                                        %nomprenom% - 000000000 
+                                            <?php echo $_SESSION["user"]["firstname"]?>.<?php echo $_SESSION["user"]["lastname"]?> - <?php echo $_SESSION["user"]["phone"]?>
                                         </p>
                                         <p id="mailprofile">
-                                        %nomprenom%@GMAIL.COM
+                                            <?php echo $_SESSION["user"]["firstname"]?>
                                         </p>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@ include ("include/menu.php");
 
                                     <div>
                                             <div>
-                                            <H2 class="titleachats" href="">MES ACHATS</H1>
+                                                <h2 class="titleachats" href="">MES ACHATS</h2>
                                             </div>
                                             <div>
                                             (achats)
@@ -65,7 +65,7 @@ include ("include/menu.php");
                                     </div>
                                     
                                     <div>
-                                        <H2 class="titleachats">MES AVANTAGES</H1>
+                                        <h2 class="titleachats">MES AVANTAGES</h2>
                                     </div>
 
                                     <div class="carreprofile">
@@ -85,9 +85,6 @@ include ("include/menu.php");
                                         <p>10€ de course minimum   </p>
                                         <a class="buttonprofile" href="#">J'en Profite</a>
                                     </div>
-                            
+
                         </div>
                 </section>
-        </body>
-</html>
-<section>

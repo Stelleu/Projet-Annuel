@@ -16,12 +16,42 @@ $route = isset($_REQUEST["route"]) ? $_REQUEST["route"] : "";
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route) {
+    case "home":
+        include "FRONT/index.php";
+        break;
+
+    case "contact":
+        include "FRONT/contact.php";
+        break;
+
+    case "howitwork":
+        include "FRONT/commentçamarche.php";
+        break;
+
+    case "connexion":
+        include "FRONT/longin.php";
+        if ($method == "POST"){
+            echo $_GET["route"];
+            include "controllers/Login.php";
+
+
+        }
+        break;
+    case "userprofile":
+        include "view/Profil/pages/userProfil.php";
+        break;
+
+    case "sign-up":
+        include "FRONT/sign-up.php";
+        if ($method ==="POST"){
+            include "controllers/user.php";
+        }
+        break;
     case "dashboard":
         include "view/adminDash/dashboard.php";
         break;
 
     case "scootermana":
-        echo "cc";
         include "controllers/scooter.php";
         if ($method === "GET") {
             Scooter::get();
@@ -70,16 +100,16 @@ switch ($route) {
             include "controllers\Login.php";
         }
         break;
-
-        case "sign-up":
-            if ($method === "GET") {
-                $title ='Inscription';
-                include "view/adminDash/sign-up.php";
-            }
-            if ($method === "POST") {
-                include "controllers/user.php";
-            }
-            break;
+//
+//        case "sign-up":
+//            if ($method === "GET") {
+//                $title ='Inscription';
+//                include "view/adminDash/sign-up.php";
+//            }
+//            if ($method === "POST") {
+//                include "controllers/user.php";
+//            }
+//            break;
 
     case "dash":
         include "view/adminDash/dash.php";

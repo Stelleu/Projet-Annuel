@@ -1,5 +1,24 @@
 
-        <!-- ====== Header Start ====== -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="Front/css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
+    <title>Accueil</title>
+</head>
+<body>
+<?php if ($title == "Inscription"){?>
+<h1> <?php $title ?> </h1>
+<p> Bienvenue sur le site, pour en voir plus, merci de vous inscrire. Sinon, <a href="./connexion.php"> connectez-vous </a>.</p>
+<?php } ?>
+<!-- ====== Header Start ====== -->
         <header class="ud-header">
         <div class="container">
           <div class="row">

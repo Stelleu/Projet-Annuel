@@ -5,7 +5,7 @@
             <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="index.php">
-                  <img src="assets/images/logo/logo-2.svg" alt="Logo">
+                  <img src="FRONT/assets/images/logo/logo-2.svg" alt="Logo">
                 </a>
                 <button class="navbar-toggler">
                   <span class="toggler-icon"> </span>
@@ -16,9 +16,8 @@
                 <div class="navbar-collapse">
                   <ul id="nav" class="navbar-nav mx-auto">
 
-
                     <li class="nav-item">
-                    <a class="" href="\Projet-Annuel\FRONT\commentçamarche.php"><?php echo $lang['menu1']; ?><!-- Comment ça marche? ---></a>
+                    <a class="" href="FRONT\commentçamarche.php"><?php echo $lang['menu1']; ?><!-- Comment ça marche? ---></a>
                     </li>
     
                     <li class="nav-item">
@@ -26,7 +25,7 @@
                     </li> 
     
                     <li class="nav-item">
-                      <a class="ud-menu-scroll" href="/Projet-Annuel/FRONT/contact.php"><?php echo $lang['menu3']; ?><!-- Contact ---></a>
+                      <a class="ud-menu-scroll" href="FRONT/contact.php"><?php echo $lang['menu3']; ?><!-- Contact ---></a>
                     </li>
                       </ul>
                     </li>
@@ -35,14 +34,14 @@
     
                 <div class="navbar-btn d-none d-sm-inline-block">
                   
-                  <a class="ud-main-btn ud-white-btn" href="/Projet-Annuel/FRONT/singup.php" >
+                  <a class="ud-main-btn ud-white-btn" href="FRONT/singup.php" >
                   <?php echo $lang['menu5']; ?><!--  S'inscrire -->
                   </a>
                 </div>
 
                 <div>
-                    <a href="login.php?lang=fr"><img src="assets\images\lang\Flag_of_France.jpeg" width="35px" height="25px" style="margin-left: 25px;"></a>
-                    <a href="login.php?lang=en"><img src="assets\images\lang\flagengland.jpeg" width="35px" height="25px" style="margin-left: 5px;"></a>
+                    <a href="login.php?lang=fr"><img src="FRONT\assets\images\lang\Flag_of_France.jpeg" width="35px" height="25px" style="margin-left: 25px;"></a>
+                    <a href="login.php?lang=en"><img src="FRONT\assets\images\lang\flagengland.jpeg" width="35px" height="25px" style="margin-left: 5px;"></a>
               </div>
               </nav>
             </div>
@@ -52,9 +51,9 @@
 
 
         <!-- ====== All Javascript Files ====== -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="FRONT/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="FRONT/assets/js/wow.min.js"></script>
+    <script src="FRONT/assets/js/main.js"></script>
     <script>
       // ==== for menu scroll
       const pageLink = document.querySelectorAll(".ud-menu-scroll");

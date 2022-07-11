@@ -5,28 +5,28 @@ if (isset($_POST["subject"],$_POST["id"])) {
     $recupdonnee = $_POST["subject"];
     User::status($id_user, $recupdonnee);
 }
-//if (
-//    isset($_POST["firstname"]) ||
-//    isset($_POST["lastname"]) ||
-//    isset($_POST["email"]) ||
-//    isset($_POST["phone"]) ||
-//    isset($_POST["password"]) ||
-//    isset($_POST["passwordConfirm"]) ||
-//    isset($_POST["cgu"]) ||
-//    count($_POST) == 7
-//) {
-//    echo "coucou je rentre";
-//    //récupérer les données du formulaire
-//    $email = $_POST["email"];
-//    $firstname = $_POST["firstname"];
-//    $lastname = $_POST["lastname"];
-//    $pwd = $_POST["password"];
-//    $pwdConfirm = $_POST["passwordConfirm"];
-//    $cgu = $_POST["cgu"];
-//    $phone = $_POST["phone"];
-//    echo "pwd".$pwd;
-//    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
-//}
+if (
+    isset($_POST["firstname"]) ||
+    isset($_POST["lastname"]) ||
+    isset($_POST["email"]) ||
+    isset($_POST["phone"]) ||
+    isset($_POST["pwd"]) ||
+    isset($_POST["confirmpwd"]) ||
+    isset($_POST["forfait"]) ||
+    count($_POST) == 7
+) {
+    //récupérer les données du formulaire
+    $email = $_POST["email"];
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
+    $pwd = $_POST["pwd"];
+    $pwdConfirm = $_POST["confirmpwd"];
+    $forfait = $_POST["forfait"];
+    $phone = $_POST["phone"];
+    $status="user";
+
+    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm, $forfait,$status);
+}
 if(isset($_POST["firstname"],$_POST["lastname"],$_POST["email"],$_POST["phone"])&& count($_POST) == 4) {
 
     $email = strtolower(trim($_POST["email"]));
@@ -73,9 +73,8 @@ class User
         include __DIR__ .'/../view/adminDash/tables.php';
     }
 
-    public static function status(int $id, int $recupdonnee)
+    public static function status(int $id, int $recupdonnee): void
     {
-        echo $recupdonnee;
         if ($recupdonnee == 3) {
             try {
                 $status = UserModel::deleteUser($id);
@@ -95,7 +94,7 @@ class User
         }
     }
 
-    public static function create(string $firstname, string $lastname, string $email, string $phone, string $pwd, string $pwdConfirm)
+    public static function create(string $firstname, string $lastname, string $email, int $phone, string $pwd, string $pwdConfirm, string $forfait, string $status)
     {
         try {
 //nettoyer les données
@@ -136,15 +135,17 @@ class User
             if ($pwd != $pwdConfirm) {
                 $errors[] = "Votre mot de passe de confirmation ne correspond pas";
             }
-            if (!preg_match(' /^0[0-9]([-. ]?[0-9]{2}){4}$/', $phone)) {
-                $errors[] = 'Numéro de téléphone pas valide';
-                //Vérification l'unicité de l'email
-                $phone = UserModel::findByPhone($phone);
-                if (!empty($phone)) {
-                    $errors[] = "Numéro de téléphone existe déjà en bdd";
+//            if (!preg_match('/^0[1-68]([-. ]?[0-9]{2}){4}/', $phone)) {
+//                $errors[] = 'Numéro de téléphone pas valide';
+//            }
+//                //Vérification l'unicité de l'email
+                $findPhone = UserModel::findByPhone($phone);
+                if (!empty($findPhone)) {
+                    $errors[] = "Numéro de téléphone est déjà utilisé";
                 }
-            }
             $pwd = password_hash($pwd, PASSWORD_DEFAULT);
+            var_dump($errors);
+            var_dump($_POST);
             if (count($errors) == 0) {
                 $newUser = UserModel::create([
                     "firstname" => $firstname,
@@ -152,6 +153,8 @@ class User
                     "phone" => $phone,
                     "email" => $email,
                     "pwd" => $pwd,
+                    "subscription" => $forfait,
+                    "status_user" => $status
                 ]);
                 if ($newUser == 1) {
                     $result = UserModel::findByEmail($email);
@@ -162,8 +165,8 @@ class User
                         $token = bin2hex(random_bytes(16));
                         $result =UserModel::updateOneById($result["idUser"], ["token" => $token]);
                         $user = UserModel::getOneByToken($token);
-                        $_SESSION["info"] = $user;
-                        header("Location: dashboard");
+                        $_SESSION["user"] = $user;
+                        header("Location: userprofil");
                     }
                 }
             }else{
@@ -172,7 +175,7 @@ class User
 
             }
         }catch (PDOException $exception){
-            $exception->getMessage();
+            $errors[] = $exception->getMessage();
             $_SESSION["errors"] = $errors;
             header("Location: sign-up");
         }
