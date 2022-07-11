@@ -173,7 +173,6 @@
         </div>
     </section>
 </main>
-<?php include "../view/signFooter.php";?>
 
 
 

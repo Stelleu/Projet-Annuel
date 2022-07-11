@@ -28,25 +28,23 @@ switch ($route) {
         include "FRONT/commentçamarche.php";
         break;
 
-    case "connexion":
-        include "FRONT/longin.php";
-        if ($method == "POST"){
-            echo $_GET["route"];
-            include "controllers/Login.php";
-
-
-        }
-        break;
-    case "userprofile":
-        include "view/Profil/pages/userProfil.php";
-        break;
-
     case "sign-up":
         include "FRONT/sign-up.php";
         if ($method ==="POST"){
             include "controllers/user.php";
         }
         break;
+    case "connexion":
+        include "FRONT/longin.php";
+        if ($method == "POST"){
+            echo $_GET["route"];
+            include "controllers/Login.php";
+        }
+        break;
+    case "userprofil":
+        include "view/Profil/pages/userProfil.php";
+        break;
+
     case "dashboard":
         include "view/adminDash/dashboard.php";
         break;
