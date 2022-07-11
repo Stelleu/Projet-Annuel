@@ -129,6 +129,9 @@ switch ($route) {
             include "controllers/Shop.php";
             Shop::getByIds();
         }
+        if ($method ==="POST"){
+            include "controllers/Shop.php";
+        }
         break;
     case "payment":
         echo "cc";

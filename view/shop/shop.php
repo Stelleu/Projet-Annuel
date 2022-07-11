@@ -142,12 +142,11 @@
                         <?php if($cle=="picture"){?>
                             <div class="thumb">
                                 <div class="hover-content">
-                                    <form method="get">
+                                    <form method="GET">
                                         <input type="hidden" name="id" value="<?php echo $infoproduct['idProduct'];?>"/>
                                         <button type="submit" class="btn" name="view" value="view">
                                                 <i class="fa fa-eye"></i>
                                             </button>
-
                                             <button type="submit" class="btn" name="cart" value="cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </button>

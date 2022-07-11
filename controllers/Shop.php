@@ -23,11 +23,11 @@ if (isset($_POST["cid"])){
     Shop::deleteFromCart($cId);
 }
 
-//if (isset($_GET["cart"],$_GET["id"])){
-//$idProduct = $_GET["id"];
-//    $quantity  = 1;
-//    Shop::getById($idProduct);
-//}
+if (isset($_GET["cart"],$_GET["id"])){
+$idProduct = $_GET["id"];
+    $quantity  = 1;
+    Shop::getById($idProduct,$quantity);
+}
 if (isset($_GET["checkout"],$_SESSION["panier"],)){
     Shop::getByIds();
 }
@@ -42,7 +42,6 @@ class Shop
 
     public static function getById($id): void
     {
-        var_dump($id);
         if (!isset($_SESSION["panier"])){
             $_SESSION["panier"]=array();
         }

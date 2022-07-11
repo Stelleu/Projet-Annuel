@@ -2,7 +2,6 @@
 include __DIR__ .'\fb.php';
 include __DIR__ . '\include\app.php';
 include __DIR__ . '\include\menu.php';
-var_dump($_SESSION);
 ?>
 
 
