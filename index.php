@@ -34,6 +34,7 @@ switch ($route) {
             include "controllers/user.php";
         }
         break;
+
     case "connexion":
         include "FRONT/longin.php";
         if ($method == "POST"){
@@ -134,14 +135,10 @@ switch ($route) {
         }
         break;
     case "payment":
-        echo "cc";
-        var_dump($_GET);
-
         include "view/shop/create-checkout-session.php";
-
-//        if ($method === "POST") {
-//            include "controllers/StripePayment.php";
-//        }
+        if ($method === "POST") {
+            include "controllers/Login.php";
+        }
         break;
 
     case "shop":

@@ -1,12 +1,18 @@
 <?php
 include __DIR__."/../models/userModel.php";
+//Redirection vers les differentes fonctions des paramètres
 
 if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
     $result = Login::connexion($_GET["route"]);
+    var_dump($_POST);
 }else{
     $errors[]= "Veuillez remplir le formulaire.";
     $_SESSION["errors"]= $errors;
-    header("Location: sign-in");
+//    if ($_GET["route"] == "sign-in") {
+//        header("Location: sign-in");
+//    } else {
+//        header("Location: connexion");
+//    }
 
 }
 class Login
@@ -14,8 +20,6 @@ class Login
     public static function connexion($route)
     {
         try {
-            echo $route;
-            //password_verify
             $email = $_POST["email"];
             $pwd = $_POST["pwd"];
             /*if (isset($_POST['submited'])) {
@@ -47,22 +51,24 @@ class Login
             if (empty($result)) {
                 $errors[] = "Identifiants incorrects.";
                 $_SESSION["errors"] = $errors;
-                if ($route == "connexion") {
-                    header("Location: connexion");
-                } else {
-
+                if ($route == "sign-in") {
                     header("Location: sign-in");
+                } else {
+                    header("Location: connexion");
                 }
 
             } else {
                 if (password_verify($pwd, $result["passwd"])) {
                     $token = bin2hex(random_bytes(16));
-                    $_SESSION["info"] = UserModel::updateOneById($result["idUser"], ["token" => $token]);
+                    $_SESSION["user"] = UserModel::updateOneById($result["idUser"], ["token" => $token]);
                     $user = UserModel::getOneByToken($token);
-                    $_SESSION["info"] = $user;
+                    $_SESSION["user"] = $user;
                     if ($route == "connexion") {
                         header("Location: userprofil");
-                    } else {
+                    }
+                    elseif($route=="payment") {
+                        include "view/shop/create-checkout-session.php";
+                    } else{
                         header("Location: dashboard");
 
                     }
@@ -70,11 +76,10 @@ class Login
 
                         $errors[] = "Identifiant ou mot de passe incorrects.";
                         $_SESSION["errors"] = $errors;
-                    if ($route == "connexion") {
-                        header("Location: connexion");
-                    } else {
-
+                    if ($route == "sign-in") {
                         header("Location: sign-in");
+                    } else {
+                        header("Location: connexion");
                     }
                 }
                 }
