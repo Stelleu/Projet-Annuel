@@ -14,6 +14,27 @@ if(!empty($_SESSION["productinfo"])){
 header('Content-Type: application/json');
 $YOUR_DOMAIN = 'http://localhost/';
 //$stripeAmount = round($_SESSION["productinfo"][0]["price_product"]*100,2);
+
+    $response = array(
+        'status' => 0,
+        'error' => array(
+            'message' => 'Invalid Request!'
+        )
+    );
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $input = file_get_contents('php://input');
+        $request = json_decode($input);
+    }
+
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        http_response_code(400);
+        echo json_encode($response);
+        exit;
+    }
+
+
+
 try {
     // Creation d'une session Stripe et d'un client
     $checkout_session = \Stripe\Checkout\Session::create([
@@ -24,8 +45,12 @@ try {
                 'price_data' => [
                     'currency'     => 'EUR',
                     'product_data' => [
-                        'name' => $product['name']
+                        'name' => $product['name'],
+                        'metadata' => [
+                            'pro_id' => $product['idProduct']
+                            ]
                     ],
+
                     'unit_amount'  => round($product["price_product"]*100,2)
                 ]
             ],$_SESSION["products"]),
@@ -38,11 +63,29 @@ try {
         'success_url' => $YOUR_DOMAIN . '/success',
         'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
         'customer_email' => $_SESSION["user"]["email"],
+
     ]);
 } catch (\Stripe\Exception\ApiErrorException $e) {
-    $_SESSION["errors"] = $e->getMessage();
+    $api_error = $e->getMessage();
 }
-
-header("HTTP/1.1 303 See Other");
-header("Location: " . $checkout_session->url);
+if (empty($api_error) && $checkout_session){
+    $response = array(
+        'status' => 1,
+        'message' => 'Checkout Session created successfully!',
+        'sessionId' => $checkout_session->id
+    );
+}else{
+    $response = array(
+        'status' => 0,
+        'error' => array(
+            'message' => 'Checkout Session creation failed! '.$api_error
+        )
+    );
+    }
 }
+// Return response
+echo json_encode($response);
+//
+//header("HTTP/1.1 303 See Other");
+//header("Location: " . $checkout_session->url);
+//}
