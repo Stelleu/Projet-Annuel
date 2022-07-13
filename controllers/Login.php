@@ -61,7 +61,7 @@ class Login
                     $user = UserModel::getOneByToken($token);
                     $_SESSION["info"] = $user;
                     if ($route == "connexion") {
-                        header("Location: myProfil");
+                        header("Location: userprofil");
                     } else {
                         header("Location: dashboard");
 
