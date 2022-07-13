@@ -1,6 +1,8 @@
 <?php
 include __DIR__ .'\fb.php';
 include __DIR__ . '\include\app.php';
+print_r($_GET);
+
 ?>
 
 <section class="vh-100 bg-image">
