@@ -9,7 +9,6 @@
 
     <title>Shop Easy</title>
 
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="view/shop/assets/css/bootstrap.min.css">
 
@@ -21,11 +20,8 @@
 
     <link rel="stylesheet" href="view/shop/assets/css/lightbox.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-
     </head>
-    
     <body>
-    
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
@@ -33,33 +29,15 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/logo.png">
+                        <a class="navbar-brand" href="home">
+                            <img src="FRONT/assets/images/logo/logo.svg" alt="Logo" width="100" height="100">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index.html" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="index.html">Men's</a></li>
-                            <li class="scroll-to-section"><a href="index.html">Women's</a></li>
-                            <li class="scroll-to-section"><a href="index.html">Kid's</a></li>
                             <li class="submenu">
-                                <a href="javascript:;">Pages</a>
-                                <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="shop.php">Products</a></li>
-                                    <li><a href="single-product.php">Single Product</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                </ul>
-                            </li>
-                            <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
-                                </ul>
+                                <a href="contact">Contact</a>
+
                             </li>
 <!--                            afficher le nombre de produit dans le panier -->
                             <li class="scroll-to-section"><a href="checkout"><i class="bi bi-cart-plus-fill"><?php
@@ -87,8 +65,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-content">
-                        <h2>Check Our Products</h2>
-                        <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
+                        <h2>Shop</h2>
+                        <span>Nos nouveautés</span>
                     </div>
                 </div>
             </div>
@@ -97,15 +75,7 @@
     <!-- ***** Main Banner Area End ***** -->
     <!-- ***** Products Area Starts ***** -->
     <section class="section" id="products">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-heading">
-                        <h2>Our Latest Products</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="container">
             <div class="row">
                 <?php foreach ($products as $cle => $infoproduct){?>

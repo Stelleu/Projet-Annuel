@@ -9,7 +9,9 @@
 <section>
     <p>
         Votre commande est en route !
-        Télécharger votre facture .
+        Télécharger votre facture,
+        <a href="userprofil">dans votre espace personnel.</a>
+
         <a href="mailto:support@easyscooters.com">support@easyscooters.com</a>.
     </p>
 </section>

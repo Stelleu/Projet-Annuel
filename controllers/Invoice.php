@@ -85,11 +85,10 @@ class Invoice
                     if ($newInvoice = 1){
                         $result = invoiceModel::verifExisteStripeSession($stripe_checkout_session_id);
                         //On ajoute chaque produit de la commande on l'insert en bdd
-                        echo($stripe_checkout_session_id);
                         foreach ($_SESSION["products"] as $product){
                             $orderProduct = invoiceModel::addProduct([
                                 "fkProduct" => $product["idProduct"],
-                                "idOrder" => $result["idOrder"],
+                                "idOrder" => $result[0]["idOrder"],
                                 "price_product"=> $product["price_product"]
                             ]);
                         }
