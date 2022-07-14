@@ -4,8 +4,6 @@ include __DIR__ . '\..\..\..\FRONT\fb.php';
 include __DIR__ . '\header.php';
 //include __DIR__ . '\include\menu.php';
 ?>
-
-
     <div class="container-fluid py-4">
         <div class="row">
                 <?php if(empty($_SESSION["user"])){
