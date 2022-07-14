@@ -60,6 +60,10 @@ switch ($route) {
             Scooter::get();
         }
         break;
+    case "billing":
+        include "view/Profil/pages/billing.php";
+
+        break;
 
 
     case "tables":
