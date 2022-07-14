@@ -170,6 +170,12 @@ switch ($route) {
             include "controllers/Shop.php";
         }
         break;
+
+        /* added gutibs */
+        case "map":
+        include "FRONT/map.php";
+        break;
+        /* added gutibs */
 }
 
 
