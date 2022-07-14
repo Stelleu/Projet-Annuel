@@ -10,8 +10,7 @@ if(!empty($_GET['session_id'])){
 }
 class Invoice
 {
-    public static function addInvoice(): void
-    {
+    public static function addInvoice(): void{
         $date = getdate();
         $status = 0;
         $price_order = $_SESSION['panier']['price_order'];
@@ -22,6 +21,11 @@ class Invoice
             "idUser"    => $_SESSION["user"]["idUser"],
 
         ]);
+
+    }
+    public static function wallet(): void
+    {
+        //CALCUL DE POINT DE FIDELITE
 
     }
     public static function StripeSuccess($data): void
@@ -63,41 +67,37 @@ class Invoice
                     $paidAmount = $paymentIntent->amount;
                     $paidAmount = ($paidAmount/100);
                     $status = $paymentIntent->status;
-
                     // Customer details
                     $customer_name = $customer_email = '';
                     if(!empty($customer)){
                         $customer_name = !empty($customer->name)?$customer->name:'';
                         $customer_email = !empty($customer->email)?$customer->email:'';
                     }
-                    $date= getdate();
+                    $date= date('Y-m-d');
                     $idUser = $_SESSION["user"]["idUser"];
                     $newInvoice= invoiceModel::addInvoice([
                         "Date" => $date,
                         "status" => $status,
-                        "price_order" =>,
+                        "price_order" => $paidAmount,
                         "idUser"=>$idUser,
                         "stripe_checkout_session_id"=>$stripe_checkout_session_id,
-                        "email_user"=>$customer_email
                     ]);
                     if ($newInvoice = 1){
                         $result = invoiceModel::verifExisteStripeSession($stripe_checkout_session_id);
                         //On ajoute chaque produit de la commande on l'insert en bdd
-                        foreach ($products as $product){
+                        echo($stripe_checkout_session_id);
+                        foreach ($_SESSION["products"] as $product){
                             $orderProduct = invoiceModel::addProduct([
                                 "fkProduct" => $product["idProduct"],
                                 "idOrder" => $result["idOrder"],
-                                "quantity" => $product["quantity_order"],
                                 "price_product"=> $product["price_product"]
                             ]);
-
                         }
                     }
-
-                    }
                 }
+            }
 
-                }
+        }
 
     }
 

@@ -30,13 +30,13 @@ class Profil
             } else {
                 $_SESSION["profil"]["offers"] = $offers;
                 $_SESSION["profil"]["invoice"] = $invoice;
-
+                if ($_GET["route"] === "billing"){
+                    include "view/Profil/pages/billing.php";
+                }else{
                 include "view/Profil/pages/userProfil.php";
             }
         }
-
-
-    }
+    }}
     public static function generateOffer():void{
 
     }

@@ -39,6 +39,7 @@ $title = "Panier";?>
             <h3><?php echo  $product["name"]?></h3>
             <h5><?php echo $product["price_product"] ."€";?></h5>
             <input type="number" name="quantity" value="<?=$_SESSION["panier"][$product['idProduct']]?>" >
+<!--            //quantity[]-->
 <!--            <input type="hidden" name="cid" value="--><?php //echo $product['idProduct'];?><!--"/>-->
             <a href="checkout"><button type="button" class="btn" name="delete" value="delete"  data-bs-toggle="tooltip"  data-bs-original-title="Supprimer l'offre">
                     <i class="fas fa-trash text-secondary"></i></button></a>
@@ -48,7 +49,10 @@ $title = "Panier";?>
     }
     ?>
     <h3 class="text-uppercase text-end mx-3">Total : <?=$total?>€</h3>
-        <?php  if(empty($_SESSION["user"])){?>
+        <?php  if(!empty($_SESSION["user"])){?>
+        <button  type="submit" id="checkout-button">Payer</button>
+    </form>
+        <?php }else{?>
             <button type="button" id="checkout-button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Payer</button>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -71,10 +75,8 @@ $title = "Panier";?>
                             }
                             ?>
                             <form role="form" method="post" action="payment">
-
                                 <div class="form-outline mb-4">
                                     <input type="email" class="form-control" id="form3Example3cg" placeholder="Email" aria-label="Email" name="email" aria-describedby="email-addon">
-
                                 </div>
                                 <div class="form-outline mb-4">
                                     <input type="password" id="form3Example4cg" class="form-control "  placeholder="Mot de passe" aria-label="Password" name="pwd" aria-describedby="password-addon" />
@@ -88,14 +90,13 @@ $title = "Panier";?>
                     </div>
                 </div>
             </div>
-        <?php }else{?>
-            <button  type="submit" id="checkout-button">Payer</button>
+
         <?php }
     }
-    ?>
-    </form>
-</section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
+    ?>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

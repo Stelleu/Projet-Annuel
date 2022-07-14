@@ -151,8 +151,8 @@
                                                 <i class="fa fa-shopping-cart"></i>
                                             </button>
                                     </div>
-<!--                                    <img src="--><?php //echo $info ?><!--" alt="image du produit">-->
-                                        <img src="view/shop/assets/images/women-01.jpg" alt="image du produit">
+                                    <img src="<?php echo $info ?>" alt="image du produit">
+<!--                                        <img src="view/shop/assets/images/women-01.jpg" alt="image du produit">-->
                                     </form>
                                 </div>
                         </div>

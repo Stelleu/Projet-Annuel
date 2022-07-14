@@ -1,5 +1,5 @@
 <?php
-$title = "Profil";
+$title = "Tableau de bord";
 include __DIR__ . '\..\..\..\FRONT\fb.php';
 include __DIR__ . '\header.php';
 //include __DIR__ . '\include\menu.php';

@@ -10,7 +10,7 @@ if (count($_POST) == 3 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
 }elseif (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
     $result = Login::connexion($_GET["route"]);
 }elseif (!empty($_GET["end"])){
-    Login::delete;
+    Login::delete();
 
 }else{
     $errors[]= "Veuillez remplir le formulaire.";

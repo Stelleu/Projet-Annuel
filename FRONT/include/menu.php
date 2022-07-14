@@ -6,7 +6,7 @@
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
               <a class="navbar-brand" href="index.php">
-                <img src="assets/images/logo/logo.svg" alt="Logo">
+                <img src="FRONT/assets/images/logo/logo.svg" alt="Logo">
               </a>
               <button class="navbar-toggler">
                 <span class="toggler-icon"> </span>

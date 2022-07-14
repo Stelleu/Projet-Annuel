@@ -46,7 +46,6 @@ switch ($route) {
         if ($method === "GET"){
             include "controllers/Profil.php";
             Profil::getAll();
-            var_dump($_SESSION);
         }
         break;
 
@@ -61,8 +60,11 @@ switch ($route) {
         }
         break;
     case "billing":
-        include "view/Profil/pages/billing.php";
-
+        //espace de facturation
+        if ($method === "GET"){
+            include "controllers/Profil.php";
+            Profil::getAll();
+        }
         break;
 
 
@@ -130,8 +132,9 @@ switch ($route) {
         break;
     case "success":
         include "view/shop/success.php";
-        include "controllers/Invoice.php";
-
+        if ($method ==="GET"){
+            include "controllers/Invoice.php";
+        }
         break;
 
     case "checkout":
@@ -145,13 +148,13 @@ switch ($route) {
         break;
     case "payment":
         include "view/shop/create-checkout-session.php";
-        if ($method === "POST") {
-            include "controllers/Login.php";
-        }
-        if ($method === "GET"){
-            include "controllers/Invoice.php";
-
-        }
+//        if ($method === "POST") {
+//            include "controllers/Login.php";
+//        }
+////        if ($method === "GET"){
+////            include "controllers/Invoice.php";
+////
+////        }
         break;
 
     case "shop":
