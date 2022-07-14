@@ -38,7 +38,7 @@ include ("include/menusingup.php");
 
 // Test si l'utilisateur est déjà connecté
 if (isset($_SESSION['connect'])){
-    header('location: Projet-Annuel\FRONT\index.php');
+    header('location: Projet-Annuel/FRONT/index.php');
     exit();
 }
 // sinon inscription
@@ -138,7 +138,7 @@ require('./config.php');
     <script src="https://kit.fontawesome.com/XXXXX.js"></script>
                     <p class="loginhere">
                        <?php echo $lang['terms3']; ?>
-                <!--  Vous avez déjà un compte ?  --> <a href="/Projet-Annuel\FRONT\login.php" class="loginhere-link"><?php echo $lang['terms4']; ?>
+                <!--  Vous avez déjà un compte ?  --> <a href="/Projet-Annuel/FRONT/login.php" class="loginhere-link"><?php echo $lang['terms4']; ?>
                 <!--  Connectez-vous ici  --></a>
                     </p>
                 </div>

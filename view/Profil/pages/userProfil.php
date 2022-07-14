@@ -1,8 +1,8 @@
 <?php
 $title = "Tableau de bord";
-include __DIR__ . '\..\..\..\FRONT\fb.php';
-include __DIR__ . '\header.php';
-//include __DIR__ . '\include\menu.php';
+include __DIR__ . '/../../../FRONT/fb.php';
+include __DIR__ . '/header.php';
+//include __DIR__ . '/include/menu.php';
 ?>
 
 
@@ -153,6 +153,6 @@ include __DIR__ . '\header.php';
     </div>
 
 <?php
-include __DIR__ . '\footer.php';
-//include __DIR__ . '\include\menu.php';
+include __DIR__ . '/footer.php';
+//include __DIR__ . '/include/menu.php';
 ?>

@@ -38,7 +38,7 @@
 
 
                     <li class="nav-item">
-                    <a class="" href="\Projet-Annuel\FRONT\commentçamarche.php"><?php echo $lang['menu1']; ?><!-- Comment ça marche? ---></a>
+                    <a class="" href="/Projet-Annuel/FRONT/commentçamarche.php"><?php echo $lang['menu1']; ?><!-- Comment ça marche? ---></a>
                     </li>
     
                     <li class="nav-item">
@@ -59,8 +59,8 @@
                   </div>
 
                   <div>
-                    <a href="singup.php?lang=fr"><img src="assets\images\lang\Flag_of_France.jpeg" width="35px" height="25px" style="margin-left: 25px;"></a>
-                    <a href="singup.php?lang=en"><img src="assets\images\lang\flagengland.jpeg" width="35px" height="25px" style="margin-left: 5px;"></a>
+                    <a href="singup.php?lang=fr"><img src="assets/images/lang/Flag_of_France.jpeg" width="35px" height="25px" style="margin-left: 25px;"></a>
+                    <a href="singup.php?lang=en"><img src="assets/images/lang/flagengland.jpeg" width="35px" height="25px" style="margin-left: 5px;"></a>
               </div>
               </nav>
             </div>

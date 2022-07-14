@@ -84,7 +84,7 @@ class Product
     public static function get($route): void
     {
         $products = productModel::getAll();
-            include __DIR__ . '\..\view\adminDash\products.php';
+            include __DIR__ . '/../view/adminDash/products.php';
 
     }
     public static function getById($id): void

@@ -2,7 +2,7 @@
 session_start();
 // Test si l'utilisateur est déjà connecté
 if (isset($_SESSION['connect'])){
-    header('location: \Projet-Annuel\FRONT\index.php');
+    header('location: /Projet-Annuel/FRONT/index.php');
     exit();
 }
 // Sinon connexion

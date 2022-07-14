@@ -37,7 +37,7 @@ class Shop
     public static function getAll(): void
     {
         $products = shopModel::getAll();
-            include __DIR__ . '\..\view\shop\shop.php';
+            include __DIR__ . '/../view/shop/shop.php';
     }
 
     public static function getById($id): void
@@ -73,7 +73,7 @@ class Shop
         if(!isset($_SESSION['panier'])){
             $errors[] = "Votre panier est vide";
             $_SESSION["errors"] = $errors;
-            include __DIR__ . '\..\view\shop\checkout.php';
+            include __DIR__ . '/../view/shop/checkout.php';
 
         }else{
 
@@ -85,7 +85,7 @@ class Shop
 
                 $products = shopModel::getByIds($ids);
                 $_SESSION["products"] = $products;
-                include __DIR__ . '\..\view\shop\checkout.php';
+                include __DIR__ . '/../view/shop/checkout.php';
 
             }
         }
@@ -97,7 +97,7 @@ class Shop
             /* Retirez le produit du panier, vérifiez le paramètre "remove" de l'URL, c'est l'identifiant du produit, assurez-vous qu'il s'agit d'un numéro et vérifiez s'il est dans le panier.*/
 //            var_dump($_SESSION['panier']);
            unset($_SESSION['panier'][$id]);
-            include __DIR__ . '\..\view\shop\checkout.php';
+            include __DIR__ . '/../view/shop/checkout.php';
             exit;
         } catch (Exception $e) {
             $errors=  $e->getMessage();

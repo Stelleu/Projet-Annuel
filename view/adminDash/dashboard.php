@@ -1,6 +1,6 @@
 <?php
 $title= "Dashboard";
-require_once ('includes\header.php'); ?>
+require_once ('includes/header.php'); ?>
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">

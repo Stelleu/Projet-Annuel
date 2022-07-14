@@ -1,7 +1,7 @@
 <?php
-include __DIR__ .'\fb.php';
-include __DIR__ . '\include\app.php';
-include __DIR__ . '\include\menu.php';
+include __DIR__ .'/fb.php';
+include __DIR__ . '/include/app.php';
+include __DIR__ . '/include/menu.php';
 ?>
 
 
@@ -16,7 +16,7 @@ include __DIR__ . '\include\menu.php';
                             <section class="right">
                                 <H1 class="titleprofile">Bonjour, <?php echo $_SESSION["user"]["firstname"]?></H1>
                                 <div class="descriptionprofile">
-                                <img id="profilimg" src="assets\images\photoprofil.jpg" alt="" width="200px" height="200px">
+                                <img id="profilimg" src="assets/images/photoprofil.jpg" alt="" width="200px" height="200px">
                                     <div class="contenudescriptions">
                                     
                                         <p id="prenomprofile">
