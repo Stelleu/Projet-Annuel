@@ -42,7 +42,7 @@
     } else { ?>
                <div class="navbar-btn d-none d-sm-inline-block">
                 <a href="connexion" class="ud-main-btn ud-login-btn"><?php echo $lang['menu4']; ?><!-- Connexion --></a>
-                <a class="ud-main-btn ud-white-btn"  href="singup" ><?php echo $lang['menu5']; ?><!--  S'inscrire --></a>
+                <a class="ud-main-btn ud-white-btn"  href="sing-up" ><?php echo $lang['menu5']; ?><!--  S'inscrire --></a>
               </div>
 
     <?php 

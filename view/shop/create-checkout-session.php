@@ -6,8 +6,8 @@ if(empty($_SESSION["products"])){
 }else{
     ?>
 <?php
-    require __DIR__.'\..\..\vendor\config.php';
-    require __DIR__.'\..\..\vendor\stripe\stripe-php\init.php';
+    require __DIR__.'/../../vendor/config.php';
+    require __DIR__.'/../../vendor/stripe/stripe-php/init.php';
 
 // This is your test secret API key.
 \Stripe\Stripe::setApiKey(STRIPE_SECRET);

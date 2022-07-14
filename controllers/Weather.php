@@ -1,5 +1,5 @@
 <?php
-include __DIR__."\..\models\WeatherModel.php";
+include __DIR__."/../models/WeatherModel.php";
 
 
 class Weather

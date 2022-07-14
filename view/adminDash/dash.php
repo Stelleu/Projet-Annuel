@@ -1,4 +1,4 @@
-<?php include __DIR__ . "\..\..\controllers\Token.php";
+<?php include __DIR__ . "/../../controllers/Token.php";
 var_dump($_POST); ?>
 <!DOCTYPE html>
 <html lang="en">
