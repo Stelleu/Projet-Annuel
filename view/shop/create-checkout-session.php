@@ -1,11 +1,11 @@
 <?php
-if(!empty($_SESSION["productinfo"])){
+if(empty($_SESSION["product"])){
     $_SESSION["errors"] = "Votre panier est vide !";
 //    print_r($_SESSION["errors"]);
     header("Location: checkout");
-}else{ ?>
+}else{
+    ?>
 <?php
-
     require __DIR__.'\..\..\vendor\config.php';
     require __DIR__.'\..\..\vendor\stripe\stripe-php\init.php';
 
@@ -24,8 +24,12 @@ try {
                 'price_data' => [
                     'currency'     => 'EUR',
                     'product_data' => [
-                        'name' => $product['name']
+                        'name' => $product['name'],
+                        'metadata' => [
+                            'pro_id' => $product['idProduct']
+                            ]
                     ],
+
                     'unit_amount'  => round($product["price_product"]*100,2)
                 ]
             ],$_SESSION["products"]),
@@ -35,14 +39,19 @@ try {
         ],
 //        'customer_details.phone'  => $_SESSION["user"]["phone"],
         'mode' => 'payment',
-        'success_url' => $YOUR_DOMAIN . '/success',
+        'success_url' => $YOUR_DOMAIN . '/success'.'?session_id={CHECKOUT_SESSION_ID}',
         'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
         'customer_email' => $_SESSION["user"]["email"],
+        'customer_name' => $_SESSION["user"]["firstname"],
     ]);
 } catch (\Stripe\Exception\ApiErrorException $e) {
-    $_SESSION["errors"] = $e->getMessage();
+    $api_error = $e->getMessage();
+}
 }
 
-header("HTTP/1.1 303 See Other");
-header("Location: " . $checkout_session->url);
-}
+// Return response
+echo json_encode($checkout_session->id);
+//
+//header("HTTP/1.1 303 See Other");
+//header("Location: " . $checkout_session->url);
+//}

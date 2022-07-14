@@ -27,7 +27,8 @@ $title = "Panier";?>
             ?>
             </div>
     <?php
-    }else{ foreach ($products as $product){
+    }else{
+        foreach ($products as $product){
     $total = $total + $product['price_product'] * $_SESSION['panier'][$product['idProduct']];
     $_SESSION['panier']['price_order'] = $total;
             ?>
@@ -38,7 +39,7 @@ $title = "Panier";?>
             <h3><?php echo  $product["name"]?></h3>
             <h5><?php echo $product["price_product"] ."€";?></h5>
             <input type="number" name="quantity" value="<?=$_SESSION["panier"][$product['idProduct']]?>" >
-            <input type="hidden" name="cid" value="<?php echo $product['idProduct'];?>"/>
+<!--            <input type="hidden" name="cid" value="--><?php //echo $product['idProduct'];?><!--"/>-->
             <a href="checkout"><button type="button" class="btn" name="delete" value="delete"  data-bs-toggle="tooltip"  data-bs-original-title="Supprimer l'offre">
                     <i class="fas fa-trash text-secondary"></i></button></a>
         </div>
@@ -47,7 +48,7 @@ $title = "Panier";?>
     }
     ?>
     <h3 class="text-uppercase text-end mx-3">Total : <?=$total?>€</h3>
-        <?php  if (empty($_SESSION["user"])){?>
+        <?php  if(empty($_SESSION["user"])){?>
             <button type="button" id="checkout-button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Payer</button>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

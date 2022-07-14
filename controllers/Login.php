@@ -2,9 +2,10 @@
 include __DIR__."/../models/userModel.php";
 //Redirection vers les differentes fonctions des paramètres
 
-if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
+if (count($_POST) == 3 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
     $result = Login::connexion($_GET["route"]);
-    var_dump($_POST);
+}elseif(!empty($_POST["quantity"]) ){
+    $_SESSION["products"]["quantity_order"]  = $_POST["quantity"];
 }else{
     $errors[]= "Veuillez remplir le formulaire.";
     $_SESSION["errors"]= $errors;
@@ -13,7 +14,6 @@ if (count($_POST) == 2 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
 //    } else {
 //        header("Location: connexion");
 //    }
-
 }
 class Login
 {
@@ -22,6 +22,7 @@ class Login
         try {
             $email = $_POST["email"];
             $pwd = $_POST["pwd"];
+            $quantity_order = $_POST["quantity"];
             /*if (isset($_POST['submited'])) {
                 //rememberme
                 //Si la case est cochée
@@ -63,11 +64,13 @@ class Login
                     $_SESSION["user"] = UserModel::updateOneById($result["idUser"], ["token" => $token]);
                     $user = UserModel::getOneByToken($token);
                     $_SESSION["user"] = $user;
+                    $_SESSION["products"]["quantity_order"]  = $quantity_order;
                     if ($route == "connexion") {
                         header("Location: userprofil");
                     }
-                    elseif($route=="payment") {
-                        include "view/shop/create-checkout-session.php";
+                    elseif($route==="payment") {
+                        header("Location: payment");
+                        var_dump( $_SESSION["user"]);
                     } else{
                         header("Location: dashboard");
 
@@ -97,5 +100,6 @@ class Login
 
             header("Location: sign-in");
         }    }
+
 
 }

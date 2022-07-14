@@ -120,8 +120,8 @@ switch ($route) {
         include "controllers/";
         break;
     case "success":
-        include "view/shop/success.html";
-        include "controllers/Shop.php";
+        include "view/shop/success.php";
+        include "controllers/Invoice.php";
 
         break;
 
@@ -138,6 +138,10 @@ switch ($route) {
         include "view/shop/create-checkout-session.php";
         if ($method === "POST") {
             include "controllers/Login.php";
+        }
+        if ($method === "GET"){
+            include "controllers/Invoice.php";
+
         }
         break;
 
