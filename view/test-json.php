@@ -1,5 +1,5 @@
 <?php
-
+include __DIR__."\..\controllers\Weather.php";
 // Read the JSON file
 $json = file_get_contents('../AppC/weather.json');
 
@@ -7,6 +7,7 @@ $json = file_get_contents('../AppC/weather.json');
 $json_data = json_decode($json,true);
 
 // Display data
-print_r($json_data);
+
+Weather::insert($json_data);
 
 ?>

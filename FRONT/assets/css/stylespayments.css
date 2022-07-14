@@ -1,0 +1,232 @@
+ /* ============================================= PORTEFEUILLE ===================================== */
+
+  .martinporte {
+        margin: 0;
+  }
+  #wrapper {
+        display: flex;
+  }
+  
+  .left {
+        background: black;
+        width: 20%;
+        height: 1150px;
+        padding: 50px;
+  }
+  
+  .right {
+        width: 80%;
+        padding: 50px;
+  }
+  
+  /* CONTENU DU PROFIL*/
+  
+  .titleporte {
+        height: 120px;
+        width: 600px;
+        left: 361px;
+        top: 61px;
+        font-size: 55px;
+        font-weight: 600;
+        line-height: 120px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgb(207, 0, 0);
+  }
+  
+  @media screen and (min-width: 640px) {
+    .wrapper {
+        display: block;
+    }
+    .left {
+        width: 20%;
+    }
+  
+    .right {
+        width: 80%;
+    }
+  }
+  
+  #profilimg {
+        border-radius: 2000px;
+        margin-left: -30px;
+        margin-bottom: 20px;
+  }
+  
+  .descriptionprofile {
+        display: flex;
+        margin-top:50px;
+  }
+  
+  /* #prenomprofile {
+    margin-left: 30px ;
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 35px;
+    color: black;
+  } */
+/*   
+  #mailprofile {
+    margin-left: 30px ;
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 35px;
+    color: black;
+  }
+  .contenudescriptions {
+    margin-top :65px;
+  } */
+  
+  .infoprofil {
+        margin-top: -35px;
+        margin-left:160px;
+        display: flex;
+  }
+  
+  .comptewallet {
+    
+    width: 300px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 13px 10px 7px #0000001a;
+        border: 2px solid #FF865A;
+        border-radius: 10px;
+        opacity: 1;
+        padding:10px;
+        display: inline-block;
+        margin-left: 20px;
+        margin-top: px;
+  }
+  
+  .comptewallet p{
+        margin-left: 40px;
+        margin-right: 40px;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 35px;
+        letter-spacing: 0em;
+        color: black;
+  }
+  
+  @media screen and (min-width: 640px) {
+    .comptewallet {
+      display: inline-block;
+    }
+  }
+
+.comptewallet #nom {
+        font-size: 25px;
+        font-weight: 500;
+        letter-spacing: 0em;
+        text-align: center;
+        color: rgb(0, 0, 0);
+    }
+    
+.comptewallet #number {
+        font-size: 25px;
+        font-weight: 700;
+        letter-spacing: 0em;
+        text-align: center;
+        color: rgb(0, 0, 0);
+    }
+
+    .convert {
+        margin-top: 60px;
+        margin-bottom: 20px;
+        margin-left: 20%;
+        }
+
+    .convertwallet button{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 20px;
+        color: #FF5113;
+        background: rgba(0, 0, 0, 0);
+        border:none;
+        }
+
+  #hr {
+      color: #000000 ;
+  }
+
+
+   
+  .formepayments {
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+
+  
+
+  .methodepaiement {
+        height: 120px;
+        width: 700px;
+        font-size: 45px;
+        font-weight: 700;
+        line-height: 120px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: black;
+    }
+
+
+    
+  
+    .carreprofile {
+        width: 350px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 4px 7px #0000001a;
+        border: 2px solid #FF865A;
+        border-radius: 10px;
+        opacity: 1;
+        padding:10px;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+
+    .buttonprofile {
+        margin-top:15px;
+        display: inline-block;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 16px;
+        border-radius: 5px;
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        color: var(--white);
+        cursor: pointer;
+        z-index: 5;
+        -webkit-transition: all 0.4s ease-out 0s;
+        transition: all 0.4s ease-out 0s;
+        background: #FF5011;
+    }
+
+    .foo{
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .rectangle {
+        margin-top:40px;
+        margin-left:20px;
+        height: 10px;
+        width: 200px;
+        background-color: rgb(0, 0, 0);
+      }
+      
+      .triangle-right  {
+        margin-top:30px;
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-left: 40px solid rgb(0, 0, 0);
+        border-bottom: 15px solid transparent;
+      }
+      
+  
+      /* ===================================== PORTEFEUILLE END ================================ */

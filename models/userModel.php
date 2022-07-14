@@ -3,56 +3,43 @@ include __DIR__."/../database/setting.php";
 
 class UserModel
 {
-    public static function getAll()
+    public static function getAll(): bool|array
     {
         $databaseConnection = DatabaseSettings::getConnection();
         $getUsersQuery = $databaseConnection->query("SELECT idUser, firstname, lastname, phone, email, status_user, address, zipcode, birthdate, points, wallet, state FROM users;");
-        $users = $getUsersQuery->fetchAll(PDO::FETCH_ASSOC);
-        return $users;
+        return $getUsersQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function create($createUser)
+    public static function create($createUser): int
     {
         $databaseConnection = DatabaseSettings::getConnection();
-        $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,passwd, status_user) VALUES(:firstname,:lastname, :phone, :email,:pwd, 'Admin');");
-//        $code = rand(1000, 9999);
-//        $_SESSION["code"] = $code;
-        $createUserQuery->execute([$createUser]);
+        $createUserQuery = $databaseConnection->prepare("INSERT INTO users(firstname,lastname, phone, email,passwd, status_user,subscription) VALUES(:firstname,:lastname, :phone, :email,:pwd, :status_user, :subscription);");
+        $createUserQuery->execute($createUser);
+        return 1;
     }
 
-     public static function connect(string $email, string $pwd){
-         $databaseConnection = DatabaseSettings::getConnection();
-         $queryPrepared = $databaseConnection->prepare("SELECT * FROM users WHERE email=:email");
-         $queryPrepared->execute(["email"=>$email]);
-         $results = $queryPrepared->fetch();
-         print_r($results);
-         if(empty($results)){
-             return $results;
-         }else if(password_verify($pwd, $results["passwd"]) && $results["status_user"]=="Admin"){
-             $_SESSION["auth"]=true;
-             $_SESSION["info"]=$results;
-             header("Location: ../adminTemplate/pages/dashboard.html");
-         }else{
-
-             return $results=0;
-         }
-     }
 
 
     public static function findByEmail(string $email)
     {
         $databaseConnection = DatabaseSettings::getConnection();
         $getUserQuery = $databaseConnection->prepare("SELECT * FROM users WHERE email = :email");
-
         $getUserQuery->execute([
             "email" => $email
         ]);
-        $results = $getUserQuery->fetch();
-        $_SESSION["info"]=$results;
-        $_SESSION["auth"]=true;
-        return $results;
+        return $getUserQuery->fetch(PDO::FETCH_ASSOC);
     }
 
+    public static function getOneByToken($token)
+
+    {
+        $databaseConnection = DatabaseSettings::getConnection();
+        $query = $databaseConnection->prepare("SELECT * FROM users WHERE token = :token");
+        $query->execute([
+            "token" => $token
+        ]);
+        return $query->fetch();
+    }
 
     public static function findByPhone(int $phone)
     {
@@ -61,13 +48,11 @@ class UserModel
         $getUserQuery->execute([
             "phone" => $phone
         ]);
-
-        $phone = $getUserQuery->fetch();
-
-        return $phone;
+        return $getUserQuery->fetch();
     }
 
-    public static function deleteUser(int $id){
+    public static function deleteUser(int $id): string
+    {
         echo $id;
         $databaseConnection = DatabaseSettings::getConnection();
         echo "bdd ok";
@@ -76,20 +61,49 @@ class UserModel
         return $info= "L'utilisateur a bien été supprimé";
     }
 
-    public static function updateUser(int $id, int $recupdonnee){
-        $databaseConnection = DatabaseSettings::getConnection();
-        echo "DB connecter";
-        $updateUsersQuery = $databaseConnection->prepare("UPDATE users SET state= :etat WHERE idUser =:id");
-        $updateUsersQuery->execute([
-            "id" => $id ,
-            "etat" => $recupdonnee
-        ]);
+    public static function logout(){
+    unset($_SESSION["info"]);
+    session_destroy();
+
     }
 
 
-    public static function logout(){
-    session_start();
-	session_destroy();
+    public static function  updateOneById($id, $user){
+       $set = [];
+       $allowedKeys = ["firstname","lastname","phone","email","passwd","status_user","address","points","wallet","birthdate","zipcode","state","check","token"];
+       foreach ($user as $key => $value){
+           if (!in_array($key, $allowedKeys)){
+               continue;
+           }
+           $set[]  = "$key = :$key";
+       }
+       $set = implode(",",$set);
+        $databaseConnection = DatabaseSettings::getConnection();
+        $updateUsersQuery = $databaseConnection->prepare("UPDATE users SET $set WHERE idUser =:id");
+        return $updateUsersQuery->execute(array_merge(["id" => $id], $user));
+    }
+    public static function addUser($user){
+        $set = [];
+        $set2 = [];
+        $allowedKeys = ["firstname","lastname","phone","email","passwd","status_user","address","points","wallet","birthdate","zipcode","state","check","token"];
+        foreach ($user as $key => $value){
+            echo $key;
+            if (!in_array($key, $allowedKeys)){
+                continue;
+            }
+            $set[]  = ":$key";
+            $set2[]  = "$key";
+        }
+        $set = implode(",",$set);
+        $set2 = implode(",",$set2);
+        echo $set2;
+        $databaseConnection = DatabaseSettings::getConnection();
+        $updateUsersQuery = $databaseConnection->prepare("INSERT INTO users($set2) VALUES($set);");
+        return $updateUsersQuery->execute($user);
+
+//        scooterModel::addScooter($number,$condition,$status,$workzoneLabel);
+        header("Location: ../tables");
     }
 
 }
+

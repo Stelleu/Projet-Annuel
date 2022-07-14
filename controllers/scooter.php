@@ -7,18 +7,21 @@ if(!empty($_POST['delete'])) {
 }else {
     echo "Delete vide";
 }**/
+//ajax
 
+//
 if(isset($_POST["number"],$_POST["condition"],$_POST["status"],$_POST["workzone"])) {
-    $numberScooter = $_POST["number"];
+    $numberScooter = htmlspecialchars($_POST["number"]);
     $conditionScooter = $_POST["condition"];
-    $statusScooter = $_POST["status"];
-    $workzoneScooter = $_POST["workzone"];
+    $statusScooter = htmlspecialchars($_POST["status"]);
+    $workzoneScooter = htmlspecialchars($_POST["workzone"]);
 
     Scooter::addScooter($numberScooter, $conditionScooter, $statusScooter, $workzoneScooter);
 }
-if (isset($_POST["delete"],$_POST["id"])) {
-    $idScooter = $_POST["id"];
-    $action= $_POST["delete"];
+
+if (isset($_GET["delete"],$_GET["id"])) {
+    $idScooter = $_GET["id"];
+    $action= $_GET["delete"];
     Scooter::delete($idScooter);
 }
 
@@ -32,22 +35,11 @@ class Scooter
 
     public static function delete(int $id){
         scooterModel::deleteScooter($id);
-        header("Location: ../scootermana");
+        header("Location: scootermana");
     }
 
     public static function addScooter(int $number,int $condition, int $status, int $workzone ){
 
-        switch ($condition){
-            case 1:
-                $conditionLabel = "Neuf";
-                break;
-            case 2:
-                $conditionLabel = "Correct";
-                break;
-            case 3:
-                $conditionLabel = "Endommagé";
-                break;
-        }
 
         switch ($workzone){
             case 1:
@@ -64,7 +56,7 @@ class Scooter
                 break;
         }
 
-        scooterModel::addScooter($number,$conditionLabel,$status,$workzoneLabel);
+        scooterModel::addScooter($number,$condition,$status,$workzoneLabel);
         header("Location: ../scootermana");
     }
 }

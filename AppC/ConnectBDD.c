@@ -5,24 +5,17 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
-
-
-#include "struct.h"
+#include "Struct.h"
 
 //OPERATION BDD
 MYSQL_STMT    *stmt ;/*INSERT USER*/
 MYSQL_STMT    *stmtInsertJSON ;
-MYSQL_STMT    *stmtInsertQCMSubject;
-MYSQL_STMT    *stmtInsertQCMQuestions;
-MYSQL_STMT    *stmtInsertQCMAnswer;
-MYSQL_STMT    *stmtUpdatePWD;
-
-
-//void initPreparedStatements(MYSQL*connect);
+MYSQL_DATA      is_null;
 
 /*INITIALISATION BDD*/
 
 MYSQL *initDb(){
+    printf("cc");
     MYSQL *connect;
     connect = mysql_init(NULL);
     if(!(mysql_real_connect(connect,host,user,dbpassword ,dbname,3306, NULL,0))){
@@ -36,7 +29,7 @@ MYSQL *initDb(){
 
 /*INIT PREPARED STATEMENTS*/
 
-void initPreparedStatements(MYSQL*connect,char meteo_data) {
+void initPreparedStatements(MYSQL*connect,double *t,char *city , double *tmn, double *tmx,char *w, char *i) {
 
     unsigned long  param_count ;
 
@@ -47,23 +40,70 @@ void initPreparedStatements(MYSQL*connect,char meteo_data) {
     }
 
     stmtInsertJSON = mysql_stmt_init(connect);
-    if (mysql_stmt_prepare(stmt, "INSERT INTO cities VALUES ('%s')", meteo_data)){
+    if (mysql_stmt_prepare(stmtInsertJSON, INSERT_JSON,(strlen(INSERT_JSON)))){
         fprintf(stderr, " mysql_stmt_prepare(), INSERT failed\n");
         fprintf(stderr, " %s\n", mysql_stmt_error(stmtInsertJSON));
         exit(0);
+
     }param_count = mysql_stmt_param_count(stmtInsertJSON);
     printf("there are %ld parameters in the insert statements\n", param_count);
+    //(,,tmn,,w,i)
+    MYSQL_BIND    bind[6];
+    unsigned long cityLen = strlen(city);
+    unsigned long iconLen = strlen(i);
+    unsigned long weatherLen = strlen(w);
 
 
+    //BIND lier les valeurs de données de paramètre aux tampons
+    bind[0].buffer_type= MYSQL_TYPE_DOUBLE;
+    bind[0].buffer= (double *)t;
+    bind[0].is_null= 0;
+    bind[0].length= 0;
+/* STRING PARAM*/
+    bind[1].buffer_type= MYSQL_TYPE_STRING;
+    bind[1].buffer= (char *)city;
+    bind[1].buffer_length= strlen(city);
+    bind[1].is_null= 0;
+    bind[1].length= &cityLen;
 
-  /*  stmtInsertQCMAnswer = mysql_stmt_init(connect);
-    if (mysql_stmt_prepare(stmtInsertQCMAnswer, INSERT_QCM_ANSWER,strlen(INSERT_QCM_ANSWER))){
-        fprintf(stderr, " mysql_stmt_prepare(), INSERT failed\n");
-        fprintf(stderr, " %s\n", mysql_stmt_error(stmtInsertQCMAnswer));
+
+    bind[2].buffer_type= MYSQL_TYPE_DOUBLE;
+    bind[2].buffer= (double *)tmn;
+    bind[2].is_null= &is_null;
+    bind[2].length= 0;
+
+    bind[3].buffer_type= MYSQL_TYPE_DOUBLE;
+    bind[3].buffer= (double *)tmx;
+    bind[3].is_null= &is_null;
+    bind[3].length= 0;
+
+/* STRING PARAM */
+    bind[4].buffer_type= MYSQL_TYPE_STRING;
+    bind[4].buffer= (char *)w;
+    bind[4].buffer_length= strlen(w);
+    bind[4].is_null= 0;
+    bind[4].length= &weatherLen;
+    /* STRING PARAM */
+    bind[5].buffer_type= MYSQL_TYPE_STRING;
+    bind[5].buffer= (char *)i;
+    bind[5].buffer_length= strlen(i);
+    bind[5].is_null= 0;
+    bind[5].length= &iconLen;
+
+
+    if (mysql_stmt_bind_param(stmtInsertJSON, bind))
+    {
+        fprintf(stderr, " mysql_stmt_bind_param() failed\n");
+        fprintf(stderr, " %s\n", mysql_stmt_error(stmtInsertJSON));
         exit(0);
-    }param_count_anwser = mysql_stmt_param_count(stmtInsertQCMAnswer);
-    printf("there are %ld parameters in the insert statements\n", param_count_anwser);
-*/
+    }
+
+/* Execute the INSERT statement - 2*/
+    if (mysql_stmt_execute(stmtInsertJSON)) {
+        fprintf(stderr, " mysql_stmt_execute, 2 failed\n");
+        fprintf(stderr, " %s\n", mysql_stmt_error(stmtInsertJSON));
+        exit(0);
+    }
 
 }
 

@@ -130,9 +130,9 @@ display-flex, .display-flex, .display-flex-center {
     
     .singtitle {
       color: var(--white);
-    font-style: normal;
-    font-weight: 600;
-    font-size: 50px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 50px;
       line-height: 60px;
       text-align: center;
       margin-bottom: 80px;

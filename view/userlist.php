@@ -63,17 +63,12 @@ $tittle = "Les Utilisateurs";
 
                     }
                     ?>
-
-
                             <?php
-
-
                 ?>
         </tbody>
     </table>
   </div>
   </form >
-
 <?php
 
 

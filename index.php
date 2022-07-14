@@ -1,4 +1,5 @@
 <?php
+session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -15,89 +16,179 @@ $route = isset($_REQUEST["route"]) ? $_REQUEST["route"] : "";
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($route) {
+    case "home":
+        include "FRONT/index.php";
+        break;
+
+    case "contact":
+        include "FRONT/contact.php";
+        break;
+
+    case "howitwork":
+        include "FRONT/commentçamarche.php";
+        break;
+
+    case "sign-up":
+        include "FRONT/sign-up.php";
+        if ($method ==="POST"){
+            include "controllers/user.php";
+        }
+        break;
+
+    case "connexion":
+        include "FRONT/longin.php";
+        if ($method == "POST"){
+            echo $_GET["route"];
+            include "controllers/Login.php";
+        }
+        break;
+    case "userprofil":
+        if ($method === "GET"){
+            include "controllers/Profil.php";
+            Profil::getAll();
+            var_dump($_SESSION);
+        }
+        break;
+
+    case "dashboard":
+        include "view/adminDash/dashboard.php";
+        break;
+
     case "scootermana":
         include "controllers/scooter.php";
         if ($method === "GET") {
             Scooter::get();
         }
         break;
-    case "usermana":
-        include "controllers/user.php";
+    case "billing":
+        include "view/Profil/pages/billing.php";
+
+        break;
+
+
+    case "tables":
+//        include "controllers/user.php";
+        $title= "Utilisateurs";
+//        include "view/adminDash/tables.php";
         if ($method === "GET") {
+        include "controllers/user.php";
             User::get();
         }
         break;
+
+    case "pricing":
+        include "view/adminDash/pricing.php";
+
+        break;
+
+        case "newoffer":
+        include "view/adminDash/test.php";
+            if ($method === "GET") {
+                $title = "Nouvelle Offre";
+            }
+            if ($method === "POST") {
+                include "controllers\Forfait.php";
+            }
+        break;
+
+
     case "sign-in" :
-        echo $method;
+
         if ($method === "GET") {
-            echo "cc";
             $title = "Connexion";
-            header('Location:  "adminTemplate/pages/sign-in.php"');
+            include "view/adminDash/sign-in.php";
         }
         if ($method === "POST") {
-            if (count($_POST) == 3 && !empty($_POST["email"]) && !empty($_POST["pwd"])) {
-                User::connexion();
-            }
+            include "controllers\Login.php";
         }
         break;
 
-        case "sign-up":
-            if ($method === "GET") {
-                $title ='Inscription';
-                header('Location:adminTemplate/pages/sign-up.php');
 
-            }
-            if ($method === "POST") {
-                if (
-                    !isset($_POST["firstname"]) ||
-                    !isset($_POST["lastname"]) ||
-                    empty($_POST["email"]) ||
-                    empty($_POST["phone"]) ||
-                    empty($_POST["password"]) ||
-                    empty($_POST["passwordConfirm"]) ||
-                    empty($_POST["cgu"]) ||
-                    count($_POST) != 7
-                ) {
+    case "dash":
+        include "view/adminDash/dash.php";
 
-                    die("Tentative de Hack ...");
+        break;
 
-                } else {
+    case "login":
+        if ($method === "GET"){
+            include "controllers/Login.php";
+            Login::logout();
+        }
 
-                    //récupérer les données du formulaire
-                    $email = $_POST["email"];
-                    $firstname = $_POST["firstname"];
-                    $lastname = $_POST["lastname"];
-                    $pwd = $_POST["password"];
-                    $pwdConfirm = $_POST["passwordConfirm"];
-                    $cgu = $_POST["cgu"];
-                    $phone = $_POST["phone"];
-                    User::create($firstname, $lastname,  $email,  $phone, $pwd,  $pwdConfirm);
-            }
-            break;
-            }
-    case "tables":
+        if ($method ==="POST"){
+            include "controllers/Login.php";
+        }
+        break;
 
+    case "profile":
+        if ($method === "GET"){
+            include "view/adminDash/profile.php";
+        }
+        break;
+    case "forfaits":
+        include "controllers/";
+        break;
+    case "success":
+        include "view/shop/success.php";
+        include "controllers/Invoice.php";
+
+        break;
+
+    case "checkout":
+        if ($method === "GET") {
+            include "controllers/Shop.php";
+            Shop::getByIds();
+        }
+        if ($method ==="POST"){
+            include "controllers/Shop.php";
+        }
+        break;
+    case "payment":
+        include "view/shop/create-checkout-session.php";
+        if ($method === "POST") {
+            include "controllers/Login.php";
+        }
+        if ($method === "GET"){
+            include "controllers/Invoice.php";
+
+        }
+        break;
+
+    case "shop":
+//        include "view/shop/shopping.php";
+        if ($method === "GET") {
+            include "controllers/Shop.php";
+            Shop::getAll();
+        }if ($method === "POST") {
+        include "controllers/Shop.php";
+    }
+        break;
+    case "Forfait":
+        include "view/Forfait.php";
+        /*        if ($method === "GET") {
+                    include "controllers/Forfait.php";
+                    //Forfait::getForfait();
+                }*/
+        break;
+    case "article":
+        include "view/shop/single-product.php";
+        if ($method === "POST") {
+            include "controllers/Shop.php";
+        }
+        if ($method === "GET") {
+            include "controllers/Shop.php";
+        }
+        break;
+
+        /* added gutibs */
+        case "map":
+        include "FRONT/map.php";
+        break;
+        /* added gutibs */
 }
 
 
     
-/**switch($route): 
-    case 'users':
-        echo "cc  je rentre";
-        include "./controllers/user.php";
-    
-        if ($method === "GET") {
-            user::get();
-            
-        }
-        
-    break;
-
-    default: 
-     include __DIR__ . "\PA\controllers\user.php";
-    break;
-endswitch;
-*/
 
 // Modifier les chemins d'inclusions pour utiliser un chemin correct avec __DIR__
 
