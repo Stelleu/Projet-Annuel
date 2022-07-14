@@ -24,7 +24,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid pe-0">
-                    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="dash">
+                    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="home">
                         EASY SCOOTER</a>
                     <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
@@ -42,21 +42,15 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="profile">
+                                <a class="nav-link me-2" href="userprofil">
                                     <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                                    Profile
+                                    Profil
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="sign-up">
-                                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                                    Sign Up
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link me-2" href="sign-in">
+                                <a class="nav-link me-2" href="connexion">
                                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                                    Sign In
+                                    Connexion
                                 </a>
                             </li>
                         </ul>

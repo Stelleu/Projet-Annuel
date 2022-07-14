@@ -24,7 +24,7 @@ switch ($route) {
         include "FRONT/contact.php";
         break;
 
-    case "howitwork":
+    case "commentçamarche":
         include "FRONT/commentçamarche.php";
         break;
 
@@ -38,7 +38,6 @@ switch ($route) {
     case "connexion":
         include "FRONT/longin.php";
         if ($method == "POST"){
-            echo $_GET["route"];
             include "controllers/Login.php";
         }
         break;
