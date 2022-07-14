@@ -14,6 +14,27 @@ if(empty($_SESSION["product"])){
 header('Content-Type: application/json');
 $YOUR_DOMAIN = 'http://localhost/';
 //$stripeAmount = round($_SESSION["productinfo"][0]["price_product"]*100,2);
+
+    $response = array(
+        'status' => 0,
+        'error' => array(
+            'message' => 'Invalid Request!'
+        )
+    );
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $input = file_get_contents('php://input');
+        $request = json_decode($input);
+    }
+
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        http_response_code(400);
+        echo json_encode($response);
+        exit;
+    }
+
+
+
 try {
     // Creation d'une session Stripe et d'un client
     $checkout_session = \Stripe\Checkout\Session::create([
@@ -47,11 +68,7 @@ try {
 } catch (\Stripe\Exception\ApiErrorException $e) {
     $api_error = $e->getMessage();
 }
-}
-
-// Return response
-echo json_encode($checkout_session->id);
-//
 //header("HTTP/1.1 303 See Other");
 //header("Location: " . $checkout_session->url);
 //}
+echo json_encode($response);
