@@ -1,4 +1,5 @@
 <?php
+include __DIR__."/../database/setting.php";
 
 class invoiceModel
 {
@@ -13,8 +14,8 @@ class invoiceModel
     public static function addProduct($product): int
     {
         $databaseConnection = DatabaseSettings::getConnection();
-        $createOrderQuery = $databaseConnection->prepare("INSERT INTO purchase(fkProduct,idOrder, quantity , price_product) VALUES(:fkProduct,:idOrder,:quantity,:price_product);");
-        $createOrderQuery->execute($product);
+        $createProduitQuery = $databaseConnection->prepare("INSERT INTO purchase(fkProduct,idOrder, quantity , price_product) VALUES(:fkProduct,:idOrder,:quantity,:price_product);");
+        $createProduitQuery->execute($product);
         return 1;
     }
 

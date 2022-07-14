@@ -29,7 +29,7 @@ class forfaitModel
     }
     public static function editOffer(int $id,$offer):int{
         $set = [];
-        $allowedKeys = ["name","percent","start","end","description","tag"];
+        $allowedKeys = ["name","percent","start","end","description","code"];
        foreach ($offer as $key => $value){
            if (!in_array($key, $allowedKeys)){
                continue;
@@ -49,17 +49,16 @@ class forfaitModel
 
     public static function createOffer($createOffer): int
     {
-        echo"cc";
         $databaseConnection = DatabaseSettings::getConnection();
-        $createOfferQuery = $databaseConnection->prepare("INSERT INTO offers(name,percent, start , end,description) VALUES(:name,:percent,:start,:end,:description);");
+        $createOfferQuery = $databaseConnection->prepare("INSERT INTO offers(name,percent, start , end,description,code) VALUES(:name,:percent,:start,:end,:description,:code);");
         $createOfferQuery->execute($createOffer);
         return 1;
     }
 
     public static function getForfait(){
         $databaseConnection = DatabaseSettings::getConnection();
-        $getUsersQuery = $databaseConnection->query("SELECT * FROM offers  WHERE forfait = forfait;");
-        return $getUsersQuery->fetchAll(PDO::FETCH_ASSOC);
+        $getOfferQuery = $databaseConnection->query("SELECT * FROM offers  WHERE forfait = forfait;");
+        return $getOfferQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
