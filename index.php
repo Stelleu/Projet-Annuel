@@ -43,7 +43,11 @@ switch ($route) {
         }
         break;
     case "userprofil":
-        include "view/Profil/pages/userProfil.php";
+        if ($method === "GET"){
+            include "controllers/Profil.php";
+            Profil::getAll();
+            var_dump($_SESSION);
+        }
         break;
 
     case "dashboard":
@@ -56,13 +60,18 @@ switch ($route) {
             Scooter::get();
         }
         break;
+    case "billing":
+        include "view/Profil/pages/billing.php";
+
+        break;
 
 
     case "tables":
-        include "controllers/user.php";
+//        include "controllers/user.php";
         $title= "Utilisateurs";
 //        include "view/adminDash/tables.php";
         if ($method === "GET") {
+        include "controllers/user.php";
             User::get();
         }
         break;

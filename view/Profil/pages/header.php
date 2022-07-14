@@ -1,17 +1,7 @@
 <!--
 =========================================================
-* Material Dashboard 2 - v3.0.4
+* Profil
 =========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -21,9 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="../../../../../Projet-Annuel/view/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../../../../../Projet-Annuel/view/assets/img/favicon.png">
-    <title>
-        Material Dashboard 2 by Creative Tim
-    </title>
+    <title><?= $title ?></title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
@@ -35,6 +23,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="view/Profil/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
@@ -66,11 +55,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="billing.html">
+                    <a class="nav-link text-white " href="billing">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">receipt_long</i>
                         </div>
-                        <span class="nav-link-text ms-1">Billing</span>
+                        <span class="nav-link-text ms-1">Facturation</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -105,17 +94,20 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
-                        <span class="nav-link-text ms-1">Profile</span>
+                        <span class="nav-link-text ms-1">Profil</span>
                     </a>
                 </li>
+                <?php if (isset($_SESSION["user"])){?>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="sign-in.html">
+                    <a class="nav-link text-white " href="login">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">login</i>
                         </div>
-                        <span class="nav-link-text ms-1">Sign In</span>
+                        <span class="nav-link-text ms-1">Se déconnecter</span>
                     </a>
                 </li>
+                <?php } ?>
+
                 <li class="nav-item">
                     <a class="nav-link text-white " href="sign-up.html">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -125,11 +117,6 @@
                     </a>
                 </li>
             </ul>
-        </div>
-        <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-            <div class="mx-3">
-                <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
-            </div>
         </div>
     </aside>
         <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -144,20 +131,16 @@
                             </ol>
                             <h6 class="font-weight-bolder mb-0">Profile</h6>
                         </nav>
-                        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-                            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                                <div class="input-group input-group-outline">
-                                    <label class="form-label">Type here...</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
+                        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4   justify-content-end" id="navbar">
                             <ul class="navbar-nav  justify-content-end">
+                                <?php if (isset($_SESSION["user"])){?>
                                 <li class="nav-item d-flex align-items-center">
-                                    <a href="sign-in.html" class="nav-link text-body font-weight-bold px-0">
+                                    <a href="login" class="nav-link text-body font-weight-bold px-0">
                                         <i class="fa fa-user me-sm-1"></i>
-                                        <span class="d-sm-inline d-none">Sign In</span>
+                                        <span class="d-sm-inline d-none">Se déconnecter</span>
                                     </a>
                                 </li>
+                                <?php }?>
                                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                                     <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                                         <div class="sidenav-toggler-inner">
@@ -173,9 +156,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                                    <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-bell cursor-pointer"></i>
-                                    </a>
                                     <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                                         <li class="mb-2">
                                             <a class="dropdown-item border-radius-md" href="javascript:;">
